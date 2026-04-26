@@ -17,8 +17,11 @@ export default function Sidebar() {
       { name: "Eigen Risico", href: "/eigen-risico", icon: "⚕️" },
       { name: "Alcohol Promille", href: "/alcohol", icon: "🍷" },
     ]},
-    { title: "Business & ZZP", links: [
+    { title: "Technologie & SaaS", links: [
+      { name: "AI Besparing", href: "/ai", icon: "🤖" },
       { name: "Uurtarief Berekenen", href: "/uurtarief", icon: "💼" },
+    ]},
+    { title: "Business & ZZP", links: [
       { name: "Vaste Lasten", href: "/vaste-lasten", icon: "📊" },
       { name: "Pensioen Opbouwen", href: "/pensioen", icon: "🏦" },
       { name: "Studieschuld DUO", href: "/studentenlening", icon: "🎓" },

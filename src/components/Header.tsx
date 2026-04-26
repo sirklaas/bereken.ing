@@ -18,6 +18,7 @@ export default function Header() {
 
   const navLinks = [
     { name: "Wonen", href: "/warmtepomp" },
+    { name: "AI", href: "/ai" },
     { name: "Hypotheek", href: "/hypotheek" },
     { name: "ZZP", href: "/uurtarief" },
     { name: "Gezondheid", href: "/gezondheid" },
