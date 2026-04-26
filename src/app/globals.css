@@ -159,13 +159,9 @@ header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.header-hidden {
-  transform: translateY(-100%);
-}
-
 .header-shadow {
   box-shadow: var(--shadow-md);
-  background: rgba(159, 160, 195, 0.95); /* Slight opacity when scrolled */
+  background: rgba(159, 160, 195, 0.95);
   backdrop-filter: blur(8px);
 }
 
