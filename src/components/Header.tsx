@@ -49,8 +49,9 @@ export default function Header() {
         
         <nav style={{ display: "flex", gap: "2.5rem" }}>
           <Link href="/hypotheek" style={{ textDecoration: "none", fontSize: "0.95rem", color: "var(--heading-color)", fontWeight: 600 }}>Hypotheek</Link>
-          <Link href="/studentenlening" style={{ textDecoration: "none", fontSize: "0.95rem", color: "var(--heading-color)", fontWeight: 600 }}>Studieschuld</Link>
-          <Link href="/typography-preview" style={{ textDecoration: "none", fontSize: "0.95rem", color: "var(--heading-color)", fontWeight: 600 }}>Preview</Link>
+          <Link href="/studentenlening" style={{ textDecoration: "none", fontSize: "0.95rem", color: "var(--heading-color)", fontWeight: 600 }}>DUO</Link>
+          <Link href="/gezondheid" style={{ textDecoration: "none", fontSize: "0.95rem", color: "var(--heading-color)", fontWeight: 600 }}>Gezondheid</Link>
+          <Link href="/uurtarief" style={{ textDecoration: "none", fontSize: "0.95rem", color: "var(--heading-color)", fontWeight: 600 }}>ZZP</Link>
         </nav>
       </div>
     </header>
