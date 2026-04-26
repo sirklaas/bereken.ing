@@ -67,17 +67,16 @@ export default function RateCalculator() {
         <div style={{ 
           marginTop: "2rem", 
           padding: "2rem", 
-          background: "linear-gradient(135deg, #0f172a 0%, #1e293b 100%)", 
+          background: "linear-gradient(135deg, var(--primary-accent) 0%, var(--primary-light) 100%)", 
           borderRadius: "12px",
           color: "white",
-          textAlign: "center",
-          border: "1px solid rgba(255,255,255,0.1)"
+          textAlign: "center"
         }}>
-          <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "0.9rem", marginBottom: "0.5rem" }}>Aanbevolen Uurtarief (excl. btw)</p>
+          <p style={{ color: "rgba(255,255,255,0.8)", fontSize: "0.9rem", marginBottom: "0.5rem" }}>Aanbevolen Uurtarief (excl. btw)</p>
           <div style={{ fontSize: "2.5rem", fontWeight: 800, fontFamily: "var(--font-heading)" }}>
             {formatCurrency(hourlyRate)}
           </div>
-          <div style={{ marginTop: "1rem", paddingTop: "1rem", borderTop: "1px solid rgba(255,255,255,0.1)", fontSize: "0.85rem" }}>
+          <div style={{ marginTop: "1rem", paddingTop: "1rem", borderTop: "1px solid rgba(255,255,255,0.2)", fontSize: "0.85rem" }}>
             Benodigde Jaaromzet: <strong>{formatCurrency(annualRevenue)}</strong>
           </div>
         </div>

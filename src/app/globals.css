@@ -25,6 +25,7 @@
   --container-width: 1400px;
   --container-padding: clamp(1.5rem, 5vw, 4rem);
   --radius: 16px;
+  /* Shadow & Transitions */
   --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
@@ -32,19 +33,19 @@
   --transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* Force Light Aesthetic - No Dark Mode */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #020617;
-    --foreground: #f1f5f9;
-    --surface: #0f172a;
-    --primary: #f8fafc;
+    --background: #f8fafc;
+    --foreground: #0f172a;
+    --surface: #ffffff;
+    --primary: #1e293b;
     --primary-accent: #2C497F;
-    --secondary: #94a3b8;
-    --border: #1e293b;
-    --input-bg: #1e293b;
-    --glass: rgba(15, 23, 42, 0.8);
-    --heading-color: #f1f5f9;
-    --header-bg: #1e293b;
+    --secondary: #64748b;
+    --border: #e2e8f0;
+    --input-bg: #f1f5f9;
+    --heading-color: #262626;
+    --header-bg: #9FA0C3;
   }
 }
 
