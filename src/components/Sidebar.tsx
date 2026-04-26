@@ -7,16 +7,22 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   const categories = [
-    { title: "Geld & Hypotheek", links: [
+    { title: "Wonen & Energie", links: [
       { name: "Maximale Hypotheek", href: "/hypotheek", icon: "🏠" },
-      { name: "Studieschuld DUO", href: "/studentenlening", icon: "🎓" },
+      { name: "Warmtepomp Rendement", href: "/warmtepomp", icon: "🔥" },
+      { name: "Isolatie Besparing", href: "/isolatie", icon: "🧱" },
     ]},
     { title: "Gezondheid", links: [
       { name: "BMI & Calorieën", href: "/gezondheid", icon: "🥗" },
+      { name: "Eigen Risico", href: "/eigen-risico", icon: "⚕️" },
+      { name: "Alcohol Promille", href: "/alcohol", icon: "🍷" },
     ]},
     { title: "Business & ZZP", links: [
       { name: "Uurtarief Berekenen", href: "/uurtarief", icon: "💼" },
-    ]}
+      { name: "Vaste Lasten", href: "/vaste-lasten", icon: "📊" },
+      { name: "Pensioen Opbouwen", href: "/pensioen", icon: "🏦" },
+      { name: "Studieschuld DUO", href: "/studentenlening", icon: "🎓" },
+    ]},
   ];
 
   return (

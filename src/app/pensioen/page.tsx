@@ -1,0 +1,53 @@
+import type { Metadata } from "next";
+import PensionCalculator from "@/components/PensionCalculator";
+import AdSenseSlot from "@/components/AdSenseSlot";
+import Sidebar from "@/components/Sidebar";
+import JsonLd from "@/components/JsonLd";
+
+export const metadata: Metadata = {
+  title: "Pensioen Opbouw Berekenen 2026 | Toekomstige Ouderdomsvoorziening",
+  description: "Bereken hoeveel pensioen je naar verwachting hebt opgebouwd bij je pensioenleeftijd, gebaseerd op je maandelijkse bijdragen en verwacht rendement.",
+};
+
+export default function PensionPage() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "FinancialCalculator",
+    "name": "Pensioen Opbouw Calculator",
+    "description": "Berekening van de verwachte pensioenpot bij pensionering.",
+    "url": "https://www.bereken.ing/pensioen"
+  };
+
+  return (
+    <div className="container" style={{ paddingTop: "4rem", paddingBottom: "6rem" }}>
+      <JsonLd data={schema} />
+
+      <div style={{
+        display: "grid",
+        gridTemplateColumns: "250px 1fr",
+        gap: "5rem",
+        alignItems: "start"
+      }}>
+        <Sidebar />
+        <div>
+          <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
+
+          <h3 style={{ marginBottom: "1rem" }}>Financiën & Toekomst</h3>
+          <h1 style={{ marginBottom: "2rem" }}>Pensioen <span style={{ color: "var(--primary-accent)" }}>Opbouwen</span></h1>
+
+          <PensionCalculator />
+
+          <div style={{ marginTop: "4rem", maxWidth: "800px" }}>
+            <h2 style={{ fontSize: "1.8rem" }}>Waarom pensioenplanning belangrijk is</h2>
+            <p>
+              Een helder overzicht van je verwachte pensioenpot helpt je om tijdig extra besparingen te doen, je beleggingsstrategie aan te passen en een comfortabel pensioen te garanderen.
+            </p>
+            <AdSenseSlot id="inline-ad" format="fluid" />
+          </div>
+
+          <AdSenseSlot id="bottom-ad" format="rectangle" style={{ marginTop: "3rem" }} />
+        </div>
+      </div>
+    </div>
+  );
+}

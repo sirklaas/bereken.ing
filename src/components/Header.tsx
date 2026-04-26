@@ -10,24 +10,17 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setHasShadow(true);
-      } else {
-        setHasShadow(false);
-      }
+      setHasShadow(window.scrollY > 10);
     };
-
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navLinks = [
+    { name: "Wonen", href: "/warmtepomp" },
     { name: "Hypotheek", href: "/hypotheek" },
-    { name: "Studieschuld", href: "/studentenlening" },
+    { name: "ZZP", href: "/uurtarief" },
     { name: "Gezondheid", href: "/gezondheid" },
-    { name: "Uurtarief", href: "/uurtarief" },
     { name: "Over ons", href: "/over" }
   ];
 
