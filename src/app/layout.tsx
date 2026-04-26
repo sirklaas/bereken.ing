@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
-import { Fugaz_One, Work_Sans } from "next/font/google";
+import { Fugaz_One, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Script from "next/script";
 import { AFFILIATE_CONFIG } from "@/config/affiliateConfig";
 
-// Only loading the winner fonts to ensure production stability
 const fugazOne = Fugaz_One({ weight: "400", subsets: ["latin"], variable: "--font-fugaz" });
-const workSans = Work_Sans({ weight: ["400", "500", "600", "700", "800"], subsets: ["latin"], variable: "--font-work-sans" });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
   title: "bereken.ing | De slimste rekentools",
@@ -21,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="nl" className={`${fugazOne.variable} ${workSans.variable}`}>
+    <html lang="nl" className={`${fugazOne.variable} ${inter.variable}`}>
       <head>
         {/* Google AdSense Auto Ads */}
         <Script

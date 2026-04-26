@@ -1,283 +1,191 @@
 :root {
-  /* Color Palette - Clean Authority (Pure White Base) */
-  --background: #ffffff;
+  /* Color Palette - Pristine SaaS (Apple/Stripe inspired) */
+  --background: #fcfcfd;
   --foreground: #0f172a;
   --surface: #ffffff;
-  --primary: #1e293b;
-  --primary-accent: #2C497F; /* Authority Blue */
-  --primary-light: #4469a3;
-  --header-bg: #9FA0C3;      /* Periwinkle Header */
+  
+  --primary: #2C497F;
+  --primary-accent: #3b82f6; /* More vibrant SaaS Blue */
+  --primary-glow: rgba(59, 130, 246, 0.15);
+  
   --secondary: #64748b;
   --border: #f1f5f9;
   --input-bg: #f8fafc;
-  --heading-color: #262626;  /* 85% Black Charcoal */
+  --heading-color: #1e293b;
 
-  /* Typography Choice: Fugaz One + Work Sans */
-  --font-main: var(--font-work-sans), -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Typography choice: Inter (SaaS King) + Fugaz One (Brand) */
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-heading: var(--font-fugaz), var(--font-main);
 
-  /* Clean Spacing & Sizing */
+  /* Spacing */
   --container-width: 1400px;
   --container-padding: clamp(1.5rem, 5vw, 4rem);
-  --radius: 12px;
+  --radius: 16px;
   
-  /* Subtler, Lighter Shadows */
-  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.05);
-  --shadow-lg: 0 8px 24px rgba(0,0,0,0.05);
-  --transition: all 0.3s ease;
-}
-
-/* Force light theme regardless of system settings */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #ffffff;
-    --foreground: #0f172a;
-    --surface: #ffffff;
-    --header-bg: #9FA0C3;
-    --heading-color: #262626;
-    --border: #f1f5f9;
-    --input-bg: #f8fafc;
-  }
+  /* Layered "Expensive" Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.07), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+  --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
   font-family: var(--font-main);
   background: var(--background);
   color: var(--foreground);
   line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.01em;
 }
 
-/* Impeccable Heading Hierarchy */
+/* --- PRISTINE TYPOGRAPHY --- */
 h1 {
-  font-family: var(--font-heading);
-  font-size: clamp(2.2rem, 7vw, 4rem);
-  margin-bottom: 1rem;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
-  text-wrap: balance;
+  font-family: var(--font-main); /* Switching to Inter for that sleek SaaS look */
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
   color: var(--heading-color);
-  font-weight: 400;
+  margin-bottom: 1.5rem;
 }
 
 h2 {
-  font-family: var(--font-main);
-  font-size: clamp(1.4rem, 3.5vw, 1.8rem);
+  font-size: clamp(1.5rem, 4vw, 2rem);
   font-weight: 700;
-  margin-bottom: 1rem;
-  line-height: 1.2;
+  letter-spacing: -0.03em;
   color: var(--heading-color);
+  margin-bottom: 1rem;
 }
 
 h3 {
-  font-family: var(--font-main);
-  font-size: 0.8rem;
-  font-weight: 800;
+  font-size: 0.85rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.1em;
   color: var(--primary-accent);
-  margin-bottom: 0.8rem;
+  margin-bottom: 1rem;
 }
 
-p {
-  font-size: 1.1rem;
-  margin-bottom: 1.2rem;
-  color: var(--secondary);
-  max-width: 65ch;
-}
-
+/* --- CONTAINER --- */
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
   padding: 0 var(--container-padding);
 }
 
-@media (max-width: 1024px) {
-  :root {
-    --container-padding: 1.5rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .responsive-grid {
-    grid-template-columns: 1fr !important;
-    gap: 3rem !important;
-  }
-  
-  aside {
-    order: 2;
-  }
-  
-  main {
-    order: 1;
-  }
-}
-
-@media (max-width: 640px) {
-  /* Mobile Swipe Nav */
-  .mobile-swipe-nav {
-    display: flex;
-    overflow-x: auto;
-    white-space: nowrap;
-    gap: 1.5rem;
-    padding: 0.5rem 0;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-  .mobile-swipe-nav::-webkit-scrollbar { display: none; }
-  
-  h1 {
-    font-size: 2.4rem;
-  }
-  
-  .card {
-    padding: 1.5rem;
-  }
-}
-
 .responsive-grid {
   display: grid;
-  grid-template-columns: 250px 1fr;
-  gap: 5rem;
+  grid-template-columns: 280px 1fr;
+  gap: 6rem;
   align-items: start;
 }
 
 @media (max-width: 1024px) {
   .responsive-grid {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 4rem;
   }
 }
 
-/* Light Card Style */
+/* --- PREMIUM CARD DESIGN --- */
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 2rem;
-  box-shadow: var(--shadow-sm);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-md);
   transition: var(--transition);
 }
 
 .card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-4px);
-  border-color: var(--primary-accent);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+  border-color: rgba(59, 130, 246, 0.2);
 }
 
-/* Dynamic Sticky Header */
-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: var(--header-bg);
-  transition: var(--transition);
-}
-
-.header-shadow {
-  box-shadow: var(--shadow-sm);
-}
-
-/* Buttons - Clean & Light */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.8rem 2rem;
-  border-radius: 8px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: var(--transition);
-  cursor: pointer;
-  border: none;
-  font-size: 1rem;
-}
-
-.btn-primary {
-  background: var(--primary-accent);
-  color: white;
-}
-
-.btn-primary:hover {
-  background: var(--primary-light);
-  transform: translateY(-1px);
-}
-
-/* Input Fields - Clean & Subtle */
+/* --- TACTILE INPUTS --- */
 input, select {
+  appearance: none;
   width: 100%;
-  padding: 0.8rem 1rem;
-  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
   border: 1px solid var(--border);
   background: var(--input-bg);
   font-family: var(--font-main);
   font-size: 1rem;
+  font-weight: 500;
   transition: var(--transition);
+  color: var(--heading-color);
 }
 
 input:focus {
   outline: none;
   border-color: var(--primary-accent);
   background: white;
+  box-shadow: 0 0 0 4px var(--primary-glow);
 }
 
-/* Ad Container - Restored Visibility */
-.ad-container {
-  margin: 2rem 0;
-  padding: 1.5rem;
-  background: #f8fafc;
-  border: 1px dashed #cbd5e1;
-  border-radius: var(--radius);
-  text-align: center;
-  color: #94a3b8;
-  font-size: 0.7rem;
-  font-weight: 700;
-  min-height: 250px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.ad-container::before {
-  content: "ADVERTENTIE RUIMTE";
-  position: absolute;
-  top: 0.5rem;
-  opacity: 0.5;
-}
-
-/* Sidebar Utilities */
-.sidebar-category {
-  padding: 0.8rem 1rem;
-  border-radius: 8px;
-  text-decoration: none;
-  color: var(--secondary);
+label {
+  display: block;
   font-size: 0.9rem;
   font-weight: 600;
-  display: flex;
+  color: var(--secondary);
+  margin-bottom: 0.6rem;
+}
+
+/* --- BUTTONS --- */
+.button {
+  display: inline-flex;
   align-items: center;
-  gap: 0.8rem;
+  justify-content: center;
+  padding: 1rem 2.5rem;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
   transition: var(--transition);
+  cursor: pointer;
+  border: none;
+  background: var(--primary-accent);
+  color: white;
+  box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.2);
 }
 
-.sidebar-category:hover {
-  background: #f1f5f9;
-  color: var(--primary-accent);
+.button:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3);
 }
 
-.sidebar-category.active {
-  background: #f1f5f9;
-  color: var(--primary-accent);
-  border-left: 3px solid var(--primary-accent);
-  border-radius: 0 8px 8px 0;
+/* --- MOBILE SWIPE NAV --- */
+.mobile-swipe-nav {
+  display: flex;
+  overflow-x: auto;
+  gap: 2rem;
+  padding: 0.5rem 0;
+  scrollbar-width: none;
 }
+.mobile-swipe-nav::-webkit-scrollbar { display: none; }
+
+/* --- ANIMATIONS --- */
+.animate-in {
+  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
