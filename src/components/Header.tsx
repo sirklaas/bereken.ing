@@ -45,12 +45,18 @@ export default function Header() {
           textDecoration: "none", 
           fontFamily: "var(--font-heading)",
           letterSpacing: "-0.05em",
-          color: "var(--heading-color)"
+          color: "var(--heading-color)",
+          flexShrink: 0
         }}>
           bereken<span style={{ fontWeight: 800, color: "var(--primary-accent)" }}>.ing</span>
         </Link>
         
-        <nav style={{ display: "flex", gap: "2rem" }}>
+        {/* Mobile Swipeable Nav / Desktop Flex Nav */}
+        <nav className="mobile-swipe-nav" style={{ 
+          display: "flex", 
+          gap: "2rem",
+          marginLeft: "2rem"
+        }}>
           {navLinks.map((link) => (
             <Link 
               key={link.href} 

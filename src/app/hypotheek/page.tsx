@@ -1,7 +1,6 @@
-import type { Metadata } from "next";
 import MortgageCalculator from "@/components/MortgageCalculator";
 import AdSenseSlot from "@/components/AdSenseSlot";
-import Sidebar from "@/components/Sidebar";
+import ToolLayout from "@/components/ToolLayout";
 import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {

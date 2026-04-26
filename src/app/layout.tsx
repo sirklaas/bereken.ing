@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Script from "next/script";
+import { AFFILIATE_CONFIG } from "@/config/affiliateConfig";
 
 // Only loading the winner fonts to ensure production stability
 const fugazOne = Fugaz_One({ weight: "400", subsets: ["latin"], variable: "--font-fugaz" });
@@ -34,6 +35,13 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+
+        {/* Daisycon Auto-linking Automation */}
+        <Script 
+          id="daisycon-autolink"
+          src={`//ds1.nl/m.js?m=${AFFILIATE_CONFIG.mediaId}&v=1.1&t=1`}
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
