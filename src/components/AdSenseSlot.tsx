@@ -21,7 +21,7 @@ export default function AdSenseSlot({ id, slot, format = "auto", style }: AdSens
   }, []);
 
   // Use current production ID if available, otherwise show placeholder
-  const pubId = "pub-REPLACE_WITH_YOUR_ID";
+  const pubId = "pub-6805783605124617";
 
   return (
     <div className="ad-container" id={id} style={style}>
