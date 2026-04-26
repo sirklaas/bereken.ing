@@ -2,9 +2,11 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
   const [hasShadow, setHasShadow] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,14 +23,22 @@ export default function Header() {
     };
   }, []);
 
+  const navLinks = [
+    { name: "Hypotheek", href: "/hypotheek" },
+    { name: "Studieschuld", href: "/studentenlening" },
+    { name: "Gezondheid", href: "/gezondheid" },
+    { name: "Uurtarief", href: "/uurtarief" },
+    { name: "Over ons", href: "/over" }
+  ];
+
   return (
     <header className={hasShadow ? "header-shadow" : ""} style={{
       position: "sticky",
       top: 0,
       zIndex: 1000,
-      background: "var(--header-bg)",
-      transition: "background 0.3s ease, box-shadow 0.3s ease",
-      borderBottom: "1px solid rgba(0,0,0,0.05)"
+      background: "var(--background)",
+      transition: "all 0.3s ease",
+      borderBottom: "1px solid var(--border)"
     }}>
       <div className="container" style={{ 
         display: "flex", 
@@ -47,11 +57,23 @@ export default function Header() {
           bereken<span style={{ fontWeight: 800, color: "var(--primary-accent)" }}>.ing</span>
         </Link>
         
-        <nav style={{ display: "flex", gap: "2.5rem" }}>
-          <Link href="/hypotheek" style={{ textDecoration: "none", fontSize: "0.95rem", color: "var(--heading-color)", fontWeight: 600 }}>Hypotheek</Link>
-          <Link href="/studentenlening" style={{ textDecoration: "none", fontSize: "0.95rem", color: "var(--heading-color)", fontWeight: 600 }}>DUO</Link>
-          <Link href="/gezondheid" style={{ textDecoration: "none", fontSize: "0.95rem", color: "var(--heading-color)", fontWeight: 600 }}>Gezondheid</Link>
-          <Link href="/uurtarief" style={{ textDecoration: "none", fontSize: "0.95rem", color: "var(--heading-color)", fontWeight: 600 }}>ZZP</Link>
+        <nav style={{ display: "flex", gap: "2rem" }}>
+          {navLinks.map((link) => (
+            <Link 
+              key={link.href} 
+              href={link.href} 
+              style={{ 
+                textDecoration: "none", 
+                fontSize: "0.9rem", 
+                color: pathname === link.href ? "var(--primary-accent)" : "var(--heading-color)", 
+                fontWeight: pathname === link.href ? 800 : 600,
+                opacity: pathname === link.href ? 1 : 0.7,
+                transition: "var(--transition)"
+              }}
+            >
+              {link.name}
+            </Link>
+          ))}
         </nav>
       </div>
     </header>
