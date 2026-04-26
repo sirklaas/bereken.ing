@@ -1,67 +1,45 @@
 :root {
-  /* Color Palette - Premium Financial (No Green) */
-  --background: #f8fafc;
+  /* Color Palette - Clean Authority (Pure White Base) */
+  --background: #ffffff;
   --foreground: #0f172a;
   --surface: #ffffff;
   --primary: #1e293b;
   --primary-accent: #2C497F; /* Authority Blue */
-  --primary-light: #3D5E9B;
-  --header-bg: #9FA0C3;      /* Soft Periwinkle Header */
+  --primary-light: #4469a3;
+  --header-bg: #9FA0C3;      /* Periwinkle Header */
   --secondary: #64748b;
-  --border: #e2e8f0;
-  --input-bg: #f1f5f9;
-  --success: #2C497F;
-  --error: #ef4444;
-  --glass: rgba(255, 255, 255, 0.7);
-
-  /* Fugaz Font Color - 85% Black */
-  --heading-color: #262626;
+  --border: #f1f5f9;
+  --input-bg: #f8fafc;
+  --heading-color: #262626;  /* 85% Black Charcoal */
 
   /* Typography Choice: Fugaz One + Work Sans */
   --font-main: var(--font-work-sans), -apple-system, BlinkMacSystemFont, sans-serif;
   --font-heading: var(--font-fugaz), var(--font-main);
 
-  /* Spacing & Sizing */
+  /* Clean Spacing & Sizing */
   --container-width: 1400px;
   --container-padding: clamp(1.5rem, 5vw, 4rem);
-  --radius: 16px;
-  /* Shadow & Transitions */
-  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-  --transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  --radius: 12px;
+  
+  /* Subtler, Lighter Shadows */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.05);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.05);
+  --transition: all 0.3s ease;
 }
 
-/* Force Light Aesthetic - No Dark Mode */
+/* Force light theme regardless of system settings */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #f8fafc;
+    --background: #ffffff;
     --foreground: #0f172a;
     --surface: #ffffff;
-    --primary: #1e293b;
-    --primary-accent: #2C497F;
-    --secondary: #64748b;
-    --border: #e2e8f0;
-    --input-bg: #f1f5f9;
-    --heading-color: #262626;
     --header-bg: #9FA0C3;
+    --heading-color: #262626;
+    --border: #f1f5f9;
+    --input-bg: #f8fafc;
   }
 }
-
-/* Animations */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.animate-in {
-  animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-.stagger-1 { animation-delay: 0.2s; opacity: 0; }
-.stagger-2 { animation-delay: 0.4s; opacity: 0; }
-.stagger-3 { animation-delay: 0.6s; opacity: 0; }
 
 * {
   box-sizing: border-box;
@@ -83,10 +61,10 @@ body {
 /* Impeccable Heading Hierarchy */
 h1 {
   font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-size: clamp(2.2rem, 7vw, 4rem);
   margin-bottom: 1rem;
-  line-height: 1.05;
-  letter-spacing: -0.04em;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
   text-wrap: balance;
   color: var(--heading-color);
   font-weight: 400;
@@ -94,32 +72,30 @@ h1 {
 
 h2 {
   font-family: var(--font-main);
-  font-size: clamp(1.5rem, 4vw, 2.1rem);
-  font-weight: 800;
-  margin-bottom: 1.2rem;
+  font-size: clamp(1.4rem, 3.5vw, 1.8rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
   line-height: 1.2;
-  letter-spacing: -0.02em;
   color: var(--heading-color);
 }
 
 h3 {
   font-family: var(--font-main);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.15em;
   color: var(--primary-accent);
   margin-bottom: 0.8rem;
 }
 
 p {
-  font-size: clamp(1.05rem, 1.15vw, 1.25rem);
-  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  margin-bottom: 1.2rem;
   color: var(--secondary);
   max-width: 65ch;
 }
 
-/* Layout Utilities - The Hybrid Engine */
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
@@ -128,25 +104,23 @@ p {
 
 .grid-layout {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(clamp(300px, 40%, 1fr), 1fr));
-  gap: clamp(1.5rem, 3vw, 3rem);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
 }
 
-/* Premium Component: Card */
+/* Light Card Style */
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: clamp(1.5rem, 3vw, 2.5rem);
-  box-shadow: var(--shadow-md);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
   transition: var(--transition);
-  position: relative;
-  overflow: hidden;
 }
 
 .card:hover {
-  box-shadow: var(--shadow-xl);
-  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
   border-color: var(--primary-accent);
 }
 
@@ -156,39 +130,45 @@ header {
   top: 0;
   z-index: 1000;
   background: var(--header-bg);
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease, background 0.4s ease;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  transition: var(--transition);
 }
 
 .header-shadow {
-  box-shadow: var(--shadow-md);
-  background: rgba(159, 160, 195, 0.95);
-  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-sm);
 }
 
-header a {
-  color: var(--heading-color) !important;
-}
-
-header nav a {
-  opacity: 0.75;
-  transition: var(--transition);
+/* Buttons - Clean & Light */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
   font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
 }
 
-header nav a:hover {
-  opacity: 1;
-  color: var(--primary-accent) !important;
+.btn-primary {
+  background: var(--primary-accent);
+  color: white;
 }
 
-/* Forms & Inputs */
+.btn-primary:hover {
+  background: var(--primary-light);
+  transform: translateY(-1px);
+}
+
+/* Input Fields - Clean & Subtle */
 input, select {
   width: 100%;
-  padding: 1rem 1.2rem;
-  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
   border: 1px solid var(--border);
   background: var(--input-bg);
-  color: var(--foreground);
   font-family: var(--font-main);
   font-size: 1rem;
   transition: var(--transition);
@@ -197,67 +177,18 @@ input, select {
 input:focus {
   outline: none;
   border-color: var(--primary-accent);
-  box-shadow: 0 0 0 4px rgba(44, 73, 127, 0.15);
-  background: var(--surface);
+  background: white;
 }
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem 2.5rem;
-  border-radius: 14px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: var(--transition);
-  cursor: pointer;
-  border: none;
-  font-size: 1.05rem;
-  box-shadow: var(--shadow-sm);
-}
-
-.btn-primary {
-  background: linear-gradient(180deg, var(--primary-light) 0%, var(--primary-accent) 100%);
-  color: white;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.btn-primary:hover {
-  filter: brightness(1.1);
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: var(--shadow-md);
-}
-
-/* AdSense Placeholder */
+/* Ad Container */
 .ad-container {
   margin: 3rem 0;
-  padding: 1.5rem;
-  background: #f1f5f9;
-  border: 1px solid #e2e8f0;
-  border-radius: 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 280px;
+  padding: 2rem;
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: var(--radius);
+  text-align: center;
   color: #94a3b8;
   font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
   font-weight: 700;
-  position: relative;
-}
-
-.ad-container::before {
-  content: "ADVERTENTIE";
-  margin-bottom: 0.5rem;
-}
-
-.ad-container::after {
-  content: "Deze ruimte is geoptimaliseerd voor Google AdSense";
-  text-transform: none;
-  letter-spacing: normal;
-  font-weight: 400;
-  font-size: 0.85rem;
-  opacity: 0.6;
 }

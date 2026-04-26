@@ -27,8 +27,8 @@ export default function Header() {
       top: 0,
       zIndex: 1000,
       background: "var(--header-bg)",
-      transition: "all 0.3s ease",
-      borderBottom: hasShadow ? "1px solid rgba(0,0,0,0.1)" : "1px solid rgba(0,0,0,0.05)"
+      transition: "background 0.3s ease, box-shadow 0.3s ease",
+      borderBottom: "1px solid rgba(0,0,0,0.05)"
     }}>
       <div className="container" style={{ 
         display: "flex", 
