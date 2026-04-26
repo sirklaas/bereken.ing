@@ -3,6 +3,7 @@ import { Fugaz_One, Work_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Script from "next/script";
 
 // Only loading the winner fonts to ensure production stability
 const fugazOne = Fugaz_One({ weight: "400", subsets: ["latin"], variable: "--font-fugaz" });
@@ -20,6 +21,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="nl" className={`${fugazOne.variable} ${workSans.variable}`}>
+      <head>
+        {/* Google AdSense Auto Ads */}
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-REPLACE_WITH_YOUR_ID"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+      </head>
       <body>
         <Header />
         <main>{children}</main>
