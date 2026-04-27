@@ -4,33 +4,51 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
+const CATEGORIES = [
+  { 
+    name: "Wonen & Energie", 
+    links: [
+      { name: "Hypotheek", href: "/hypotheek" },
+      { name: "Zonnepanelen", href: "/wonen/zonnepanelen" },
+      { name: "Warmtepomp", href: "/warmtepomp" },
+    ]
+  },
+  { 
+    name: "Geld & Werk", 
+    links: [
+      { name: "Uurtarief", href: "/uurtarief" },
+      { name: "Autokosten", href: "/geld/autokosten" },
+      { name: "Vaste Lasten", href: "/vaste-lasten" },
+    ]
+  },
+  { 
+    name: "Fun & Aftellen", 
+    links: [
+      { name: "8-Ball", href: "/fun/8ball" },
+      { name: "Kerst Countdown", href: "/fun/kerst" },
+      { name: "Death Clock", href: "/fun/dagentot" },
+    ]
+  }
+];
+
 export default function Header() {
   const [hasShadow, setHasShadow] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setHasShadow(window.scrollY > 10);
-    };
+    const handleScroll = () => setHasShadow(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const navLinks = [
-    { name: "Hypotheek", href: "/hypotheek" },
-    { name: "AI", href: "/ai" },
-    { name: "Energie", href: "/wonen/zonnepanelen" },
-    { name: "Fun", href: "/fun/8ball" },
-  ];
 
   return (
     <header className={hasShadow ? "header-shadow" : ""} style={{
       position: "sticky",
       top: 0,
       zIndex: 1000,
-      background: "rgba(159, 160, 195, 0.8)", // Frosted Header from wireframe
+      background: "rgba(159, 160, 195, 0.95)", 
       backdropFilter: "blur(12px)",
-      transition: "var(--transition)",
       borderBottom: "1px solid rgba(255,255,255,0.2)",
       height: "100px",
       display: "flex",
@@ -43,10 +61,12 @@ export default function Header() {
         width: "100%" 
       }}>
         
-        {/* Left Spacing (to keep logo centered) */}
-        <div />
+        {/* Left: Home Link / Logo Icon */}
+        <div>
+           <Link href="/" style={{ color: "white", textDecoration: "none", fontWeight: 800, fontSize: "0.9rem" }}>HOME</Link>
+        </div>
 
-        {/* Centered Logo */}
+        {/* Center: Logo (Pristine focus) */}
         <Link href="/" style={{ 
           fontSize: "2.4rem", 
           fontWeight: 400, 
@@ -59,25 +79,70 @@ export default function Header() {
           bereken<span style={{ fontWeight: 800, color: "var(--primary-accent)" }}>.ing</span>
         </Link>
         
-        {/* Right Categories */}
-        <div style={{ display: "flex", justifyContent: "flex-end", alignItems: "center", gap: "1rem" }}>
-          <span style={{ color: "rgba(255,255,255,0.7)", fontSize: "0.8rem", fontWeight: 700, textTransform: "uppercase" }}>Catagorien:</span>
-          <nav className="mobile-swipe-nav" style={{ display: "flex", gap: "1.5rem" }}>
-            {navLinks.map((link) => (
-              <Link 
-                key={link.href} 
-                href={link.href} 
-                style={{ 
-                  textDecoration: "none", 
-                  fontSize: "0.85rem", 
-                  color: "white", 
-                  fontWeight: 700,
-                  opacity: pathname === link.href ? 1 : 0.7,
-                  transition: "var(--transition)"
-                }}
+        {/* Right: Dropdown Categories */}
+        <div style={{ display: "flex", justifyContent: "flex-end", alignItems: "center", gap: "2rem" }}>
+          <span style={{ color: "rgba(255,255,255,0.6)", fontSize: "0.75rem", fontWeight: 800 }}>CATAGORIEN:</span>
+          
+          <nav style={{ display: "flex", gap: "1.5rem" }}>
+            {CATEGORIES.map((cat) => (
+              <div 
+                key={cat.name} 
+                onMouseEnter={() => setActiveDropdown(cat.name)}
+                onMouseLeave={() => setActiveDropdown(null)}
+                style={{ position: "relative" }}
               >
-                {link.name}
-              </Link>
+                <button style={{
+                  background: "none",
+                  border: "none",
+                  color: "white",
+                  fontSize: "0.85rem",
+                  fontWeight: 700,
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.4rem",
+                  opacity: activeDropdown === cat.name ? 1 : 0.8
+                }}>
+                  {cat.name} <span style={{ fontSize: "0.6rem" }}>▼</span>
+                </button>
+
+                {activeDropdown === cat.name && (
+                  <div style={{
+                    position: "absolute",
+                    top: "100%",
+                    right: 0,
+                    width: "220px",
+                    background: "white",
+                    borderRadius: "12px",
+                    boxShadow: "var(--shadow-lg)",
+                    padding: "1rem",
+                    marginTop: "0.5rem",
+                    display: "grid",
+                    gap: "0.5rem",
+                    animation: "slideUp 0.3s ease"
+                  }}>
+                    {cat.links.map(link => (
+                      <Link 
+                        key={link.href}
+                        href={link.href}
+                        style={{
+                          textDecoration: "none",
+                          fontSize: "0.9rem",
+                          color: "var(--heading-color)",
+                          fontWeight: 600,
+                          padding: "0.6rem 1rem",
+                          borderRadius: "8px",
+                          transition: "var(--transition)"
+                        }}
+                        onMouseEnter={(e) => (e.currentTarget.style.background = "#f1f5f9")}
+                        onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
+                      >
+                        {link.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
           </nav>
         </div>

@@ -1,6 +1,4 @@
 import React from "react";
-import Sidebar from "@/components/Sidebar";
-import AdSenseSlot from "@/components/AdSenseSlot";
 
 interface ToolLayoutProps {
   children: React.ReactNode;
@@ -13,31 +11,79 @@ export default function ToolLayout({ children, intro, title, subtitle }: ToolLay
   return (
     <div className="container" style={{ paddingTop: "4rem", paddingBottom: "8rem" }}>
       
-      {/* 1. The Heading Stack (Centered) */}
-      <div style={{ textAlign: "center", marginBottom: "4rem" }}>
-        {intro && <h3 style={{ marginBottom: "0.5rem" }}>{intro}</h3>}
-        <h1>{title}</h1>
-        {subtitle && <h2 style={{ fontSize: "1.2rem", fontWeight: 500, opacity: 0.7, marginTop: "-0.5rem" }}>{subtitle}</h2>}
+      {/* Centered Heading Stack */}
+      <div style={{ textAlign: "center", marginBottom: "5rem" }}>
+        {intro && <h3 style={{ marginBottom: "0.5rem", color: "var(--primary-accent)", letterSpacing: "0.1em", fontWeight: 800 }}>{intro.toUpperCase()}</h3>}
+        <h1 style={{ fontSize: "4.5rem", marginBottom: "1rem" }}>{title}</h1>
+        {subtitle && <h2 style={{ fontSize: "1.4rem", fontWeight: 500, opacity: 0.6, maxWidth: "800px", margin: "0 auto" }}>{subtitle}</h2>}
       </div>
 
-      {/* 2. The 3-Column Pristine Grid */}
+      {/* 3-Column Pristine Grid */}
       <div className="pristine-grid">
         
-        {/* Left Ad Column */}
+        {/* Left Ad Column (Standard Skyscraper 300x600) */}
         <div className="ad-sidebar">
-          <div className="ad-container" style={{ background: "#f472b6", height: "400px" }}>Advertentie 1</div>
-          <div className="ad-container" style={{ background: "#f472b6", height: "400px" }}>Advertentie 2</div>
+          <div className="ad-container" style={{ 
+            background: "#f472b6", 
+            width: "300px", 
+            height: "600px", 
+            display: "flex", 
+            alignItems: "center", 
+            justifyContent: "center",
+            color: "white",
+            fontWeight: 800,
+            borderRadius: "12px"
+          }}>
+            AD 300x600
+          </div>
+          <div className="ad-container" style={{ 
+            background: "#f472b6", 
+            width: "300px", 
+            height: "250px", 
+            display: "flex", 
+            alignItems: "center", 
+            justifyContent: "center",
+            color: "white",
+            fontWeight: 800,
+            borderRadius: "12px"
+          }}>
+            AD 300x250
+          </div>
         </div>
 
         {/* Center Main Content */}
-        <main>
+        <main style={{ minWidth: 0 }}>
           {children}
         </main>
 
         {/* Right Ad Column */}
         <div className="ad-sidebar">
-          <div className="ad-container" style={{ background: "#f472b6", height: "400px" }}>Advertentie 3</div>
-          <div className="ad-container" style={{ background: "#f472b6", height: "600px" }}>Advertentie 4 of YouTube Video</div>
+          <div className="ad-container" style={{ 
+            background: "#f472b6", 
+            width: "300px", 
+            height: "250px", 
+            display: "flex", 
+            alignItems: "center", 
+            justifyContent: "center",
+            color: "white",
+            fontWeight: 800,
+            borderRadius: "12px"
+          }}>
+            AD 300x250
+          </div>
+          <div className="ad-container" style={{ 
+            background: "#f472b6", 
+            width: "300px", 
+            height: "600px", 
+            display: "flex", 
+            alignItems: "center", 
+            justifyContent: "center",
+            color: "white",
+            fontWeight: 800,
+            borderRadius: "12px"
+          }}>
+            AD 300x600
+          </div>
         </div>
 
       </div>
