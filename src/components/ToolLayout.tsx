@@ -18,63 +18,64 @@ export default function ToolLayout({ children, intro, title, subtitle }: ToolLay
         {subtitle && <h2 style={{ fontSize: "1.4rem", fontWeight: 500, opacity: 0.5, maxWidth: "850px", margin: "0 auto", lineHeight: 1.4 }}>{subtitle}</h2>}
       </div>
 
-      {/* 2. 3-Column Pristine Grid */}
-      <div className="pristine-grid">
+      {/* 2. 3-Column Layout (Independent of fluid-grid to prevent overlap) */}
+      <div style={{ 
+        display: "grid", 
+        gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+        gap: "var(--gap)",
+        alignItems: "start"
+      }} className="main-tool-grid">
         
-        {/* Left Ad Sidebar (Pink Placeholder) */}
-        <div className="ad-sidebar left-ad">
+        {/* Left Side Slot */}
+        <div className="side-slot left-slot" style={{ display: "flex", justifyContent: "center" }}>
           <div style={{ 
             background: "#FF007F", 
             width: "300px", 
             height: "600px", 
-            display: "flex", 
-            alignItems: "center", 
+            borderRadius: "20px",
+            display: "flex",
+            alignItems: "center",
             justifyContent: "center",
             color: "white",
             fontWeight: 900,
-            borderRadius: "20px"
+            fontSize: "1.2rem"
           }}>
-            ADSENSE 300x600
+            RESERVED SLOT
           </div>
         </div>
 
-        {/* Center: The actual Tool */}
-        <main style={{ minWidth: 0 }}>
+        {/* Center: The actual Tool (Occupies more space on desktop) */}
+        <main style={{ minWidth: 0, gridColumn: "span 1" }}>
           {children}
         </main>
 
-        {/* Right Ad Sidebar (Pink Placeholder) */}
-        <div className="ad-sidebar right-ad">
-          <div style={{ 
-            background: "#FF007F", 
-            width: "300px", 
-            height: "250px", 
-            display: "flex", 
-            alignItems: "center", 
-            justifyContent: "center",
-            color: "white",
-            fontWeight: 900,
-            borderRadius: "20px",
-            marginBottom: "2rem"
-          }}>
-            ADSENSE 300x250
-          </div>
-          <div style={{ 
-            background: "#FF007F", 
-            width: "300px", 
-            height: "600px", 
-            display: "flex", 
-            alignItems: "center", 
-            justifyContent: "center",
-            color: "white",
-            fontWeight: 900,
-            borderRadius: "20px"
-          }}>
-            ADSENSE 300x600
-          </div>
+        {/* Right Side Slot */}
+        <div className="side-slot right-slot" style={{ display: "flex", flexDirection: "column", gap: "2rem", alignItems: "center" }}>
+          <div style={{ background: "#FF007F", width: "300px", height: "250px", borderRadius: "20px" }} />
+          <div style={{ background: "#FF007F", width: "300px", height: "600px", borderRadius: "20px" }} />
         </div>
 
       </div>
+      
+      <style jsx>{`
+        @media (min-width: 1280px) {
+          .main-tool-grid {
+            grid-template-columns: 300px 1fr 300px !important;
+          }
+        }
+        @media (max-width: 1279px) and (min-width: 1024px) {
+          .main-tool-grid {
+            grid-template-columns: 1fr 300px !important;
+          }
+          .left-slot { display: none; }
+        }
+        @media (max-width: 1023px) {
+          .main-tool-grid {
+            grid-template-columns: 1fr !important;
+          }
+          .side-slot { display: none; }
+        }
+      `}</style>
     </div>
   );
 }

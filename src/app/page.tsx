@@ -1,5 +1,4 @@
 import Link from "next/link";
-import AdSenseSlot from "@/components/AdSenseSlot";
 
 export default function Home() {
   const tools = [
@@ -11,8 +10,8 @@ export default function Home() {
   ];
 
   return (
-    <div>
-      {/* Hero Section - Clean White */}
+    <div style={{ overflowX: "hidden" }}>
+      {/* Hero Section */}
       <section style={{ padding: "8rem 0 6rem", background: "white" }}>
         <div className="fluid-container" style={{ textAlign: "center" }}>
           <h3 style={{ color: "var(--primary-accent)", letterSpacing: "0.2em", fontWeight: 800, fontSize: "0.8rem", marginBottom: "1rem" }}>SLIMME REKENTOOLS</h3>
@@ -29,37 +28,40 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Tools Grid */}
-      <section className="fluid-container" style={{ paddingBottom: "8rem" }}>
-        <h2 style={{ fontSize: "clamp(2rem, 5vw, 3rem)", marginBottom: "4rem", textAlign: "center" }}>
-          Populaire <span style={{ color: "var(--primary-accent)" }}>Tools</span>
-        </h2>
-        <div className="fluid-grid">
-          {tools.map((tool) => (
-            <Link key={tool.href} href={tool.href} style={{ textDecoration: "none" }}>
-              <div className="pristine-card" style={{ 
-                height: "100%", 
-                padding: "2.5rem 2rem",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                textAlign: "center",
-                transition: "transform 0.3s ease"
-              }}>
-                <span style={{ fontSize: "3rem", marginBottom: "1.5rem" }}>{tool.icon}</span>
-                <h3 style={{ fontSize: "1.2rem", marginBottom: "0.8rem", color: "var(--heading-color)" }}>{tool.name}</h3>
-                <p style={{ fontSize: "0.9rem", color: "var(--secondary)", lineHeight: 1.5 }}>{tool.desc}</p>
-              </div>
-            </Link>
-          ))}
+      {/* Tools Grid Section */}
+      <section style={{ paddingBottom: "8rem" }}>
+        <div className="fluid-container">
+          <h2 style={{ fontSize: "clamp(2rem, 5vw, 3rem)", marginBottom: "4rem", textAlign: "center" }}>
+            Populaire <span style={{ color: "var(--primary-accent)" }}>Tools</span>
+          </h2>
+          <div className="fluid-grid">
+            {tools.map((tool) => (
+              <Link key={tool.href} href={tool.href} style={{ textDecoration: "none" }}>
+                <div className="pristine-card" style={{ 
+                  height: "100%", 
+                  padding: "2.5rem 2rem",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  textAlign: "center"
+                }}>
+                  <span style={{ fontSize: "3rem", marginBottom: "1.5rem" }}>{tool.icon}</span>
+                  <h3 style={{ fontSize: "1.2rem", marginBottom: "0.8rem", color: "var(--heading-color)" }}>{tool.name}</h3>
+                  <p style={{ fontSize: "0.9rem", color: "var(--secondary)", lineHeight: 1.5 }}>{tool.desc}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Ad Section (Pink Placeholder) */}
+      {/* Re-designed Ad Section (Centered & Blocked) */}
       <section style={{ paddingBottom: "8rem" }}>
-        <div className="fluid-container">
+        <div className="fluid-container" style={{ display: "flex", justifyContent: "center" }}>
           <div style={{ 
             background: "#FF007F", 
+            width: "100%",
+            maxWidth: "970px",
             height: "250px", 
             borderRadius: "24px", 
             display: "flex", 
@@ -68,8 +70,8 @@ export default function Home() {
             justifyContent: "center", 
             color: "white"
           }}>
-             <span style={{ fontWeight: 900, fontSize: "1.5rem" }}>ADSENSE 728x90 (TOP TOOLS)</span>
-             <span style={{ opacity: 0.8, fontSize: "0.8rem", marginTop: "0.5rem" }}>Bannerslot voor de homepagina</span>
+             <span style={{ fontWeight: 900, fontSize: "1.5rem" }}>RESERVED PROMO SLOT</span>
+             <span style={{ opacity: 0.8, fontSize: "0.8rem", marginTop: "0.5rem" }}>970x250 Large Leaderboard</span>
           </div>
         </div>
       </section>
