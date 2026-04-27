@@ -17,6 +17,10 @@ export const AFFILIATE_CONFIG = {
     zorgverzekering: "https://www.independer.nl/zorgverzekering",
     boekhouden: "https://www.moneybird.nl",
     uitvaartverzekering: "https://www.independer.nl/uitvaartverzekering",
+    autoverzekering: "https://www.independer.nl/autoverzekering",
+    reisverzekering: "https://www.independer.nl/reisverzekering",
+    inboedelverzekering: "https://www.independer.nl/inboedelverzekering",
+    levensverzekering: "https://www.independer.nl/overlijdensrisicoverzekering",
   }
 };
 

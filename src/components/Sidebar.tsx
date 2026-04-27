@@ -19,14 +19,20 @@ export default function Sidebar() {
       { name: "Dagentot (Death Clock)", href: "/fun/dagentot", icon: "⏳" },
       { name: "I Ching (Itjing)", href: "/fun/iching", icon: "🏯" },
     ]},
-    { title: "Geld & Verzekeringen", links: [
-      { name: "Begrafeniskosten", href: "/geld/begrafenis", icon: "⚰️" },
-      { name: "Crematiekosten", href: "/geld/crematie", icon: "🏺" },
-    ]},
     { title: "Wonen & Energie", links: [
       { name: "Maximale Hypotheek", href: "/hypotheek", icon: "🏠" },
+      { name: "Zonnepanelen Rendement", href: "/wonen/zonnepanelen", icon: "☀️" },
+      { name: "Thuisbatterij Loont?", href: "/wonen/thuisbatterij", icon: "🔋" },
       { name: "Warmtepomp Rendement", href: "/warmtepomp", icon: "🔥" },
       { name: "Isolatie Besparing", href: "/isolatie", icon: "🧱" },
+    ]},
+    { title: "Geld & Verzekeringen", links: [
+      { name: "Autoverzekering", href: "/geld/autokosten", icon: "🚗" },
+      { name: "Inboedelverzekering", href: "/geld/inboedelverzekering", icon: "🛋️" },
+      { name: "Reisverzekering", href: "/geld/reisverzekering", icon: "✈️" },
+      { name: "Levensverzekering", href: "/geld/levensverzekering", icon: "🛡️" },
+      { name: "Begrafeniskosten", href: "/geld/begrafenis", icon: "⚰️" },
+      { name: "Crematiekosten", href: "/geld/crematie", icon: "🏺" },
     ]},
     { title: "Gezondheid", links: [
       { name: "BMI & Calorieën", href: "/gezondheid", icon: "🥗" },
