@@ -6,35 +6,37 @@ import { usePathname } from "next/navigation";
 
 const CATEGORIES = [
   { 
+    name: "Aftellen & Fun", 
+    links: [
+      { name: "8-Ball", href: "/fun/8ball" },
+      { name: "Kerst", href: "/fun/kerst" },
+      { name: "Death Clock", href: "/fun/dagentot" },
+      { name: "I Ching", href: "/fun/iching" },
+    ]
+  },
+  { 
     name: "Wonen & Energie", 
     links: [
       { name: "Hypotheek", href: "/hypotheek" },
       { name: "Zonnepanelen", href: "/wonen/zonnepanelen" },
       { name: "Warmtepomp", href: "/warmtepomp" },
+      { name: "Isolatie", href: "/isolatie" },
     ]
   },
   { 
-    name: "Geld & Werk", 
+    name: "Geld & Verzekeringen", 
     links: [
-      { name: "Uurtarief", href: "/uurtarief" },
-      { name: "Autokosten", href: "/geld/autokosten" },
-      { name: "Vaste Lasten", href: "/vaste-lasten" },
-    ]
-  },
-  { 
-    name: "Fun & Aftellen", 
-    links: [
-      { name: "8-Ball", href: "/fun/8ball" },
-      { name: "Kerst Countdown", href: "/fun/kerst" },
-      { name: "Death Clock", href: "/fun/dagentot" },
+      { name: "Autoverzekering", href: "/geld/autokosten" },
+      { name: "Inboedel", href: "/geld/inboedelverzekering" },
+      { name: "Reisverzekering", href: "/geld/reisverzekering" },
+      { name: "Levensverzekering", href: "/geld/levensverzekering" },
     ]
   }
 ];
 
 export default function Header() {
   const [hasShadow, setHasShadow] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const pathname = usePathname();
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => setHasShadow(window.scrollY > 10);
@@ -50,92 +52,96 @@ export default function Header() {
       background: "rgba(159, 160, 195, 0.95)", 
       backdropFilter: "blur(12px)",
       borderBottom: "1px solid rgba(255,255,255,0.2)",
-      height: "100px",
-      display: "flex",
-      alignItems: "center"
+      height: "100px"
     }}>
       <div className="container" style={{ 
         display: "grid", 
         gridTemplateColumns: "1fr auto 1fr", 
         alignItems: "center", 
-        width: "100%" 
+        height: "100%",
+        width: "100%"
       }}>
         
-        {/* Left: Home Link / Logo Icon */}
+        {/* Left Side: Home link */}
         <div>
-           <Link href="/" style={{ color: "white", textDecoration: "none", fontWeight: 800, fontSize: "0.9rem" }}>HOME</Link>
+          <Link href="/" style={{ color: "white", textDecoration: "none", fontWeight: 800, fontSize: "0.8rem", letterSpacing: "0.1em" }}>HOME</Link>
         </div>
 
-        {/* Center: Logo (Pristine focus) */}
-        <Link href="/" style={{ 
-          fontSize: "2.4rem", 
-          fontWeight: 400, 
-          textDecoration: "none", 
-          fontFamily: "var(--font-heading)",
-          letterSpacing: "-0.05em",
-          color: "white",
-          textAlign: "center"
-        }}>
-          bereken<span style={{ fontWeight: 800, color: "var(--primary-accent)" }}>.ing</span>
-        </Link>
+        {/* Center Side: Logo (Absolute Center) */}
+        <div style={{ textAlign: "center" }}>
+          <Link href="/" style={{ 
+            fontSize: "2.4rem", 
+            fontWeight: 400, 
+            textDecoration: "none", 
+            fontFamily: "var(--font-heading)",
+            letterSpacing: "-0.05em",
+            color: "white"
+          }}>
+            bereken<span style={{ fontWeight: 800, color: "var(--primary-accent)" }}>.ing</span>
+          </Link>
+        </div>
         
-        {/* Right: Dropdown Categories */}
-        <div style={{ display: "flex", justifyContent: "flex-end", alignItems: "center", gap: "2rem" }}>
-          <span style={{ color: "rgba(255,255,255,0.6)", fontSize: "0.75rem", fontWeight: 800 }}>CATAGORIEN:</span>
+        {/* Right Side: Dropdown Menu */}
+        <div style={{ display: "flex", justifyContent: "flex-end", alignItems: "center", gap: "1.5rem" }}>
+          <span style={{ color: "rgba(255,255,255,0.7)", fontSize: "0.8rem", fontWeight: 700 }}>Andere hulpjes:</span>
           
-          <nav style={{ display: "flex", gap: "1.5rem" }}>
+          <div style={{ display: "flex", gap: "1rem" }}>
             {CATEGORIES.map((cat) => (
               <div 
                 key={cat.name} 
-                onMouseEnter={() => setActiveDropdown(cat.name)}
-                onMouseLeave={() => setActiveDropdown(null)}
+                onMouseEnter={() => setOpenDropdown(cat.name)}
+                onMouseLeave={() => setOpenDropdown(null)}
                 style={{ position: "relative" }}
               >
-                <button style={{
-                  background: "none",
-                  border: "none",
-                  color: "white",
-                  fontSize: "0.85rem",
-                  fontWeight: 700,
-                  cursor: "pointer",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.4rem",
-                  opacity: activeDropdown === cat.name ? 1 : 0.8
-                }}>
-                  {cat.name} <span style={{ fontSize: "0.6rem" }}>▼</span>
+                <button 
+                  onClick={() => setOpenDropdown(openDropdown === cat.name ? null : cat.name)}
+                  style={{
+                    background: "rgba(255,255,255,0.1)",
+                    border: "none",
+                    color: "white",
+                    fontSize: "0.85rem",
+                    fontWeight: 700,
+                    padding: "0.6rem 1rem",
+                    borderRadius: "8px",
+                    cursor: "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.5rem"
+                  }}
+                >
+                  {cat.name.split(" ")[0]} <span style={{ fontSize: "0.6rem" }}>▼</span>
                 </button>
 
-                {activeDropdown === cat.name && (
+                {openDropdown === cat.name && (
                   <div style={{
                     position: "absolute",
                     top: "100%",
                     right: 0,
-                    width: "220px",
+                    width: "240px",
                     background: "white",
                     borderRadius: "12px",
-                    boxShadow: "var(--shadow-lg)",
-                    padding: "1rem",
+                    boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
+                    padding: "0.8rem",
                     marginTop: "0.5rem",
                     display: "grid",
-                    gap: "0.5rem",
-                    animation: "slideUp 0.3s ease"
+                    gap: "0.3rem",
+                    animation: "slideUp 0.2s ease-out"
                   }}>
                     {cat.links.map(link => (
                       <Link 
                         key={link.href}
                         href={link.href}
+                        onClick={() => setOpenDropdown(null)}
                         style={{
                           textDecoration: "none",
-                          fontSize: "0.9rem",
+                          fontSize: "0.85rem",
                           color: "var(--heading-color)",
                           fontWeight: 600,
-                          padding: "0.6rem 1rem",
-                          borderRadius: "8px",
+                          padding: "0.6rem 0.8rem",
+                          borderRadius: "6px",
                           transition: "var(--transition)"
                         }}
-                        onMouseEnter={(e) => (e.currentTarget.style.background = "#f1f5f9")}
-                        onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
+                        className="dropdown-item"
                       >
                         {link.name}
                       </Link>
@@ -144,9 +150,16 @@ export default function Header() {
                 )}
               </div>
             ))}
-          </nav>
+          </div>
         </div>
       </div>
+      <style jsx>{`
+        .dropdown-item:hover {
+          background: #f1f5f9;
+          color: var(--primary-accent);
+          transform: translateX(3px);
+        }
+      `}</style>
     </header>
   );
 }
