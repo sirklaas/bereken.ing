@@ -11,19 +11,62 @@ export default function Home() {
 
   return (
     <div style={{ overflowX: "hidden" }}>
+      
+      {/* 1. TOP AD SLOT (Critical for visibility) */}
+      <section style={{ background: "#f8fafc", padding: "2rem 0" }}>
+        <div className="fluid-container" style={{ display: "flex", justifyContent: "center" }}>
+          <div style={{ 
+            background: "#FF007F", 
+            width: "100%",
+            maxWidth: "970px",
+            height: "90px", 
+            borderRadius: "12px", 
+            display: "flex", 
+            alignItems: "center", 
+            justifyContent: "center", 
+            color: "white",
+            fontWeight: 900,
+            fontSize: "1.2rem",
+            boxShadow: "0 10px 30px rgba(255,0,127,0.2)"
+          }}>
+             PREMIUM AD SLOT v2.2 (TOP BANNER 970x90)
+          </div>
+        </div>
+      </section>
+
       {/* Hero Section */}
-      <section style={{ padding: "8rem 0 6rem", background: "white" }}>
+      <section style={{ padding: "6rem 0 4rem", background: "white" }}>
         <div className="fluid-container" style={{ textAlign: "center" }}>
           <h3 style={{ color: "var(--primary-accent)", letterSpacing: "0.2em", fontWeight: 800, fontSize: "0.8rem", marginBottom: "1rem" }}>SLIMME REKENTOOLS</h3>
           <h1 style={{ maxWidth: "900px", margin: "0 auto 1.5rem", fontSize: "clamp(2.5rem, 8vw, 4.5rem)", lineHeight: 1 }}>
             Vlijmscherpe berekeningen voor <span style={{ color: "var(--primary-accent)" }}>elke vraag</span>.
           </h1>
-          <p style={{ maxWidth: "700px", margin: "0 auto 3.5rem", color: "var(--secondary)", fontSize: "1.2rem", fontWeight: 500, lineHeight: 1.6 }}>
+          <p style={{ maxWidth: "700px", margin: "0 auto 3rem", color: "var(--secondary)", fontSize: "1.2rem", fontWeight: 500, lineHeight: 1.6 }}>
             Van hypotheek tot uurtarief. Wij rekenen het voor je uit met de meest actuele formules van 2026.
           </p>
           <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
             <Link href="/hypotheek" className="btn btn-primary" style={{ padding: "1.2rem 2.5rem", fontSize: "1rem", borderRadius: "14px" }}>Start Hypotheek Check</Link>
             <Link href="/uurtarief" className="btn" style={{ padding: "1.2rem 2.5rem", fontSize: "1rem", borderRadius: "14px", border: "1px solid var(--border)", color: "var(--primary-accent)", background: "white" }}>Freelance Calculator</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. MID AD SLOT (Between Hero and Tools) */}
+      <section style={{ paddingBottom: "6rem" }}>
+        <div className="fluid-container" style={{ display: "flex", justifyContent: "center" }}>
+          <div style={{ 
+            background: "#FF007F", 
+            width: "100%",
+            maxWidth: "728px",
+            height: "250px", 
+            borderRadius: "20px", 
+            display: "flex", 
+            alignItems: "center", 
+            justifyContent: "center", 
+            color: "white",
+            fontWeight: 900
+          }}>
+             PREMIUM AD SLOT v2.2 (MID RECTANGLE 728x250)
           </div>
         </div>
       </section>
@@ -55,7 +98,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Re-designed Ad Section (Centered & Blocked) */}
+      {/* 3. LARGE LEADERBOARD (Below Tools) */}
       <section style={{ paddingBottom: "8rem" }}>
         <div className="fluid-container" style={{ display: "flex", justifyContent: "center" }}>
           <div style={{ 
@@ -70,8 +113,8 @@ export default function Home() {
             justifyContent: "center", 
             color: "white"
           }}>
-             <span style={{ fontWeight: 900, fontSize: "1.5rem" }}>RESERVED PROMO SLOT</span>
-             <span style={{ opacity: 0.8, fontSize: "0.8rem", marginTop: "0.5rem" }}>970x250 Large Leaderboard</span>
+             <span style={{ fontWeight: 900, fontSize: "1.5rem" }}>PREMIUM AD SLOT v2.2 (LARGE 970x250)</span>
+             <span style={{ opacity: 0.8, fontSize: "0.8rem", marginTop: "0.5rem" }}>Hoogste opbrengst positie</span>
           </div>
         </div>
       </section>
@@ -85,16 +128,26 @@ export default function Home() {
             <p style={{ fontSize: "1.1rem", color: "var(--secondary)", lineHeight: 1.7, marginBottom: "3rem" }}>
               In een wereld vol complexe financiële beslissingen heb je behoefte aan duidelijkheid. Onze missie is om ingewikkelde formules om te zetten in begrijpelijke resultaten. Of je nu je eerste huis koopt, je studieschuld wilt aflossen of je freelance tarief wilt optimaliseren: wij rekenen het voor je uit.
             </p>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "3rem" }}>
-              <div>
-                <h3 style={{ marginBottom: "0.8rem", fontSize: "1rem" }}>100% Onafhankelijk</h3>
-                <p style={{ fontSize: "0.95rem", color: "var(--secondary)", lineHeight: 1.6 }}>Wij zijn niet verbonden aan banken of verzekeraars. Onze tools zijn er uitsluitend om jou te helpen betere keuzes te maken.</p>
-              </div>
-              <div>
-                <h3 style={{ marginBottom: "0.8rem", fontSize: "1rem" }}>Altijd Up-to-date</h3>
-                <p style={{ fontSize: "0.95rem", color: "var(--secondary)", lineHeight: 1.6 }}>Onze algoritmes worden dagelijks gecontroleerd op de laatste wet- en regelgeving voor 2026. Zo ben je altijd zeker van je zaak.</p>
-              </div>
-            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. BOTTOM AD SLOT (Final catch) */}
+      <section style={{ padding: "4rem 0", background: "white" }}>
+        <div className="fluid-container" style={{ display: "flex", justifyContent: "center" }}>
+          <div style={{ 
+            background: "#FF007F", 
+            width: "100%",
+            maxWidth: "728px",
+            height: "90px", 
+            borderRadius: "12px", 
+            display: "flex", 
+            alignItems: "center", 
+            justifyContent: "center", 
+            color: "white",
+            fontWeight: 900
+          }}>
+             PREMIUM AD SLOT v2.2 (BOTTOM 728x90)
           </div>
         </div>
       </section>
