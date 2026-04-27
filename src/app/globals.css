@@ -92,11 +92,11 @@ h3 {
   }
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1200px) {
   .pristine-grid {
-    grid-template-columns: 1fr 300px; /* Hide left ad to save space */
+    grid-template-columns: 1fr 300px; /* Hide left ad to save space for content */
   }
-  .ad-sidebar:first-of-type {
+  .left-ad {
     display: none;
   }
 }
