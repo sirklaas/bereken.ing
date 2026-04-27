@@ -17,12 +17,10 @@ export default function Header() {
   }, []);
 
   const navLinks = [
-    { name: "Wonen", href: "/warmtepomp" },
-    { name: "AI", href: "/ai" },
     { name: "Hypotheek", href: "/hypotheek" },
-    { name: "ZZP", href: "/uurtarief" },
-    { name: "Gezondheid", href: "/gezondheid" },
-    { name: "Over ons", href: "/over" }
+    { name: "AI", href: "/ai" },
+    { name: "Energie", href: "/wonen/zonnepanelen" },
+    { name: "Fun", href: "/fun/8ball" },
   ];
 
   return (
@@ -30,51 +28,59 @@ export default function Header() {
       position: "sticky",
       top: 0,
       zIndex: 1000,
-      background: "var(--background)",
-      transition: "all 0.3s ease",
-      borderBottom: "1px solid var(--border)"
+      background: "rgba(159, 160, 195, 0.8)", // Frosted Header from wireframe
+      backdropFilter: "blur(12px)",
+      transition: "var(--transition)",
+      borderBottom: "1px solid rgba(255,255,255,0.2)",
+      height: "100px",
+      display: "flex",
+      alignItems: "center"
     }}>
       <div className="container" style={{ 
-        display: "flex", 
-        justifyContent: "space-between", 
+        display: "grid", 
+        gridTemplateColumns: "1fr auto 1fr", 
         alignItems: "center", 
-        height: "80px" 
+        width: "100%" 
       }}>
+        
+        {/* Left Spacing (to keep logo centered) */}
+        <div />
+
+        {/* Centered Logo */}
         <Link href="/" style={{ 
-          fontSize: "1.8rem", 
+          fontSize: "2.4rem", 
           fontWeight: 400, 
           textDecoration: "none", 
           fontFamily: "var(--font-heading)",
           letterSpacing: "-0.05em",
-          color: "var(--heading-color)",
-          flexShrink: 0
+          color: "white",
+          textAlign: "center"
         }}>
           bereken<span style={{ fontWeight: 800, color: "var(--primary-accent)" }}>.ing</span>
         </Link>
         
-        {/* Mobile Swipeable Nav / Desktop Flex Nav */}
-        <nav className="mobile-swipe-nav" style={{ 
-          display: "flex", 
-          gap: "2rem",
-          marginLeft: "2rem"
-        }}>
-          {navLinks.map((link) => (
-            <Link 
-              key={link.href} 
-              href={link.href} 
-              style={{ 
-                textDecoration: "none", 
-                fontSize: "0.9rem", 
-                color: pathname === link.href ? "var(--primary-accent)" : "var(--heading-color)", 
-                fontWeight: pathname === link.href ? 800 : 600,
-                opacity: pathname === link.href ? 1 : 0.7,
-                transition: "var(--transition)"
-              }}
-            >
-              {link.name}
-            </Link>
-          ))}
-        </nav>
+        {/* Right Categories */}
+        <div style={{ display: "flex", justifyContent: "flex-end", alignItems: "center", gap: "1rem" }}>
+          <span style={{ color: "rgba(255,255,255,0.7)", fontSize: "0.8rem", fontWeight: 700, textTransform: "uppercase" }}>Catagorien:</span>
+          <nav className="mobile-swipe-nav" style={{ display: "flex", gap: "1.5rem" }}>
+            {navLinks.map((link) => (
+              <Link 
+                key={link.href} 
+                href={link.href} 
+                style={{ 
+                  textDecoration: "none", 
+                  fontSize: "0.85rem", 
+                  color: "white", 
+                  fontWeight: 700,
+                  opacity: pathname === link.href ? 1 : 0.7,
+                  transition: "var(--transition)"
+                }}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </nav>
+        </div>
       </div>
     </header>
   );

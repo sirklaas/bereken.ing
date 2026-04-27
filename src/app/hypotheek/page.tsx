@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import MortgageCalculator from "@/components/MortgageCalculator";
-import AdSenseSlot from "@/components/AdSenseSlot";
 import ToolLayout from "@/components/ToolLayout";
 import JsonLd from "@/components/JsonLd";
 
@@ -19,14 +18,14 @@ export default function MortgagePage() {
   };
 
   return (
-    <ToolLayout>
+    <ToolLayout 
+      intro="Financiën & Wonen"
+      title="Maximale Hypotheek"
+      subtitle="Bereken direct jouw leencapaciteit op basis van de Nibud-normen 2026."
+    >
       <JsonLd data={schema} />
 
-      <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
-      
-      <h3 style={{ marginBottom: "1rem" }}>Hypotheek & Wonen</h3>
-      <h1 style={{ marginBottom: "2rem" }}>Maximale <span style={{ color: "var(--primary-accent)" }}>Hypotheek</span></h1>
-      
+      {/* The main calculator box is inside ToolLayout's center column */}
       <MortgageCalculator />
 
       <div style={{ marginTop: "4rem", maxWidth: "800px" }}>
@@ -35,10 +34,7 @@ export default function MortgagePage() {
           Hoeveel je kunt lenen hangt af van je inkomen, eventuele schulden en de waarde van de woning. 
           Onze tool geeft je direct een indicatie op basis van de Nibud-normen voor 2026.
         </p>
-        <AdSenseSlot id="inline-ad" format="fluid" />
       </div>
-
-      <AdSenseSlot id="bottom-ad" format="rectangle" style={{ marginTop: "3rem" }} />
     </ToolLayout>
   );
 }
