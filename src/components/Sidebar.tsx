@@ -7,9 +7,14 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   const categories = [
-    { title: "Fun", links: [
+    { title: "Aftellen & Fun", links: [
       { name: "Magische 8-Ball", href: "/fun/8ball", icon: "🎱" },
       { name: "Dagen tot Kerst", href: "/fun/kerst", icon: "🎄" },
+      { name: "Dagen tot Pasen", href: "/fun/pasen", icon: "🐣" },
+      { name: "Dagen tot Ramadan", href: "/fun/ramadan", icon: "🌙" },
+      { name: "Dagen tot Suikerfeest", href: "/fun/suikerfeest", icon: "🍬" },
+      { name: "Dagen tot Bruiloft", href: "/fun/bruiloft", icon: "💍" },
+      { name: "Jubileum / Gouden Bruiloft", href: "/fun/jubileum", icon: "🥂" },
       { name: "Dagen tot Verjaardag", href: "/fun/verjaardag", icon: "🎂" },
       { name: "Dagentot (Death Clock)", href: "/fun/dagentot", icon: "⏳" },
       { name: "I Ching (Itjing)", href: "/fun/iching", icon: "🏯" },
