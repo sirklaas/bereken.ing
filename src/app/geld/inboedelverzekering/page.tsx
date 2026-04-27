@@ -11,7 +11,11 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <ToolLayout>
+    <ToolLayout 
+      intro="Geld & Verzekeringen"
+      title="Inboedelverzekering"
+      subtitle="Bereken de waarde van je inboedel en de bijbehorende maandelijkse premie."
+    >
       <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
       <h3>Geld & Wonen</h3>
       <h1>Inboedel <span style={{ color: "var(--primary-accent)" }}>Verzekering</span></h1>

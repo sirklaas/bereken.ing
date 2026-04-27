@@ -10,7 +10,11 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <ToolLayout>
+    <ToolLayout 
+      intro="Aftellen & Fun"
+      title="Dagentot (Death Clock)"
+      subtitle="Krijg een statistische indicatie van je resterende tijd op aarde. Gebruik het als motivatie!"
+    >
       <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
       <h3>Fun & Entertainment</h3>
       <h1>Dagentot <span style={{ color: "var(--primary-accent)" }}>Death Clock</span></h1>

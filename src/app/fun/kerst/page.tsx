@@ -17,7 +17,11 @@ export default function Page() {
   }
 
   return (
-    <ToolLayout>
+    <ToolLayout 
+      intro="Aftellen & Fun"
+      title="Dagen tot Kerst"
+      subtitle="Tel af naar de gezelligste tijd van het jaar. Hoeveel nachtjes nog tot kerstavond?"
+    >
       <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
       <h3>Feestdagen & Fun</h3>
       <h1>Dagen tot <span style={{ color: "var(--primary-accent)" }}>Kerst</span></h1>

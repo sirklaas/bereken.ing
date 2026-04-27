@@ -11,7 +11,11 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <ToolLayout>
+    <ToolLayout 
+      intro="Energie & Wonen"
+      title="Thuisbatterij Loont?"
+      subtitle="Ontdek of een thuisbatterij in 2026 rendabel is voor jouw specifieke situatie."
+    >
       <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
       <h3>Wonen & Energie</h3>
       <h1>Thuisbatterij <span style={{ color: "var(--primary-accent)" }}>Berekenen</span></h1>

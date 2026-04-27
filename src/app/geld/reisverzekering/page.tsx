@@ -11,7 +11,11 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <ToolLayout>
+    <ToolLayout 
+      intro="Geld & Verzekeringen"
+      title="Reisverzekering"
+      subtitle="Bereken de kosten voor een kortlopende of doorlopende reisverzekering."
+    >
       <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
       <h3>Geld & Vakantie</h3>
       <h1>Reis <span style={{ color: "var(--primary-accent)" }}>Verzekering</span></h1>
