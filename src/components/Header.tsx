@@ -68,7 +68,7 @@ export default function Header() {
           }}>
             bereken<span style={{ fontWeight: 800, color: "#FF007F" }}>.ing</span>
           </Link>
-          <span style={{ fontSize: "0.5rem", color: "rgba(255,255,255,0.8)", fontWeight: 900, marginTop: "0.2rem", background: "rgba(0,0,0,0.2)", padding: "2px 6px", borderRadius: "4px" }}>v2.2.0-MONEY</span>
+          <span style={{ fontSize: "0.5rem", color: "rgba(255,255,255,0.9)", fontWeight: 900, marginTop: "0.2rem", background: "#FF007F", padding: "2px 8px", borderRadius: "4px" }}>v2.3.0-ADS-FIX</span>
         </div>
         
         {/* Right: Dropdowns */}
