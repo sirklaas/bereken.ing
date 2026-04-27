@@ -7,6 +7,11 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   const categories = [
+    { title: "Fun", links: [
+      { name: "Magische 8-Ball", href: "/fun/8ball", icon: "🎱" },
+      { name: "I Ching (Itjing)", href: "/fun/iching", icon: "🏯" },
+      { name: "Dagentot", href: "/fun/dagentot", icon: "⏳" },
+    ]},
     { title: "Wonen & Energie", links: [
       { name: "Maximale Hypotheek", href: "/hypotheek", icon: "🏠" },
       { name: "Warmtepomp Rendement", href: "/warmtepomp", icon: "🔥" },
