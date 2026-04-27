@@ -15,40 +15,30 @@ const CATEGORIES = [
   { 
     name: "Geld", 
     links: [
-      { name: "Autoverzekering", href: "/geld/autokosten" },
+      { name: "Verzekeringen", href: "/geld/autokosten" },
       { name: "Vaste Lasten", href: "/vaste-lasten" },
-      { name: "Uurtarief", href: "/uurtarief" },
     ]
   },
   { 
     name: "Fun", 
     links: [
-      { name: "8-Ball", href: "/fun/8ball" },
-      { name: "Kerst Countdown", href: "/fun/kerst" },
-      { name: "Verjaardag", href: "/fun/verjaardag" },
-      { name: "I Ching", href: "/fun/iching" },
+      { name: "Magische 8-Ball", href: "/fun/8ball" },
+      { name: "Kerst", href: "/fun/kerst" },
       { name: "Death Clock", href: "/fun/dagentot" },
     ]
   }
 ];
 
 export default function Header() {
-  const [hasShadow, setHasShadow] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-
-  useEffect(() => {
-    const handleScroll = () => setHasShadow(window.scrollY > 10);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <header style={{
       position: "sticky",
       top: 0,
-      zIndex: 2000,
-      background: "#9FA0C3", // Periwinkle from wireframe
-      borderBottom: "1px solid rgba(255,255,255,0.2)",
+      zIndex: 9999,
+      background: "#9FA0C3", 
+      borderBottom: "1px solid rgba(255,255,255,0.3)",
       height: "100px",
       display: "flex",
       alignItems: "center"
@@ -58,19 +48,22 @@ export default function Header() {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center", 
-        width: "100%"
+        width: "100%",
+        maxWidth: "1400px",
+        margin: "0 auto",
+        padding: "0 2rem"
       }}>
         
-        {/* Left: Home */}
+        {/* Left: HOME */}
         <Link href="/" style={{ color: "white", textDecoration: "none", fontWeight: 900, fontSize: "0.9rem" }}>HOME</Link>
 
-        {/* Center: Logo (Absolute) */}
+        {/* Center: Logo (FORCE CENTER) */}
         <div style={{ 
           position: "absolute",
           left: "50%",
           top: "50%",
           transform: "translate(-50%, -50%)",
-          zIndex: 10
+          textAlign: "center"
         }}>
           <Link href="/" style={{ 
             fontSize: "2.6rem", 
@@ -79,13 +72,14 @@ export default function Header() {
             fontFamily: "var(--font-heading)",
             color: "white"
           }}>
-            bereken<span style={{ fontWeight: 800, color: "var(--primary-accent)" }}>.ing</span>
+            bereken<span style={{ fontWeight: 800, color: "#FF007F" }}>.ing</span>
           </Link>
+          <span style={{ fontSize: "0.5rem", color: "rgba(255,255,255,0.3)", display: "block" }}>v2.1.0-PRISTINE</span>
         </div>
         
         {/* Right: Dropdowns */}
         <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-          <span style={{ color: "rgba(255,255,255,0.8)", fontSize: "0.75rem", fontWeight: 800 }}>ANDERE HULPJES:</span>
+          <span style={{ color: "rgba(255,255,255,0.6)", fontSize: "0.75rem", fontWeight: 800 }}>ANDERE HULPJES:</span>
           
           <div style={{ display: "flex", gap: "0.5rem" }}>
             {CATEGORIES.map((cat) => (
@@ -95,19 +89,16 @@ export default function Header() {
                 onMouseLeave={() => setOpenDropdown(null)}
                 style={{ position: "relative" }}
               >
-                <button 
-                  onClick={() => setOpenDropdown(openDropdown === cat.name ? null : cat.name)}
-                  style={{
-                    background: "rgba(255,255,255,0.2)",
-                    border: "none",
-                    color: "white",
-                    fontSize: "0.8rem",
-                    fontWeight: 900,
-                    padding: "0.5rem 1rem",
-                    borderRadius: "8px",
-                    cursor: "pointer",
-                    textTransform: "uppercase"
-                  }}>
+                <button style={{
+                  background: "rgba(255,255,255,0.25)",
+                  border: "none",
+                  color: "white",
+                  fontSize: "0.85rem",
+                  fontWeight: 900,
+                  padding: "0.6rem 1rem",
+                  borderRadius: "10px",
+                  cursor: "pointer"
+                }}>
                   {cat.name} ▾
                 </button>
 
@@ -118,12 +109,11 @@ export default function Header() {
                     right: 0,
                     width: "220px",
                     background: "white",
-                    borderRadius: "12px",
-                    boxShadow: "0 20px 50px rgba(0,0,0,0.2)",
+                    borderRadius: "16px",
+                    boxShadow: "0 25px 50px rgba(0,0,0,0.3)",
                     padding: "0.8rem",
                     marginTop: "0.5rem",
-                    display: "grid",
-                    gap: "0.2rem"
+                    zIndex: 10000
                   }}>
                     {cat.links.map(link => (
                       <Link 
@@ -132,13 +122,15 @@ export default function Header() {
                         onClick={() => setOpenDropdown(null)}
                         style={{
                           textDecoration: "none",
-                          fontSize: "0.85rem",
-                          color: "#1e293b",
-                          fontWeight: 600,
+                          fontSize: "0.9rem",
+                          color: "#0f172a",
+                          fontWeight: 700,
                           padding: "0.7rem 1rem",
-                          borderRadius: "8px"
+                          borderRadius: "8px",
+                          display: "block"
                         }}
-                        className="dropdown-item"
+                        onMouseEnter={(e) => (e.currentTarget.style.background = "#f1f5f9")}
+                        onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
                       >
                         {link.name}
                       </Link>
@@ -150,12 +142,6 @@ export default function Header() {
           </div>
         </div>
       </div>
-      <style jsx>{`
-        .dropdown-item:hover { background: #f1f5f9; color: var(--primary-accent); }
-        @media (max-width: 1024px) {
-          span { display: none; }
-        }
-      `}</style>
     </header>
   );
 }
