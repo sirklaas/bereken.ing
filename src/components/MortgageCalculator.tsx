@@ -38,14 +38,10 @@ export default function MortgageCalculator() {
         }} />
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "280px 1fr" }}>
+      <div className="internal-grid">
         
         {/* Left Side Navigation (Pristine Glass Sidebar) */}
-        <div style={{ 
-          background: "linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%)", 
-          borderRight: "1px solid var(--border)",
-          padding: "2.5rem 1.2rem"
-        }}>
+        <div className="internal-sidebar">
           <div style={{ display: "flex", flexDirection: "column", gap: "0.8rem" }}>
             {steps.map((s) => (
               <button
@@ -84,7 +80,7 @@ export default function MortgageCalculator() {
         </div>
 
         {/* Right Work Area */}
-        <div style={{ padding: "4rem", background: "white", minHeight: "500px", display: "flex", flexDirection: "column" }}>
+        <div className="internal-content">
           
           <div style={{ flex: 1 }}>
             {step === 1 && (
@@ -191,6 +187,42 @@ export default function MortgageCalculator() {
         </div>
 
       </div>
+      <style jsx>{`
+        .internal-grid {
+          display: grid;
+          grid-template-columns: 280px 1fr;
+        }
+        .internal-sidebar {
+          background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+          border-right: 1px solid var(--border);
+          padding: 2.5rem 1.2rem;
+        }
+        .internal-content {
+          padding: clamp(1.5rem, 5vw, 4rem);
+          background: white;
+          min-height: 500px;
+          display: flex;
+          flex-direction: column;
+        }
+        @media (max-width: 768px) {
+          .internal-grid {
+            grid-template-columns: 1fr;
+          }
+          .internal-sidebar {
+            border-right: none;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            overflow-x: auto;
+            padding: 1rem;
+          }
+          .internal-sidebar > div {
+            flex-direction: row !important;
+          }
+          .internal-sidebar button {
+            white-space: nowrap;
+          }
+        }
+      `}</style>
     </div>
   );
 }

@@ -10,13 +10,12 @@ const CATEGORIES = [
       { name: "Hypotheek", href: "/hypotheek" },
       { name: "Zonnepanelen", href: "/wonen/zonnepanelen" },
       { name: "Warmtepomp", href: "/warmtepomp" },
-      { name: "Isolatie", href: "/isolatie" },
     ]
   },
   { 
     name: "Geld", 
     links: [
-      { name: "Verzekeringen", href: "/geld/autokosten" },
+      { name: "Autoverzekering", href: "/geld/autokosten" },
       { name: "Vaste Lasten", href: "/vaste-lasten" },
       { name: "Uurtarief", href: "/uurtarief" },
     ]
@@ -25,9 +24,8 @@ const CATEGORIES = [
     name: "Fun", 
     links: [
       { name: "Magische 8-Ball", href: "/fun/8ball" },
-      { name: "Kerst Countdown", href: "/fun/kerst" },
+      { name: "Kerst", href: "/fun/kerst" },
       { name: "Death Clock", href: "/fun/dagentot" },
-      { name: "I Ching", href: "/fun/iching" },
     ]
   }
 ];
@@ -50,29 +48,25 @@ export default function Header() {
       background: "rgba(159, 160, 195, 0.95)", 
       backdropFilter: "blur(12px)",
       borderBottom: "1px solid rgba(255,255,255,0.2)",
-      height: "100px"
+      height: "clamp(80px, 10vh, 100px)",
+      display: "flex",
+      alignItems: "center"
     }}>
       <div className="container" style={{ 
         position: "relative",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center", 
-        height: "100%"
+        width: "100%"
       }}>
         
-        {/* Left: Home */}
-        <Link href="/" style={{ color: "white", textDecoration: "none", fontWeight: 800, fontSize: "0.8rem", letterSpacing: "0.1em" }}>HOME</Link>
+        {/* Left: Home (Hidden on very small screens if needed) */}
+        <Link href="/" className="nav-home" style={{ color: "white", textDecoration: "none", fontWeight: 800, fontSize: "0.8rem", letterSpacing: "0.1em" }}>HOME</Link>
 
-        {/* Center: Logo (Absolute Center) */}
-        <div style={{ 
-          position: "absolute",
-          left: "50%",
-          top: "50%",
-          transform: "translate(-50%, -50%)",
-          textAlign: "center"
-        }}>
+        {/* Center: Logo (Fluid sizing) */}
+        <div className="logo-container">
           <Link href="/" style={{ 
-            fontSize: "2.5rem", 
+            fontSize: "clamp(1.5rem, 4vw, 2.5rem)", 
             fontWeight: 400, 
             textDecoration: "none", 
             fontFamily: "var(--font-heading)",
@@ -83,11 +77,11 @@ export default function Header() {
           </Link>
         </div>
         
-        {/* Right: "Andere hulpjes:" + Dropdowns */}
-        <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-          <span style={{ color: "rgba(255,255,255,0.7)", fontSize: "0.8rem", fontWeight: 700 }}>Andere hulpjes:</span>
+        {/* Right: Dropdowns */}
+        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+          <span className="nav-label" style={{ color: "rgba(255,255,255,0.7)", fontSize: "0.7rem", fontWeight: 700 }}>Andere hulpjes:</span>
           
-          <div style={{ display: "flex", gap: "0.8rem" }}>
+          <div style={{ display: "flex", gap: "0.5rem" }}>
             {CATEGORIES.map((cat) => (
               <div 
                 key={cat.name} 
@@ -95,17 +89,19 @@ export default function Header() {
                 onMouseLeave={() => setOpenDropdown(null)}
                 style={{ position: "relative" }}
               >
-                <button style={{
-                  background: "rgba(255,255,255,0.15)",
-                  border: "none",
-                  color: "white",
-                  fontSize: "0.8rem",
-                  fontWeight: 800,
-                  padding: "0.5rem 0.9rem",
-                  borderRadius: "10px",
-                  cursor: "pointer"
-                }}>
-                  {cat.name} ▾
+                <button 
+                  onClick={() => setOpenDropdown(openDropdown === cat.name ? null : cat.name)}
+                  style={{
+                    background: "rgba(255,255,255,0.15)",
+                    border: "none",
+                    color: "white",
+                    fontSize: "0.75rem",
+                    fontWeight: 800,
+                    padding: "0.4rem 0.6rem",
+                    borderRadius: "8px",
+                    cursor: "pointer"
+                  }}>
+                  {cat.name}
                 </button>
 
                 {openDropdown === cat.name && (
@@ -113,15 +109,15 @@ export default function Header() {
                     position: "absolute",
                     top: "100%",
                     right: 0,
-                    width: "220px",
+                    width: "200px",
                     background: "white",
                     borderRadius: "14px",
                     boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
-                    padding: "0.8rem",
+                    padding: "0.6rem",
                     marginTop: "0.5rem",
                     display: "grid",
-                    gap: "0.2rem",
-                    animation: "slideUp 0.2s ease-out"
+                    gap: "0.1rem",
+                    zIndex: 2000
                   }}>
                     {cat.links.map(link => (
                       <Link 
@@ -130,10 +126,10 @@ export default function Header() {
                         onClick={() => setOpenDropdown(null)}
                         style={{
                           textDecoration: "none",
-                          fontSize: "0.85rem",
+                          fontSize: "0.8rem",
                           color: "var(--heading-color)",
                           fontWeight: 600,
-                          padding: "0.6rem 0.8rem",
+                          padding: "0.5rem 0.8rem",
                           borderRadius: "8px"
                         }}
                         className="dropdown-item"
@@ -149,9 +145,30 @@ export default function Header() {
         </div>
       </div>
       <style jsx>{`
+        .logo-container {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          white-space: nowrap;
+        }
         .dropdown-item:hover {
           background: #f1f5f9;
           color: var(--primary-accent);
+        }
+        @media (max-width: 768px) {
+          .nav-home, .nav-label {
+            display: none;
+          }
+        }
+        @media (max-width: 480px) {
+          .logo-container {
+             position: static;
+             transform: none;
+          }
+          .container {
+            justify-content: space-between;
+          }
         }
       `}</style>
     </header>

@@ -74,35 +74,55 @@ h3 {
   margin-bottom: 1rem;
 }
 
-/* --- PRISTINE 3-COLUMN GRID --- */
+/* --- PRISTINE RESPONSIVE GRID --- */
 .pristine-grid {
   display: grid;
   grid-template-columns: 300px 1fr 300px;
-  gap: 4rem;
+  gap: 3rem;
   max-width: 1600px;
   margin: 0 auto;
   align-items: start;
+  width: 100%;
+}
+
+@media (max-width: 1400px) {
+  .pristine-grid {
+    grid-template-columns: 250px 1fr 250px;
+    gap: 2rem;
+  }
 }
 
 @media (max-width: 1280px) {
   .pristine-grid {
-    grid-template-columns: 1fr 300px; /* Hide left ad or move it */
-    gap: 2rem;
+    grid-template-columns: 1fr 300px; /* Hide left ad to save space */
+  }
+  .ad-sidebar:first-of-type {
+    display: none;
   }
 }
 
 @media (max-width: 1024px) {
   .pristine-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Stack everything */
+    gap: 4rem;
+  }
+  .ad-sidebar {
+    position: static !important;
+    order: 2; /* Ads below content */
+    width: 100% !important;
+    align-items: center;
+  }
+  .ad-container {
+    width: 100% !important;
+    max-width: 336px; /* Standard mobile ad width */
   }
 }
 
-.ad-sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  position: sticky;
-  top: 120px;
+.container {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 5vw, 4rem);
 }
 
 /* --- PREMIUM CARD DESIGN --- */
