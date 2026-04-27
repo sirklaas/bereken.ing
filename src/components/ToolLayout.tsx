@@ -21,10 +21,10 @@ export default function ToolLayout({ children, intro, title, subtitle }: ToolLay
       {/* 2. 3-Column Pristine Grid */}
       <div className="pristine-grid">
         
-        {/* Left Ad Sidebar (Always Pink Placeholder) */}
+        {/* Left Ad Sidebar (Pink Placeholder) */}
         <div className="ad-sidebar left-ad">
           <div style={{ 
-            background: "#FF007F", // Bright Pink
+            background: "#FF007F", 
             width: "300px", 
             height: "600px", 
             display: "flex", 
@@ -32,8 +32,7 @@ export default function ToolLayout({ children, intro, title, subtitle }: ToolLay
             justifyContent: "center",
             color: "white",
             fontWeight: 900,
-            borderRadius: "20px",
-            border: "4px dashed white"
+            borderRadius: "20px"
           }}>
             ADSENSE 300x600
           </div>
@@ -44,7 +43,7 @@ export default function ToolLayout({ children, intro, title, subtitle }: ToolLay
           {children}
         </main>
 
-        {/* Right Ad Sidebar (Always Pink Placeholder) */}
+        {/* Right Ad Sidebar (Pink Placeholder) */}
         <div className="ad-sidebar right-ad">
           <div style={{ 
             background: "#FF007F", 
@@ -56,7 +55,6 @@ export default function ToolLayout({ children, intro, title, subtitle }: ToolLay
             color: "white",
             fontWeight: 900,
             borderRadius: "20px",
-            border: "4px dashed white",
             marginBottom: "2rem"
           }}>
             ADSENSE 300x250
@@ -70,8 +68,7 @@ export default function ToolLayout({ children, intro, title, subtitle }: ToolLay
             justifyContent: "center",
             color: "white",
             fontWeight: 900,
-            borderRadius: "20px",
-            border: "4px dashed white"
+            borderRadius: "20px"
           }}>
             ADSENSE 300x600
           </div>

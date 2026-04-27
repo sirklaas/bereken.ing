@@ -10,21 +10,24 @@ const CATEGORIES = [
       { name: "Hypotheek", href: "/hypotheek" },
       { name: "Zonnepanelen", href: "/wonen/zonnepanelen" },
       { name: "Warmtepomp", href: "/warmtepomp" },
+      { name: "Isolatie", href: "/isolatie" },
     ]
   },
   { 
     name: "Geld", 
     links: [
-      { name: "Verzekeringen", href: "/geld/autokosten" },
+      { name: "Autoverzekering", href: "/geld/autokosten" },
       { name: "Vaste Lasten", href: "/vaste-lasten" },
+      { name: "Uurtarief", href: "/uurtarief" },
     ]
   },
   { 
     name: "Fun", 
     links: [
       { name: "Magische 8-Ball", href: "/fun/8ball" },
-      { name: "Kerst", href: "/fun/kerst" },
+      { name: "Kerst Countdown", href: "/fun/kerst" },
       { name: "Death Clock", href: "/fun/dagentot" },
+      { name: "I Ching", href: "/fun/iching" },
     ]
   }
 ];
@@ -44,7 +47,6 @@ export default function Header() {
       alignItems: "center"
     }}>
       <div className="container" style={{ 
-        position: "relative",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center", 
@@ -54,27 +56,19 @@ export default function Header() {
         padding: "0 2rem"
       }}>
         
-        {/* Left: HOME */}
-        <Link href="/" style={{ color: "white", textDecoration: "none", fontWeight: 900, fontSize: "0.9rem" }}>HOME</Link>
-
-        {/* Center: Logo (FORCE CENTER) */}
-        <div style={{ 
-          position: "absolute",
-          left: "50%",
-          top: "50%",
-          transform: "translate(-50%, -50%)",
-          textAlign: "center"
-        }}>
+        {/* Left: Logo & Version Stamp */}
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
           <Link href="/" style={{ 
             fontSize: "2.6rem", 
             fontWeight: 400, 
             textDecoration: "none", 
             fontFamily: "var(--font-heading)",
-            color: "white"
+            color: "white",
+            lineHeight: 1
           }}>
             bereken<span style={{ fontWeight: 800, color: "#FF007F" }}>.ing</span>
           </Link>
-          <span style={{ fontSize: "0.5rem", color: "rgba(255,255,255,0.3)", display: "block" }}>v2.1.0-PRISTINE</span>
+          <span style={{ fontSize: "0.5rem", color: "rgba(255,255,255,0.5)", fontWeight: 800, marginTop: "0.2rem" }}>v2.1.0-PRISTINE</span>
         </div>
         
         {/* Right: Dropdowns */}
