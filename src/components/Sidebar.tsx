@@ -12,6 +12,10 @@ export default function Sidebar() {
       { name: "I Ching (Itjing)", href: "/fun/iching", icon: "🏯" },
       { name: "Dagentot", href: "/fun/dagentot", icon: "⏳" },
     ]},
+    { title: "Geld & Verzekeringen", links: [
+      { name: "Begrafeniskosten", href: "/geld/begrafenis", icon: "⚰️" },
+      { name: "Crematiekosten", href: "/geld/crematie", icon: "🏺" },
+    ]},
     { title: "Wonen & Energie", links: [
       { name: "Maximale Hypotheek", href: "/hypotheek", icon: "🏠" },
       { name: "Warmtepomp Rendement", href: "/warmtepomp", icon: "🔥" },

@@ -16,6 +16,7 @@ export const AFFILIATE_CONFIG = {
     zzp_bank: "https://www.knab.nl/zakelijk",
     zorgverzekering: "https://www.independer.nl/zorgverzekering",
     boekhouden: "https://www.moneybird.nl",
+    uitvaartverzekering: "https://www.independer.nl/uitvaartverzekering",
   }
 };
 
