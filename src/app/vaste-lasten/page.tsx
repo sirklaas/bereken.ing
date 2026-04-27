@@ -1,43 +1,28 @@
 import type { Metadata } from "next";
-import FixedCostsCalculator from "@/components/FixedCostsCalculator";
-import AdSenseSlot from "@/components/AdSenseSlot";
+import VasteLastenCalculator from "@/components/VasteLastenCalculator";
 import ToolLayout from "@/components/ToolLayout";
-import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Vaste Lasten Berekenen 2026 | Maandelijkse vaste kosten",
-  description: "Bereken snel je totale vaste lasten per maand, inclusief huur, nutsvoorzieningen, verzekeringen en abonnementen.",
+  title: "Vaste Lasten Berekenen 2026 | Grip op je Budget",
+  description: "Bereken je maandelijkse vaste lasten en krijg direct inzicht in je budget. Ontdek waar je kunt besparen op wonen, energie en abonnementen.",
 };
 
-export default function FixedCostsPage() {
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "FinancialCalculator",
-    "name": "Vaste Lasten Calculator",
-    "description": "Tool om de maandelijkse vaste lasten te berekenen.",
-    "url": "https://www.bereken.ing/vaste-lasten"
-  };
-
+export default function VasteLastenPage() {
   return (
-    <ToolLayout>
-      <JsonLd data={schema} />
-
-      <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
-
-      <h3 style={{ marginBottom: "1rem" }}>Financiën & Overzicht</h3>
-      <h1 style={{ marginBottom: "2rem" }}>Vaste Lasten <span style={{ color: "var(--primary-accent)" }}>Berekenen</span></h1>
-
-      <FixedCostsCalculator />
+    <ToolLayout 
+      intro="Persoonlijke Financiën"
+      title="Vaste Lasten"
+      subtitle="Krijg direct overzicht van al je maandelijkse uitgaven en zie wat je onderaan de streep overhoudt."
+    >
+      <VasteLastenCalculator />
 
       <div style={{ marginTop: "4rem", maxWidth: "800px" }}>
-        <h2 style={{ fontSize: "1.8rem" }}>Waarom vaste lasten bijhouden?</h2>
+        <h2 style={{ fontSize: "1.8rem" }}>Waarom inzicht in vaste lasten belangrijk is</h2>
         <p>
-          Een duidelijk overzicht van je vaste kosten helpt je om je budget beter te beheren, onnodige uitgaven te vermijden en een realistisch financieel plan op te stellen.
+          Vaste lasten vormen vaak de grootste hap uit het budget. Door deze goed in kaart te brengen, 
+          creëer je rust en ruimte voor sparen of investeren. Onze tool helpt je om niets te vergeten.
         </p>
-        <AdSenseSlot id="inline-ad" format="fluid" />
       </div>
-
-      <AdSenseSlot id="bottom-ad" format="rectangle" style={{ marginTop: "3rem" }} />
     </ToolLayout>
   );
 }
