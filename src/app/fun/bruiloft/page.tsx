@@ -18,7 +18,11 @@ export default function WeddingPage() {
   }, [day, month, year]);
 
   return (
-    <ToolLayout>
+    <ToolLayout 
+      intro="Aftellen & Fun"
+      title="Dagen tot Bruiloft"
+      subtitle="Tel af naar de mooiste dag van je leven. Hoeveel nachtjes nog tot het ja-woord?"
+    >
       <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
       <h3>Liefde & Toekomst</h3>
       <h1>Dagen tot onze <span style={{ color: "var(--primary-accent)" }}>Bruiloft</span></h1>

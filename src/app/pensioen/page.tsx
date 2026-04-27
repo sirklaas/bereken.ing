@@ -19,7 +19,11 @@ export default function PensionPage() {
   };
 
   return (
-    <ToolLayout>
+    <ToolLayout 
+      intro="Geld & Toekomst"
+      title="Pensioen Tekort"
+      subtitle="Bereken of je voldoende opbouwt voor later en ontdek je jaarruimte voor 2026."
+    >
       <JsonLd data={schema} />
 
       <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />

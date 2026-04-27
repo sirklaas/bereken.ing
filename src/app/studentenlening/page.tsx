@@ -19,7 +19,11 @@ export default function StudentLoanPage() {
   };
 
   return (
-    <ToolLayout>
+    <ToolLayout 
+      intro="Geld & Studie"
+      title="Studieschuld"
+      subtitle="Bereken je maandelijkse aflossing en de impact van de rente op je totale studieschuld."
+    >
       <JsonLd data={schema} />
 
       <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />

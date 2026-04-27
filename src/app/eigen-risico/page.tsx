@@ -19,7 +19,11 @@ export default function EigenRisicoPage() {
   };
 
   return (
-    <ToolLayout>
+    <ToolLayout 
+      intro="Zorg & Verzekeringen"
+      title="Eigen Risico"
+      subtitle="Ontdek of het verhogen van je eigen risico in 2026 loont voor jouw situatie."
+    >
       <JsonLd data={schema} />
 
       <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />

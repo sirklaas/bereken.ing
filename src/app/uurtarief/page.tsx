@@ -19,7 +19,11 @@ export default function RatePage() {
   };
 
   return (
-    <ToolLayout>
+    <ToolLayout 
+      intro="Werk & Ondernemen"
+      title="Uurtarief ZZP"
+      subtitle="Bereken welk uurtarief je moet vragen om je gewenste netto inkomen te behalen."
+    >
       <JsonLd data={schema} />
 
       <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />

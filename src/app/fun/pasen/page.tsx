@@ -18,7 +18,11 @@ export default function Page() {
   }
 
   return (
-    <ToolLayout>
+    <ToolLayout 
+      intro="Aftellen & Fun"
+      title="Dagen tot Pasen"
+      subtitle="Ontdek wanneer het paasweekend valt en tel af naar het zoeken van de eieren."
+    >
       <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
       <h3>Vakanties & Tradities</h3>
       <h1>Dagen tot <span style={{ color: "var(--primary-accent)" }}>Pasen</span></h1>

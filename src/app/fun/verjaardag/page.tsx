@@ -21,7 +21,11 @@ export default function BirthdayPage() {
   }, [day, month]);
 
   return (
-    <ToolLayout>
+    <ToolLayout 
+      intro="Aftellen & Fun"
+      title="Dagen tot Verjaardag"
+      subtitle="Tel af naar je eigen feestje of die van een vriend. Maak van elke verjaardag een hoogtepunt."
+    >
       <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
       <h3>Persoonlijk & Fun</h3>
       <h1>Dagen tot mijn <span style={{ color: "var(--primary-accent)" }}>Verjaardag</span></h1>

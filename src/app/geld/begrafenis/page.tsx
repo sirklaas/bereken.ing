@@ -12,7 +12,11 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <ToolLayout>
+    <ToolLayout 
+      intro="Geld & Zekerheid"
+      title="Begrafeniskosten"
+      subtitle="Bereken de totale kosten van een uitvaart en voorkom financiële verrassingen voor nabestaanden."
+    >
       <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
       <h3>Geld & Verzekeringen</h3>
       <h1>Begrafenis <span style={{ color: "var(--primary-accent)" }}>Kosten</span></h1>

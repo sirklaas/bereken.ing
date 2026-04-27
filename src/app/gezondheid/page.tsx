@@ -19,7 +19,11 @@ export default function HealthPage() {
   };
 
   return (
-    <ToolLayout>
+    <ToolLayout 
+      intro="Gezondheid & Lifestyle"
+      title="BMI & Calorieën"
+      subtitle="Bereken je Body Mass Index en ontdek je dagelijkse caloriebehoefte voor een gezonde balans."
+    >
       <JsonLd data={schema} />
 
       <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
