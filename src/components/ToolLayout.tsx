@@ -9,7 +9,7 @@ interface ToolLayoutProps {
 
 export default function ToolLayout({ children, intro, title, subtitle }: ToolLayoutProps) {
   return (
-    <div className="container" style={{ paddingTop: "4rem", paddingBottom: "8rem" }}>
+    <div className="fluid-container" style={{ paddingTop: "4rem", paddingBottom: "8rem" }}>
       
       {/* 1. Centered Header Section */}
       <div style={{ textAlign: "center", marginBottom: "6rem" }}>

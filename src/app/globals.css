@@ -12,20 +12,18 @@
   --border: #f1f5f9;
   --input-bg: #f8fafc;
   --heading-color: #1e293b;
+  --background: #fdfdfd;
+  --card-bg: #ffffff;
+  --border: rgba(0,0,0,0.06);
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  --gap: clamp(1rem, 3vw, 2rem);
+  --max-width: 1440px;
 
   /* Typography choice: Inter (SaaS King) + Fugaz One (Brand) */
   --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-heading: var(--font-fugaz), var(--font-main);
-
-  /* Spacing */
-  --container-width: 1400px;
-  --container-padding: clamp(1.5rem, 5vw, 4rem);
-  --radius: 16px;
-  
-  /* Layered "Expensive" Shadows */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.07), 0 4px 6px -4px rgb(0 0 0 / 0.05);
-  --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   
   --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -118,11 +116,42 @@ h3 {
   }
 }
 
+.fluid-container {
+  width: 100%;
+  max-width: clamp(320px, 95vw, var(--max-width));
+  margin: 0 auto;
+  padding-inline: clamp(1rem, 5vw, 2rem);
+}
+
+.fluid-grid {
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 480px) {
+  .fluid-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .fluid-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .fluid-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
 .container {
   width: 100%;
-  max-width: 1600px;
+  max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 clamp(1rem, 5vw, 4rem);
+  padding: 0 clamp(1rem, 5vw, 2rem);
 }
 
 /* --- PREMIUM CARD DESIGN --- */

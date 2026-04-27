@@ -30,21 +30,29 @@ export default function Home() {
 
       {/* Tools Grid */}
       <section style={{ padding: "4rem 0", background: "#fcfdfe" }}>
-        <div className="container">
-          <h2 style={{ textAlign: "center", marginBottom: "3rem" }}>Populaire Tools</h2>
-          <div className="grid-layout">
-            {tools.map((tool) => (
-              <Link key={tool.slug} href={`/${tool.slug}`} style={{ textDecoration: "none" }}>
-                <div className="card">
-                  <div style={{ fontSize: "2rem", marginBottom: "1rem" }}>{tool.icon}</div>
-                  <h2 style={{ fontSize: "1.4rem", marginBottom: "0.5rem" }}>{tool.title}</h2>
-                  <p style={{ fontSize: "0.95rem", marginBottom: "1.5rem", color: "var(--secondary)" }}>{tool.desc}</p>
-                  <span style={{ fontWeight: 800, color: "var(--primary-accent)", fontSize: "0.85rem" }}>Bereken nu →</span>
-                </div>
-              </Link>
-            ))}
-          </div>
+        <section className="fluid-container" style={{ paddingBottom: "8rem" }}>
+        <h2 style={{ fontSize: "clamp(2rem, 5vw, 3rem)", marginBottom: "4rem", textAlign: "center" }}>
+          Populaire <span style={{ color: "var(--primary-accent)" }}>Tools</span>
+        </h2>
+        <div className="fluid-grid">
+          {tools.map((tool) => (
+            <Link key={tool.href} href={tool.href} style={{ textDecoration: "none" }}>
+              <div className="pristine-card" style={{ 
+                height: "100%", 
+                padding: "2rem",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                textAlign: "center"
+              }}>
+                <span style={{ fontSize: "2.5rem", marginBottom: "1.5rem" }}>{tool.icon}</span>
+                <h3 style={{ fontSize: "1.1rem", marginBottom: "0.5rem" }}>{tool.name}</h3>
+                <p style={{ fontSize: "0.85rem", color: "var(--secondary)", lineHeight: 1.4 }}>{tool.desc}</p>
+              </div>
+            </Link>
+          ))}
         </div>
+      </section>
       </section>
 
       {/* Ad Section */}
