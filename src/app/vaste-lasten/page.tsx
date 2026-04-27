@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import VasteLastenCalculator from "@/components/VasteLastenCalculator";
+import FixedCostsCalculator from "@/components/FixedCostsCalculator";
 import ToolLayout from "@/components/ToolLayout";
 
 export const metadata: Metadata = {
@@ -14,7 +14,7 @@ export default function VasteLastenPage() {
       title="Vaste Lasten"
       subtitle="Krijg direct overzicht van al je maandelijkse uitgaven en zie wat je onderaan de streep overhoudt."
     >
-      <VasteLastenCalculator />
+      <FixedCostsCalculator />
 
       <div style={{ marginTop: "4rem", maxWidth: "800px" }}>
         <h2 style={{ fontSize: "1.8rem" }}>Waarom inzicht in vaste lasten belangrijk is</h2>
