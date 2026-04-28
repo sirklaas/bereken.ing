@@ -100,15 +100,15 @@ h3 {
 }
 
 @media (max-width: 1024px) {
+  .top-ad-section, #top-ad, .ad-container#top-ad {
+    display: none !important;
+  }
   .pristine-grid {
     grid-template-columns: 1fr; /* Stack everything */
     gap: 4rem;
   }
-  .ad-sidebar {
-    position: static !important;
-    order: 2; /* Ads below content */
-    width: 100% !important;
-    align-items: center;
+  .ad-sidebar, .side-slot {
+    display: none !important;
   }
   .ad-container {
     width: 100% !important;

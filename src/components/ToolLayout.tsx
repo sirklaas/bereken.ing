@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 
 interface ToolLayoutProps {
@@ -73,7 +75,7 @@ export default function ToolLayout({ children, intro, title, subtitle }: ToolLay
           .main-tool-grid {
             grid-template-columns: 1fr !important;
           }
-          .side-slot { display: none; }
+          .side-slot { display: none !important; }
         }
       `}</style>
     </div>
