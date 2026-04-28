@@ -21,8 +21,8 @@
   --gap: clamp(1rem, 3vw, 2rem);
   --max-width: 1440px;
 
-  /* Typography choice: Inter (SaaS King) + Fugaz One (Brand) */
-  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Typography choice: Fugaz One (Brand) + Work Sans (Body/SaaS) */
+  --font-main: var(--font-work-sans), -apple-system, BlinkMacSystemFont, sans-serif;
   --font-heading: var(--font-fugaz), var(--font-main);
   
   --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -46,9 +46,9 @@ body {
 
 /* --- PRISTINE TYPOGRAPHY --- */
 h1 {
-  font-family: var(--font-main); /* Switching to Inter for that sleek SaaS look */
+  font-family: var(--font-heading);
   font-size: clamp(2.5rem, 8vw, 4.5rem);
-  font-weight: 800;
+  font-weight: 400; /* Fugaz One only has weight 400 */
   letter-spacing: -0.04em;
   line-height: 1.05;
   color: var(--heading-color);
@@ -56,6 +56,7 @@ h1 {
 }
 
 h2 {
+  font-family: var(--font-main);
   font-size: clamp(1.5rem, 4vw, 2rem);
   font-weight: 700;
   letter-spacing: -0.03em;
@@ -64,6 +65,7 @@ h2 {
 }
 
 h3 {
+  font-family: var(--font-main);
   font-size: 0.85rem;
   font-weight: 700;
   text-transform: uppercase;

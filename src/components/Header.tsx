@@ -57,11 +57,24 @@ const CATEGORIES = [
 export default function Header() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [leaveTimeout, setLeaveTimeout] = useState<NodeJS.Timeout | null>(null);
 
   // Close mobile menu on route change
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, []);
+
+  const handleMouseEnter = (name: string) => {
+    if (leaveTimeout) clearTimeout(leaveTimeout);
+    setOpenDropdown(name);
+  };
+
+  const handleMouseLeave = () => {
+    const timeout = setTimeout(() => {
+      setOpenDropdown(null);
+    }, 150); // Small delay to allow moving mouse to the dropdown
+    setLeaveTimeout(timeout);
+  };
 
   return (
     <header style={{
@@ -101,14 +114,14 @@ export default function Header() {
         
         {/* Right: Desktop Navigation */}
         <nav className="desktop-nav" style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "0.5rem" }}>
-          <span style={{ color: "rgba(255,255,255,0.9)", fontSize: "0.7rem", fontWeight: 900, letterSpacing: "0.05em" }}>ANDERE HANDIGE HULPJES</span>
+          <span style={{ color: "#374151", fontSize: "0.7rem", fontWeight: 900, letterSpacing: "0.05em" }}>ANDERE HANDIGE HULPJES</span>
           
           <div style={{ display: "flex", gap: "0.5rem" }}>
             {CATEGORIES.map((cat) => (
               <div 
                 key={cat.name} 
-                onMouseEnter={() => setOpenDropdown(cat.name)}
-                onMouseLeave={() => setOpenDropdown(null)}
+                onMouseEnter={() => handleMouseEnter(cat.name)}
+                onMouseLeave={handleMouseLeave}
                 style={{ position: "relative" }}
               >
                 <button style={{
@@ -125,18 +138,22 @@ export default function Header() {
                 </button>
 
                 {openDropdown === cat.name && (
-                  <div style={{
-                    position: "absolute",
-                    top: "100%",
-                    right: 0,
-                    width: "220px",
-                    background: "white",
-                    borderRadius: "16px",
-                    boxShadow: "0 25px 50px rgba(0,0,0,0.3)",
-                    padding: "0.8rem",
-                    marginTop: "0.5rem",
-                    zIndex: 10000
-                  }}>
+                  <div 
+                    onMouseEnter={() => handleMouseEnter(cat.name)}
+                    onMouseLeave={handleMouseLeave}
+                    style={{
+                      position: "absolute",
+                      top: "100%",
+                      right: 0,
+                      width: "220px",
+                      background: "white",
+                      borderRadius: "16px",
+                      boxShadow: "0 25px 50px rgba(0,0,0,0.3)",
+                      padding: "0.8rem",
+                      marginTop: "0.5rem",
+                      zIndex: 10000
+                    }}
+                  >
                     {cat.links.map(link => (
                       <Link 
                         key={link.href}
