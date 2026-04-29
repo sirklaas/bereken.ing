@@ -16,7 +16,6 @@ export const PARTNER_CONFIG: Record<string, Partner[]> = {
     { name: "ING", logo: "https://www.google.com/s2/favicons?domain=ing.nl&sz=128", href: "https://www.ing.nl/particulier/hypotheek", description: "Vlijmscherpe rente" },
     { name: "Rabobank", logo: "https://www.google.com/s2/favicons?domain=rabobank.nl&sz=128", href: "https://www.rabobank.nl/particulieren/hypotheek", description: "Lokaal betrokken" },
     { name: "ABN AMRO", logo: "https://www.google.com/s2/favicons?domain=abnamro.nl&sz=128", href: "https://www.abnamro.nl/nl/prive/hypotheken", description: "Duurzaam wonen" },
-    { name: "SNS Bank", logo: "https://www.google.com/s2/favicons?domain=snsbank.nl&sz=128", href: "https://www.snsbank.nl", description: "Heel normaal" },
     { name: "ASN Bank", logo: "https://www.google.com/s2/favicons?domain=asnbank.nl&sz=128", href: "https://www.asnbank.nl", description: "Duurzaam bankieren" },
     { name: "RegioBank", logo: "https://www.google.com/s2/favicons?domain=regiobank.nl&sz=128", href: "https://www.regiobank.nl", description: "Dichtbij huis" },
     { name: "Triodos", logo: "https://www.google.com/s2/favicons?domain=triodos.nl&sz=128", href: "https://www.triodos.nl", description: "Maak geld eerlijk" },

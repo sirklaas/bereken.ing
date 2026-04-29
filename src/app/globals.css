@@ -26,8 +26,8 @@
   --gap: clamp(1rem, 3vw, 2rem);
   --max-width: 1440px;
 
-  /* Typography choice: Plus Jakarta Sans (UI/Headings) + Inter (Body) */
-  --font-main: var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Typography choice: Plus Jakarta Sans (Global) */
+  --font-main: var(--font-jakarta), -apple-system, BlinkMacSystemFont, sans-serif;
   --font-heading: var(--font-jakarta), var(--font-main);
   --font-brand: var(--font-fugaz), var(--font-heading);
   
