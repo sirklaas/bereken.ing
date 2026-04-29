@@ -34,10 +34,6 @@ export default function RateCalculator() {
 
   return (
     <div className="card animate-in stagger-2">
-      <div style={{ marginBottom: "2rem" }}>
-        <h2 style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>Uurtarief Calculator</h2>
-        <p style={{ fontSize: "0.9rem" }}>Bereken welk tarief je moet vragen voor je gewenste inkomen.</p>
-      </div>
 
       <div style={{ display: "grid", gap: "1.5rem" }}>
         <div>

@@ -32,10 +32,6 @@ export default function FuneralCalculator({ type }: { type: "burial" | "crematio
 
   return (
     <div className="card animate-in stagger-2">
-      <h2 style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>
-        {type === "burial" ? "Begrafenis" : "Crematie"} Kosten
-      </h2>
-      <p style={{ fontSize: "0.9rem", marginBottom: "2rem" }}>Bereken de geschatte kosten voor een waardig afscheid.</p>
 
       <div style={{ display: "grid", gap: "1.5rem" }}>
         <div>

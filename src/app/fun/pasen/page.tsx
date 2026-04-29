@@ -23,7 +23,6 @@ export default function Page() {
       title="Dagen tot Pasen"
       subtitle="Ontdek wanneer het paasweekend valt en tel af naar het zoeken van de eieren."
     >
-      <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
       
       <EventCountdown targetDate={easter} title={`Countdown tot Pasen ${easter.getFullYear()}`} />
 

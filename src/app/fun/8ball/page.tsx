@@ -15,7 +15,6 @@ export default function Page() {
       title="Magische 8-Ball"
       subtitle="Stel een vraag en laat de magische 8-ball je toekomst voorspellen."
     >
-      <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
       <Magic8Ball />
       <AdSenseSlot id="bottom-ad" format="rectangle" style={{ marginTop: "3rem" }} />
     </ToolLayout>

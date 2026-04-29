@@ -26,7 +26,6 @@ export default function BirthdayPage() {
       title="Dagen tot Verjaardag"
       subtitle="Tel af naar je eigen feestje of die van een vriend. Maak van elke verjaardag een hoogtepunt."
     >
-      <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
       
       <div className="card" style={{ marginBottom: "2rem" }}>
         <p style={{ fontSize: "0.9rem", marginBottom: "1rem" }}>Wanneer ben je jarig?</p>

@@ -26,8 +26,6 @@ export default function FixedCostsCalculator() {
 
   return (
     <div className="card animate-in stagger-2">
-      <h2 style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>Vaste Lasten Calculator</h2>
-      <p style={{ fontSize: "0.9rem", marginBottom: "1rem" }}>Voer je maandelijkse vaste kosten in voor een duidelijk overzicht.</p>
 
       <div style={{ display: "grid", gap: "1rem" }}>
         <div>

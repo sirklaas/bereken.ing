@@ -21,15 +21,10 @@ export default function PensionPage() {
   return (
     <ToolLayout 
       intro="Geld & Toekomst"
-      title="Pensioen Tekort"
+      title="Pensioen Opbouw"
       subtitle="Bereken of je voldoende opbouwt voor later en ontdek je jaarruimte voor 2026."
     >
       <JsonLd data={schema} />
-
-      <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
-
-      <h3 style={{ marginBottom: "1rem" }}>Financiën & Toekomst</h3>
-      <h1 style={{ marginBottom: "2rem" }}>Pensioen <span style={{ color: "var(--primary-accent)" }}>Opbouwen</span></h1>
 
       <PensionCalculator />
 

@@ -24,20 +24,25 @@ export default function ToolLayout({ children, intro, title, subtitle, topic, yo
     <div id="main-content" className="fluid-container" style={{ paddingTop: "4rem", paddingBottom: "8rem" }}>
       
       {/* 1. Centered Header Section */}
-      <div style={{ textAlign: "center", marginBottom: "6rem" }}>
-        {intro && <h3 style={{ marginBottom: "0.8rem", color: "var(--primary-accent)", letterSpacing: "0.2em", fontWeight: 800, fontSize: "0.8rem" }}>{intro.toUpperCase()}</h3>}
+      <div style={{ textAlign: "center", marginBottom: "3rem" }}>
+        {intro && (
+          <h3 style={{ 
+            marginBottom: "0.8rem", 
+            color: "var(--primary-accent)", 
+            letterSpacing: "0.2em", 
+            fontWeight: 800, 
+            fontSize: "0.8rem",
+            textAlign: "center"
+          }}>
+            {intro.toUpperCase()}
+          </h3>
+        )}
         <h1 style={{ fontSize: "clamp(3rem, 10vw, 5rem)", marginBottom: "1rem", lineHeight: 1 }}>{title}</h1>
         {subtitle && <h2 style={{ fontSize: "1.4rem", fontWeight: 500, opacity: 0.5, maxWidth: "850px", margin: "0 auto", lineHeight: 1.4 }}>{subtitle}</h2>}
       </div>
 
       {/* 2. 3-Column Layout (Independent of fluid-grid to prevent overlap) */}
-      <div style={{ 
-        display: "grid", 
-        gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-        gap: "var(--gap)",
-        alignItems: "start"
-      }} className="main-tool-grid">
-        
+      <div className="main-tool-grid">
         {/* Left Side Slot */}
         <div className="side-slot left-slot" style={{ display: "flex", justifyContent: "center" }}>
           <div style={{ 

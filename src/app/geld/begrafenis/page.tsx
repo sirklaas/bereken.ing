@@ -17,7 +17,6 @@ export default function Page() {
       title="Begrafeniskosten"
       subtitle="Bereken de totale kosten van een uitvaart en voorkom financiële verrassingen voor nabestaanden."
     >
-      <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
       
       <FuneralCalculator type="burial" />
 

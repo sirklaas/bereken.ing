@@ -37,8 +37,6 @@ export default function CarCostCalculator() {
 
   return (
     <div className="card animate-in stagger-2">
-      <h2 style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>Maandelijkse Autokosten</h2>
-      <p style={{ fontSize: "0.9rem", marginBottom: "2rem" }}>Bereken de échte kosten van jouw auto, inclusief afschrijving.</p>
 
       <div style={{ display: "grid", gap: "1.2rem" }}>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>

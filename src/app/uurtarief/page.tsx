@@ -28,7 +28,6 @@ export default function RatePage() {
     >
       <JsonLd data={schema} />
 
-      <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
       
 
       <RateCalculator />

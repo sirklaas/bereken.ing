@@ -16,7 +16,6 @@ export default function Page() {
       title="Zonnepanelen Rendement"
       subtitle="Bereken direct de terugverdientijd en de jaarlijkse opbrengst van jouw zonnepanelen."
     >
-      <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
       
       <SolarCalculator />
 

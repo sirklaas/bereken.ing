@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { SITE_VERSION } from "@/config/version";
 
 const CATEGORIES = [
   { 
@@ -109,7 +110,7 @@ export default function Header() {
               priority
             />
           </Link>
-          <span style={{ fontSize: "0.5rem", color: "rgba(255,255,255,0.9)", fontWeight: 900, marginTop: "0.2rem", background: "#FF007F", padding: "2px 8px", borderRadius: "4px" }}>v3.0</span>
+          <span style={{ fontSize: "0.5rem", color: "rgba(255,255,255,0.9)", fontWeight: 900, marginTop: "0.2rem", background: "#FF007F", padding: "2px 8px", borderRadius: "4px" }}>{SITE_VERSION}</span>
         </div>
         
         {/* Right: Desktop Navigation */}

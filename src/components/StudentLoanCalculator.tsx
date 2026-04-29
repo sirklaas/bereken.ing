@@ -32,10 +32,6 @@ export default function StudentLoanCalculator() {
 
   return (
     <div className="card animate-in stagger-2">
-      <div style={{ marginBottom: "2rem" }}>
-        <h2 style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>Studieschuld Calculator</h2>
-        <p style={{ fontSize: "0.9rem" }}>Bereken je maandbedrag op basis van de huidige DUO regels.</p>
-      </div>
 
       <div style={{ display: "grid", gap: "1.5rem" }}>
         <div>

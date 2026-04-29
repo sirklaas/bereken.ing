@@ -1,0 +1,299 @@
+"use client";
+
+import React, { useState, useTransition } from "react";
+import { TOOL_CONTENT, ToolContent } from "@/config/toolContent";
+import { updateToolContent, pushToGitHub } from "./actions";
+import Link from "next/link";
+
+export default function ContentDashboard() {
+  const [activeCategory, setActiveCategory] = useState("Alle");
+  const [tools, setTools] = useState(Object.values(TOOL_CONTENT));
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [isPending, startTransition] = useTransition();
+  const [isPushing, setIsPushing] = useState(false);
+
+  const categories = ["Alle", ...Array.from(new Set(tools.map(t => t.category)))];
+
+  const filteredTools = activeCategory === "Alle" 
+    ? tools 
+    : tools.filter(t => t.category === activeCategory);
+
+  const handleSave = async (updatedTool: ToolContent) => {
+    startTransition(async () => {
+      const result = await updateToolContent(updatedTool);
+      if (result.success) {
+        setTools(tools.map(t => t.id === updatedTool.id ? updatedTool : t));
+        setEditingId(null);
+      } else {
+        alert("Fout bij opslaan: " + result.error);
+      }
+    });
+  };
+
+  const handlePush = async () => {
+    setIsPushing(true);
+    const result = await pushToGitHub();
+    setIsPushing(false);
+    if (result.success) {
+      alert("Changes pushed to GitHub successfully!");
+    } else {
+      alert("Push failed: " + result.error);
+    }
+  };
+
+  return (
+    <div style={{ padding: "4rem 2rem", maxWidth: "1200px", margin: "0 auto", fontFamily: "var(--font-main)" }}>
+      <header style={{ marginBottom: "2rem", display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
+        <div>
+          <h1 style={{ fontSize: "2.5rem", marginBottom: "0.5rem" }}>Content Dashboard</h1>
+          <p style={{ color: "#64748b" }}>Klik op een kaart om de content direct te bewerken.</p>
+        </div>
+        <button 
+          onClick={handlePush}
+          disabled={isPushing}
+          style={{
+            padding: "1rem 2rem",
+            background: "#24292f", // GitHub dark
+            color: "white",
+            border: "none",
+            borderRadius: "12px",
+            fontWeight: 800,
+            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
+            gap: "0.8rem",
+            opacity: isPushing ? 0.7 : 1,
+            transition: "all 0.2s ease"
+          }}
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          {isPushing ? "Pushing..." : "Push to GitHub"}
+        </button>
+      </header>
+
+      {/* Category Filter Bar */}
+      <div style={{ 
+        display: "flex", 
+        gap: "0.8rem", 
+        marginBottom: "3rem", 
+        paddingBottom: "1.5rem", 
+        borderBottom: "2px solid #f1f5f9",
+        overflowX: "auto" 
+      }}>
+        {categories.map(cat => (
+          <button
+            key={cat}
+            onClick={() => setActiveCategory(cat)}
+            style={{
+              padding: "0.8rem 1.5rem",
+              borderRadius: "12px",
+              border: "none",
+              background: activeCategory === cat ? "var(--primary-accent)" : "white",
+              color: activeCategory === cat ? "white" : "#64748b",
+              fontWeight: 700,
+              cursor: "pointer",
+              boxShadow: activeCategory === cat ? "0 4px 12px rgba(99, 102, 241, 0.3)" : "0 2px 4px rgba(0,0,0,0.05)",
+              whiteSpace: "nowrap",
+              transition: "all 0.2s ease"
+            }}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      <div style={{ display: "grid", gap: "2rem" }}>
+        {filteredTools.map((tool) => (
+          <ToolCard 
+            key={tool.id} 
+            tool={tool} 
+            isEditing={editingId === tool.id}
+            onEdit={() => setEditingId(tool.id)}
+            onCancel={() => setEditingId(null)}
+            onSave={handleSave}
+            isPending={isPending}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ToolCard({ tool, isEditing, onEdit, onCancel, onSave, isPending }: { 
+  tool: ToolContent, 
+  isEditing: boolean, 
+  onEdit: () => void, 
+  onCancel: () => void,
+  onSave: (tool: ToolContent) => void,
+  isPending: boolean
+}) {
+  const [formData, setFormData] = useState(tool);
+
+  if (isEditing) {
+    return (
+      <div style={{ 
+        background: "white", 
+        padding: "2.5rem", 
+        borderRadius: "20px", 
+        border: "2px solid var(--primary-accent)",
+        boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)"
+      }}>
+        <div style={{ display: "grid", gap: "1.5rem" }}>
+          <div>
+            <label style={labelStyle}>Intro Heading</label>
+            <input 
+              style={inputStyle} 
+              value={formData.intro} 
+              onChange={e => setFormData({...formData, intro: e.target.value})} 
+            />
+          </div>
+          <div>
+            <label style={labelStyle}>Heading (H1)</label>
+            <input 
+              style={inputStyle} 
+              value={formData.title} 
+              onChange={e => setFormData({...formData, title: e.target.value})} 
+            />
+          </div>
+          <div>
+            <label style={labelStyle}>Subheading</label>
+            <textarea 
+              style={{...inputStyle, minHeight: "80px"}} 
+              value={formData.subtitle} 
+              onChange={e => setFormData({...formData, subtitle: e.target.value})} 
+            />
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem" }}>
+            <div>
+              <label style={labelStyle}>Bottom Title (H2)</label>
+              <input 
+                style={inputStyle} 
+                value={formData.contentTitle || ""} 
+                onChange={e => setFormData({...formData, contentTitle: e.target.value})} 
+              />
+            </div>
+            <div>
+              <label style={labelStyle}>Meta Title (SEO)</label>
+              <input 
+                style={inputStyle} 
+                value={formData.metaTitle} 
+                onChange={e => setFormData({...formData, metaTitle: e.target.value})} 
+              />
+            </div>
+          </div>
+          <div>
+            <label style={labelStyle}>Bottom Body / Intro Body</label>
+            <textarea 
+              style={{...inputStyle, minHeight: "120px"}} 
+              value={formData.contentText || ""} 
+              onChange={e => setFormData({...formData, contentText: e.target.value})} 
+            />
+          </div>
+          
+          <div style={{ display: "flex", gap: "1rem", marginTop: "1rem" }}>
+            <button 
+              onClick={() => onSave(formData)} 
+              disabled={isPending}
+              style={{
+                padding: "1rem 2rem",
+                borderRadius: "12px",
+                background: "var(--primary-accent)",
+                color: "white",
+                border: "none",
+                fontWeight: 700,
+                cursor: "pointer",
+                opacity: isPending ? 0.7 : 1
+              }}
+            >
+              {isPending ? "Opslaan..." : "Wijzigingen Opslaan"}
+            </button>
+            <button 
+              onClick={onCancel}
+              style={{
+                padding: "1rem 2rem",
+                borderRadius: "12px",
+                background: "#f1f5f9",
+                color: "#64748b",
+                border: "none",
+                fontWeight: 700,
+                cursor: "pointer"
+              }}
+            >
+              Annuleren
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div 
+      onClick={onEdit}
+      style={{ 
+        background: "white", 
+        padding: "2rem", 
+        borderRadius: "16px", 
+        border: "1px solid #e2e8f0",
+        boxShadow: "0 4px 6px -1px rgba(0,0,0,0.05)",
+        cursor: "pointer",
+        transition: "all 0.2s ease"
+      }}
+      onMouseEnter={e => e.currentTarget.style.borderColor = "var(--primary-accent)"}
+      onMouseLeave={e => e.currentTarget.style.borderColor = "#e2e8f0"}
+    >
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "1.5rem" }}>
+        <div>
+          <span style={{ 
+            fontSize: "0.7rem", 
+            fontWeight: 800, 
+            color: "var(--primary-accent)", 
+            textTransform: "uppercase",
+            letterSpacing: "0.1em",
+            background: "rgba(99, 102, 241, 0.1)",
+            padding: "4px 8px",
+            borderRadius: "4px"
+          }}>{tool.intro}</span>
+          <h2 style={{ fontSize: "1.5rem", marginTop: "0.5rem" }}>{tool.title}</h2>
+        </div>
+        <Link href={`/${tool.id}`} target="_blank" onClick={e => e.stopPropagation()} style={{ 
+          fontSize: "0.8rem", 
+          color: "var(--primary-accent)", 
+          textDecoration: "none",
+          fontWeight: 700
+        }}>Bekijk Tool →</Link>
+      </div>
+
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem", fontSize: "0.9rem" }}>
+        <div>
+          <h4 style={{ color: "#64748b", marginBottom: "0.5rem" }}>Subheading</h4>
+          <p>{tool.subtitle}</p>
+        </div>
+        <div>
+          <h4 style={{ color: "#64748b", marginBottom: "0.5rem" }}>Bottom SEO Content</h4>
+          <p><strong>{tool.contentTitle}</strong></p>
+          <p style={{ marginTop: "0.5rem", fontSize: "0.85rem", color: "#475569" }}>{tool.contentText}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const labelStyle: React.CSSProperties = {
+  display: "block",
+  fontSize: "0.8rem",
+  fontWeight: 700,
+  color: "#64748b",
+  marginBottom: "0.5rem",
+  textTransform: "uppercase",
+  letterSpacing: "0.05em"
+};
+
+const inputStyle: React.CSSProperties = {
+  width: "100%",
+  padding: "1rem",
+  borderRadius: "12px",
+  border: "1px solid #e2e8f0",
+  fontSize: "1rem",
+  fontFamily: "inherit"
+};

@@ -16,7 +16,6 @@ export default function Page() {
       title="Thuisbatterij Loont?"
       subtitle="Ontdek of een thuisbatterij in 2026 rendabel is voor jouw specifieke situatie."
     >
-      <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
       
       <BatteryCalculator />
 

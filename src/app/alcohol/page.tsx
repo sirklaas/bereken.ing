@@ -20,16 +20,11 @@ export default function AlcoholPage() {
 
   return (
     <ToolLayout 
-      intro="Gezondheid & Lifestyle"
-      title="Alcohol Promillage"
+      intro="Gezondheid & Veiligheid"
+      title="Alcohol Berekenen"
       subtitle="Bereken je geschatte bloedalcoholgehalte (BAG) op basis van je consumpties."
     >
       <JsonLd data={schema} />
-
-      <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
-      
-      <h3 style={{ marginBottom: "1rem" }}>Gezondheid & Veiligheid</h3>
-      <h1 style={{ marginBottom: "2rem" }}>Alcohol <span style={{ color: "var(--primary-accent)" }}>Berekenen</span></h1>
       
       <AlcoholCalculator />
 

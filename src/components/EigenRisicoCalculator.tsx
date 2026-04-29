@@ -23,8 +23,6 @@ export default function EigenRisicoCalculator() {
 
   return (
     <div className="card animate-in stagger-2">
-      <h2 style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>Eigen Risico Berekenen</h2>
-      <p style={{ fontSize: "0.9rem", marginBottom: "1rem" }}>Voer je geschatte jaarlijkse zorgkosten en eigen risico in om te zien hoeveel je zelf betaalt.</p>
 
       <div style={{ display: "grid", gap: "1rem" }}>
         <div>

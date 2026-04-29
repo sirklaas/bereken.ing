@@ -32,8 +32,6 @@ export default function AlcoholCalculator() {
 
   return (
     <div className="card animate-in stagger-2">
-      <h2 style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>Promillage Berekenen</h2>
-      <p style={{ fontSize: "0.9rem", marginBottom: "1.5rem" }}>Schat je bloedalcoholgehalte (promille) op basis van je consumpties.</p>
 
       <div style={{ display: "grid", gap: "1.2rem" }}>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>

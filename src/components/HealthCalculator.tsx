@@ -39,10 +39,6 @@ export default function HealthCalculator() {
 
   return (
     <div className="card animate-in stagger-2">
-      <div style={{ marginBottom: "2rem" }}>
-        <h2 style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>Gezondheid Calculator</h2>
-        <p style={{ fontSize: "0.9rem" }}>Bereken je BMI en dagelijkse energiebehoefte.</p>
-      </div>
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem" }}>
         <div>

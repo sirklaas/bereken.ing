@@ -15,7 +15,6 @@ export default function Page() {
       title="I Ching (Itjing)"
       subtitle="Raadpleeg het eeuwenoude Chinese Boek der Veranderingen voor inzicht en wijsheid."
     >
-      <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
       <IChing />
       <AdSenseSlot id="bottom-ad" format="rectangle" style={{ marginTop: "3rem" }} />
     </ToolLayout>

@@ -29,8 +29,6 @@ export default function BatteryCalculator() {
 
   return (
     <div className="card animate-in stagger-2">
-      <h2 style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>Thuisbatterij Rendement</h2>
-      <p style={{ fontSize: "0.9rem", marginBottom: "2rem" }}>Ontdek of een thuisbatterij loont bij de huidige energieprijzen.</p>
 
       <div style={{ display: "grid", gap: "1.2rem" }}>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>

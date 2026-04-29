@@ -17,7 +17,6 @@ export default function Page() {
       title="Crematiekosten"
       subtitle="Bereken de kosten voor een respectvolle crematie en bekijk de vergoedingen."
     >
-      <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
       
       <FuneralCalculator type="cremation" />
 

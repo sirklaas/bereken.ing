@@ -26,7 +26,6 @@ export default function StudentLoanPage() {
     >
       <JsonLd data={schema} />
 
-      <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
       
       <StudentLoanCalculator />
 

@@ -22,7 +22,6 @@ export default function Page() {
       title="Dagen tot Kerst"
       subtitle="Tel af naar de gezelligste tijd van het jaar. Hoeveel nachtjes nog tot kerstavond?"
     >
-      <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
       
       <EventCountdown targetDate={christmas} title="Aftellen naar Kerstavond" />
 

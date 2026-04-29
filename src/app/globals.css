@@ -27,7 +27,7 @@
   --max-width: 1440px;
 
   /* Typography choice: Plus Jakarta Sans (Global) */
-  --font-main: var(--font-jakarta), -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-main: var(--font-jakarta), sans-serif;
   --font-heading: var(--font-jakarta), var(--font-main);
   --font-brand: var(--font-fugaz), var(--font-heading);
   
@@ -99,17 +99,6 @@ h3 {
   letter-spacing: 0.15em;
   color: var(--primary-accent);
   margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-h3::after {
-  content: "";
-  height: 2px;
-  width: 20px;
-  background: var(--accent-vibrant);
-  display: inline-block;
 }
 
 /* --- PRISTINE RESPONSIVE GRID --- */
@@ -121,6 +110,37 @@ h3::after {
   margin: 0 auto;
   align-items: start;
   width: 100%;
+}
+
+.main-tool-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--gap);
+  align-items: start;
+}
+
+@media (min-width: 1200px) {
+  .main-tool-grid {
+    grid-template-columns: 300px minmax(0, 1fr) 300px;
+  }
+}
+
+@media (max-width: 1199px) and (min-width: 768px) {
+  .main-tool-grid {
+    grid-template-columns: minmax(0, 1fr) 300px;
+  }
+  .left-slot {
+    display: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .main-tool-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .side-slot {
+    display: none !important;
+  }
 }
 
 @media (max-width: 1400px) {

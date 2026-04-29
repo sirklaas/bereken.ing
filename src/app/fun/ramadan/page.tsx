@@ -22,7 +22,6 @@ export default function Page() {
       title="Dagen tot Ramadan"
       subtitle="Bereid je voor op de heilige maand. Ontdek wanneer de Ramadan in 2026 begint."
     >
-      <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
       
       <EventCountdown targetDate={ramadan} title={`Start van Ramadan ${ramadan.getFullYear()}`} />
 

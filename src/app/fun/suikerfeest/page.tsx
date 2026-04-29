@@ -23,7 +23,6 @@ export default function Page() {
       title="Dagen tot Suikerfeest"
       subtitle="Vier het einde van de vastenperiode. Tel af naar een vreugdevol Eid al-Fitr."
     >
-      <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
       
       <EventCountdown targetDate={eid} title={`Eid al-Fitr ${eid.getFullYear()}`} />
 

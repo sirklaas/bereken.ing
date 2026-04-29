@@ -16,7 +16,6 @@ export default function Page() {
       title="Dagentot (Death Clock)"
       subtitle="Krijg een statistische indicatie van je resterende tijd op aarde. Gebruik het als motivatie!"
     >
-      <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
       <DeathClock />
       
       <AffiliateCTA topic="levensverzekering" />

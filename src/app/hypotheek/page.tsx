@@ -3,27 +3,32 @@ import MortgageCalculator from "@/components/MortgageCalculator";
 import AffiliateCTA from "@/components/AffiliateCTA";
 import ToolLayout from "@/components/ToolLayout";
 import JsonLd from "@/components/JsonLd";
+import { TOOL_CONTENT } from "@/config/toolContent";
 
-export const metadata: Metadata = {
-  title: "Maximale Hypotheek Berekenen 2026 | Snel & Onafhankelijk",
-  description: "Bereken direct hoeveel je maximaal kunt lenen voor je woning in 2026. Onafhankelijk advies en vlijmscherpe berekeningen.",
-};
+const content = TOOL_CONTENT["hypotheek"];
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: content.metaTitle,
+    description: content.metaDescription,
+  };
+}
 
 export default function MortgagePage() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "FinancialCalculator",
-    "name": "Hypotheek Calculator",
-    "description": "Berekening van maximale hypotheek en maandlasten.",
-    "url": "https://www.bereken.ing/hypotheek"
+    "name": content.title,
+    "description": content.metaDescription,
+    "url": `https://www.bereken.ing/${content.id}`
   };
 
   return (
     <ToolLayout 
-      intro="Financiën & Wonen"
-      title="Maximale Hypotheek"
-      subtitle="Bereken direct jouw leencapaciteit op basis van de Nibud-normen 2026."
-      topic="hypotheek"
+      intro={content.intro}
+      title={content.title}
+      subtitle={content.subtitle}
+      topic={content.topic}
     >
       <JsonLd data={schema} />
 
@@ -31,11 +36,8 @@ export default function MortgagePage() {
       <MortgageCalculator />
 
       <div style={{ marginTop: "4rem", maxWidth: "800px" }}>
-        <h2 style={{ fontSize: "1.8rem" }}>Eenvoudig inzicht in je leencapaciteit</h2>
-        <p>
-          Hoeveel je kunt lenen hangt af van je inkomen, eventuele schulden en de waarde van de woning. 
-          Onze tool geeft je direct een indicatie op basis van de Nibud-normen voor 2026.
-        </p>
+        <h2 style={{ fontSize: "1.8rem" }}>{content.contentTitle}</h2>
+        <p>{content.contentText}</p>
       </div>
 
       <AffiliateCTA topic="hypotheek" />

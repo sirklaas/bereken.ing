@@ -17,7 +17,6 @@ export default function Page() {
       title="Autoverzekering"
       subtitle="Bereken de maandelijkse kosten voor je autoverzekering op basis van je rijgedrag en auto."
     >
-      <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
       
       <CarCostCalculator />
 
