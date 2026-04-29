@@ -16,8 +16,6 @@ export default function Page() {
       subtitle="Raadpleeg het eeuwenoude Chinese Boek der Veranderingen voor inzicht en wijsheid."
     >
       <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
-      <h3>Fun & Entertainment</h3>
-      <h1>I Ching <span style={{ color: "var(--primary-accent)" }}>Itjing</span></h1>
       <IChing />
       <AdSenseSlot id="bottom-ad" format="rectangle" style={{ marginTop: "3rem" }} />
     </ToolLayout>

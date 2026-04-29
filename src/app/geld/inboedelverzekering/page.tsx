@@ -17,8 +17,6 @@ export default function Page() {
       subtitle="Bereken de waarde van je inboedel en de bijbehorende maandelijkse premie."
     >
       <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
-      <h3>Geld & Wonen</h3>
-      <h1>Inboedel <span style={{ color: "var(--primary-accent)" }}>Verzekering</span></h1>
       
       <div className="card" style={{ marginBottom: "2rem" }}>
         <h2 style={{ fontSize: "1.4rem", marginBottom: "1rem" }}>Wat is jouw inboedel waard?</h2>

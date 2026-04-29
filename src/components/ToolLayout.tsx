@@ -1,15 +1,25 @@
 "use client";
 
 import React from "react";
+import YouTubeEmbed from "./YouTubeEmbed";
+import PartnerGrid from "./PartnerGrid";
+import { getVideoIdByTopic } from "@/config/videoConfig";
+import { getPartnersByTopic } from "@/config/partnerConfig";
 
 interface ToolLayoutProps {
   children: React.ReactNode;
   intro?: string;
   title: string;
   subtitle?: string;
+  topic?: string;
+  youtubeId?: string;
 }
 
-export default function ToolLayout({ children, intro, title, subtitle }: ToolLayoutProps) {
+export default function ToolLayout({ children, intro, title, subtitle, topic, youtubeId }: ToolLayoutProps) {
+  // Automatically find a video and partners if a topic is provided
+  const finalVideoId = youtubeId || (topic ? getVideoIdByTopic(topic) : null);
+  const partners = topic ? getPartnersByTopic(topic) : [];
+
   return (
     <div className="fluid-container" style={{ paddingTop: "4rem", paddingBottom: "8rem" }}>
       
@@ -49,6 +59,7 @@ export default function ToolLayout({ children, intro, title, subtitle }: ToolLay
         {/* Center: The actual Tool (Occupies more space on desktop) */}
         <main style={{ minWidth: 0, gridColumn: "span 1" }}>
           {children}
+
         </main>
 
         {/* Right Side Slot */}
@@ -56,6 +67,26 @@ export default function ToolLayout({ children, intro, title, subtitle }: ToolLay
           <div style={{ background: "#FF007F", width: "300px", height: "250px", borderRadius: "20px" }} />
           <div style={{ background: "#FF007F", width: "300px", height: "600px", borderRadius: "20px" }} />
         </div>
+
+        {/* Automated Partner Grid - Spanning Full Width */}
+        {partners.length > 0 && (
+          <div style={{ gridColumn: "1 / -1", marginTop: "4rem" }}>
+            <PartnerGrid partners={partners} title={`Populaire partners voor ${title}`} />
+          </div>
+        )}
+
+        {/* Automated YouTube Section - Spanning Full Width */}
+        {finalVideoId && (
+          <div style={{ gridColumn: "1 / -1", marginTop: "4rem", paddingTop: "4rem", borderTop: "1px solid var(--border)", textAlign: "center" }}>
+            <h3 style={{ marginBottom: "2rem" }}>Video uitleg: {title}</h3>
+            <div style={{ maxWidth: "1000px", margin: "0 auto", textAlign: "center" }}>
+              <YouTubeEmbed videoId={finalVideoId} title={title} />
+              <p style={{ fontSize: "0.95rem", color: "var(--secondary)", lineHeight: 1.6, marginTop: "1.5rem" }}>
+                Bekijk onze video voor een diepgaande uitleg over hoe deze berekening werkt en waar je op moet letten bij {title.toLowerCase()}.
+              </p>
+            </div>
+          </div>
+        )}
 
       </div>
       

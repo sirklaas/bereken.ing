@@ -18,8 +18,6 @@ export default function Page() {
       subtitle="Bereken de kosten voor een respectvolle crematie en bekijk de vergoedingen."
     >
       <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
-      <h3>Geld & Verzekeringen</h3>
-      <h1>Crematie <span style={{ color: "var(--primary-accent)" }}>Kosten</span></h1>
       
       <FuneralCalculator type="cremation" />
 

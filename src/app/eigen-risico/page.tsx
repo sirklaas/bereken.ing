@@ -28,9 +28,6 @@ export default function EigenRisicoPage() {
 
       <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
 
-      <h3 style={{ marginBottom: "1rem" }}>Financiën & Zorg</h3>
-      <h1 style={{ marginBottom: "2rem" }}>Eigen Risico <span style={{ color: "var(--primary-accent)" }}>Berekenen</span></h1>
-
       <EigenRisicoCalculator />
 
       <div style={{ marginTop: "4rem", maxWidth: "800px" }}>

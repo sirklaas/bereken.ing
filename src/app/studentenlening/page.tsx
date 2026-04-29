@@ -28,9 +28,6 @@ export default function StudentLoanPage() {
 
       <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
       
-      <h3>DUO & Studieschuld</h3>
-      <h1>Studieschuld <span style={{ color: "var(--primary-accent)" }}>Berekenen</span></h1>
-      
       <StudentLoanCalculator />
 
       <div style={{ marginTop: "4rem", maxWidth: "800px" }}>

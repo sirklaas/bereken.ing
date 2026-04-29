@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import DeathClock from "@/components/DeathClock";
 import ToolLayout from "@/components/ToolLayout";
 import AdSenseSlot from "@/components/AdSenseSlot";
+import AffiliateCTA from "@/components/AffiliateCTA";
 
 export const metadata: Metadata = {
   title: "Dagentot (Death Clock) | Hoeveel dagen heb je nog?",
@@ -16,9 +17,10 @@ export default function Page() {
       subtitle="Krijg een statistische indicatie van je resterende tijd op aarde. Gebruik het als motivatie!"
     >
       <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
-      <h3>Fun & Entertainment</h3>
-      <h1>Dagentot <span style={{ color: "var(--primary-accent)" }}>Death Clock</span></h1>
       <DeathClock />
+      
+      <AffiliateCTA topic="levensverzekering" />
+
       <AdSenseSlot id="bottom-ad" format="rectangle" style={{ marginTop: "3rem" }} />
     </ToolLayout>
   );

@@ -17,8 +17,6 @@ export default function Page() {
       subtitle="Bescherm je nabestaanden en bereken de premie voor een levensverzekering."
     >
       <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
-      <h3>Geld & Zekerheid</h3>
-      <h1>Levens <span style={{ color: "var(--primary-accent)" }}>Verzekering</span></h1>
       
       <div className="card" style={{ marginBottom: "2rem" }}>
         <h2 style={{ fontSize: "1.4rem", marginBottom: "1rem" }}>Wat is een ORV?</h2>

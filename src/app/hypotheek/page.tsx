@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import MortgageCalculator from "@/components/MortgageCalculator";
+import AffiliateCTA from "@/components/AffiliateCTA";
 import ToolLayout from "@/components/ToolLayout";
 import JsonLd from "@/components/JsonLd";
 
@@ -22,6 +23,7 @@ export default function MortgagePage() {
       intro="Financiën & Wonen"
       title="Maximale Hypotheek"
       subtitle="Bereken direct jouw leencapaciteit op basis van de Nibud-normen 2026."
+      topic="hypotheek"
     >
       <JsonLd data={schema} />
 
@@ -35,6 +37,8 @@ export default function MortgagePage() {
           Onze tool geeft je direct een indicatie op basis van de Nibud-normen voor 2026.
         </p>
       </div>
+
+      <AffiliateCTA topic="hypotheek" />
     </ToolLayout>
   );
 }

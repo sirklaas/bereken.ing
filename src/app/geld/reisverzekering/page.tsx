@@ -17,8 +17,6 @@ export default function Page() {
       subtitle="Bereken de kosten voor een kortlopende of doorlopende reisverzekering."
     >
       <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
-      <h3>Geld & Vakantie</h3>
-      <h1>Reis <span style={{ color: "var(--primary-accent)" }}>Verzekering</span></h1>
       
       <div className="card" style={{ marginBottom: "2rem" }}>
         <h2 style={{ fontSize: "1.4rem", marginBottom: "1rem" }}>Wanneer is doorlopend voordeliger?</h2>

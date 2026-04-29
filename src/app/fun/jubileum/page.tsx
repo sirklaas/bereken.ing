@@ -24,8 +24,6 @@ export default function AnniversaryPage() {
       subtitle="Vier elke mijlpaal in je relatie of huwelijk. Hoeveel dagen ben je al samen?"
     >
       <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
-      <h3>Mijlpalen & Vieringen</h3>
-      <h1>Dagen tot ons <span style={{ color: "var(--primary-accent)" }}>Jubileum</span></h1>
       
       <div className="card" style={{ marginBottom: "2rem" }}>
         <p style={{ fontSize: "0.9rem", marginBottom: "1rem" }}>Wanneer is jullie jubileum (bv. 50 jaar / Gouden Bruiloft)?</p>

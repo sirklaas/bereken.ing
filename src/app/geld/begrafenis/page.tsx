@@ -18,18 +18,10 @@ export default function Page() {
       subtitle="Bereken de totale kosten van een uitvaart en voorkom financiële verrassingen voor nabestaanden."
     >
       <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
-      <h3>Geld & Verzekeringen</h3>
-      <h1>Begrafenis <span style={{ color: "var(--primary-accent)" }}>Kosten</span></h1>
       
       <FuneralCalculator type="burial" />
 
-      <AffiliateCTA 
-        title="Uitvaartverzekering Vergelijken"
-        description="Voorkom hoge kosten voor je nabestaanden. Vergelijk de beste uitvaartverzekeringen en sluit direct een polis af die bij je past."
-        buttonText="Vergelijk Verzekeringen"
-        href={AFFILIATE_CONFIG.links.uitvaartverzekering}
-        badge="Financieel Tip"
-      />
+      <AffiliateCTA topic="uitvaartverzekering" />
 
       <div style={{ marginTop: "4rem", maxWidth: "800px" }}>
         <h2 style={{ fontSize: "1.8rem" }}>Waarom stijgen de begrafeniskosten?</h2>

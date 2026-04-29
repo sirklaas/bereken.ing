@@ -24,8 +24,6 @@ export default function WeddingPage() {
       subtitle="Tel af naar de mooiste dag van je leven. Hoeveel nachtjes nog tot het ja-woord?"
     >
       <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
-      <h3>Liefde & Toekomst</h3>
-      <h1>Dagen tot onze <span style={{ color: "var(--primary-accent)" }}>Bruiloft</span></h1>
       
       <div className="card" style={{ marginBottom: "2rem" }}>
         <p style={{ fontSize: "0.9rem", marginBottom: "1rem" }}>Wanneer is de grote dag?</p>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import RateCalculator from "@/components/RateCalculator";
 import AdSenseSlot from "@/components/AdSenseSlot";
+import AffiliateCTA from "@/components/AffiliateCTA";
 import ToolLayout from "@/components/ToolLayout";
 import JsonLd from "@/components/JsonLd";
 
@@ -23,14 +24,13 @@ export default function RatePage() {
       intro="Werk & Ondernemen"
       title="Uurtarief ZZP"
       subtitle="Bereken welk uurtarief je moet vragen om je gewenste netto inkomen te behalen."
+      topic="uurtarief"
     >
       <JsonLd data={schema} />
 
       <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
       
-      <h3>Ondernemen & ZZP</h3>
-      <h1>Uurtarief <span style={{ color: "var(--primary-accent)" }}>Berekenen</span></h1>
-      
+
       <RateCalculator />
 
       <div style={{ marginTop: "4rem", maxWidth: "800px" }}>
@@ -41,6 +41,8 @@ export default function RatePage() {
         </p>
         <AdSenseSlot id="inline-ad" format="fluid" />
       </div>
+
+      <AffiliateCTA topic="uurtarief" />
 
       <AdSenseSlot id="bottom-ad" format="rectangle" style={{ marginTop: "3rem" }} />
     </ToolLayout>

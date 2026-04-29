@@ -23,13 +23,11 @@ export default function HealthPage() {
       intro="Gezondheid & Lifestyle"
       title="BMI & Calorieën"
       subtitle="Bereken je Body Mass Index en ontdek je dagelijkse caloriebehoefte voor een gezonde balans."
+      topic="gezondheid"
     >
       <JsonLd data={schema} />
 
       <AdSenseSlot id="top-ad" format="rectangle" style={{ marginBottom: "2rem" }} />
-      
-      <h3>Lichaam & Gezondheid</h3>
-      <h1>Gezondheid <span style={{ color: "var(--primary-accent)" }}>Berekenen</span></h1>
       
       <HealthCalculator />
 
