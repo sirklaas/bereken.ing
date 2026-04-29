@@ -124,21 +124,26 @@ export default function Header() {
                 onMouseLeave={handleMouseLeave}
                 style={{ position: "relative" }}
               >
-                <button style={{
-                  background: "rgba(255,255,255,0.25)",
-                  border: "none",
-                  color: "white",
-                  fontSize: "0.85rem",
-                  fontWeight: 900,
-                  padding: "0.6rem 1rem",
-                  borderRadius: "10px",
-                  cursor: "pointer"
-                }}>
+                <button 
+                  aria-expanded={openDropdown === cat.name}
+                  aria-haspopup="true"
+                  style={{
+                    background: "rgba(255,255,255,0.25)",
+                    border: "none",
+                    color: "white",
+                    fontSize: "0.85rem",
+                    fontWeight: 900,
+                    padding: "0.6rem 1rem",
+                    borderRadius: "10px",
+                    cursor: "pointer"
+                  }}
+                >
                   {cat.name} ▾
                 </button>
 
                 {openDropdown === cat.name && (
                   <div 
+                    id={`dropdown-${cat.name}`}
                     onMouseEnter={() => handleMouseEnter(cat.name)}
                     onMouseLeave={handleMouseLeave}
                     style={{
@@ -185,6 +190,8 @@ export default function Header() {
         <button 
           className="mobile-hamburger"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-expanded={isMobileMenuOpen}
+          aria-label="Menu openen"
           style={{
             display: "none",
             background: "rgba(255,255,255,0.25)",

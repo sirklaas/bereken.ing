@@ -32,6 +32,7 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <a href="#main-content" className="skip-link">Skip naar content</a>
         <Header />
         <main>{children}</main>
         <Footer />
