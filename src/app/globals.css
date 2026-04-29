@@ -26,9 +26,10 @@
   --gap: clamp(1rem, 3vw, 2rem);
   --max-width: 1440px;
 
-  /* Typography choice: Fugaz One (Brand) + Work Sans (Body/SaaS) */
-  --font-main: var(--font-work-sans), -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-heading: var(--font-fugaz), var(--font-main);
+  /* Typography choice: Plus Jakarta Sans (UI/Headings) + Inter (Body) */
+  --font-main: var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: var(--font-jakarta), var(--font-main);
+  --font-brand: var(--font-fugaz), var(--font-heading);
   
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -45,32 +46,34 @@ body {
   font-family: var(--font-main);
   background: var(--background);
   color: var(--foreground);
-  line-height: 1.6;
-  letter-spacing: -0.01em;
+  line-height: 1.625;
+  letter-spacing: -0.011em;
+  font-variant-numeric: tabular-nums;
 }
 
 /* --- PRISTINE TYPOGRAPHY --- */
 h1 {
-  font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 8vw, 4.5rem);
-  font-weight: 400; /* Fugaz One only has weight 400 */
+  font-family: var(--font-brand);
+  font-size: clamp(3rem, 10vw, 5rem);
+  font-weight: 400;
   letter-spacing: -0.04em;
-  line-height: 1.05;
+  line-height: 0.95;
   color: var(--heading-color);
   margin-bottom: 1.5rem;
 }
 
 h2 {
-  font-family: var(--font-main);
-  font-size: clamp(1.5rem, 4vw, 2rem);
-  font-weight: 700;
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  font-weight: 800;
   letter-spacing: -0.03em;
   color: var(--heading-color);
-  margin-bottom: 1rem;
+  line-height: 1.1;
+  margin-bottom: 1.25rem;
 }
 
 h3 {
-  font-family: var(--font-main);
+  font-family: var(--font-heading);
   font-size: 0.85rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -231,11 +234,13 @@ input:focus {
 
 label {
   display: block;
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 700;
   color: var(--heading-color);
   margin-bottom: 0.7rem;
-  opacity: 0.8;
+  opacity: 0.9;
+  letter-spacing: -0.01em;
 }
 
 /* --- BUTTONS --- */
@@ -245,8 +250,9 @@ label {
   justify-content: center;
   padding: 1.1rem 2.5rem;
   border-radius: 14px;
-  font-weight: 700;
-  font-size: 1.1rem;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1rem;
   text-decoration: none;
   transition: var(--transition);
   cursor: pointer;
@@ -256,6 +262,7 @@ label {
   box-shadow: 0 4px 14px 0 rgba(99, 102, 241, 0.39);
   position: relative;
   overflow: hidden;
+  letter-spacing: -0.01em;
 }
 
 .button::after {

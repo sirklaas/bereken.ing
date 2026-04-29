@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fugaz_One, Inter, Work_Sans } from "next/font/google";
+import { Fugaz_One, Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -7,7 +7,7 @@ import Script from "next/script";
 import { AFFILIATE_CONFIG } from "@/config/affiliateConfig";
 
 const fugazOne = Fugaz_One({ weight: "400", subsets: ["latin"], variable: "--font-fugaz" });
-const workSans = Work_Sans({ subsets: ["latin"], variable: "--font-work-sans" });
+const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakarta" });
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
@@ -21,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="nl" className={`${fugazOne.variable} ${workSans.variable} ${inter.variable}`}>
+    <html lang="nl" className={`${fugazOne.variable} ${jakarta.variable} ${inter.variable}`}>
       <head>
         {/* Google AdSense Auto Ads */}
         <Script
