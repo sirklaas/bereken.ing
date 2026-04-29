@@ -1,23 +1,28 @@
 :root {
-  /* Color Palette - Pristine SaaS (Apple/Stripe inspired) */
-  --background: #fcfcfd;
+  /* Color Palette - Vibrant Premium SaaS */
+  --background: #fdfdfd;
   --foreground: #0f172a;
   --surface: #ffffff;
   
-  --primary: #2C497F;
-  --primary-accent: #3b82f6; /* More vibrant SaaS Blue */
-  --primary-glow: rgba(59, 130, 246, 0.15);
+  --primary: #1a365d;
+  --primary-accent: #6366f1; /* Indigo / Violet vibrant */
+  --primary-glow: rgba(99, 102, 241, 0.2);
+  --accent-vibrant: #ec4899; /* Pink accent */
   
   --secondary: #64748b;
-  --border: #f1f5f9;
+  --border: rgba(0, 0, 0, 0.05);
   --input-bg: #f8fafc;
   --heading-color: #1e293b;
-  --background: #fdfdfd;
-  --card-bg: #ffffff;
-  --border: rgba(0,0,0,0.06);
+  
+  /* Glassmorphism / Vibrant Surfaces */
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.4);
+  
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 12px -2px rgba(99, 102, 241, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 20px 40px -12px rgba(99, 102, 241, 0.12), 0 10px 20px -10px rgba(0, 0, 0, 0.05);
+  
+  --radius: 16px;
   --gap: clamp(1rem, 3vw, 2rem);
   --max-width: 1440px;
 
@@ -25,7 +30,7 @@
   --font-main: var(--font-work-sans), -apple-system, BlinkMacSystemFont, sans-serif;
   --font-heading: var(--font-fugaz), var(--font-main);
   
-  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 * {
@@ -67,11 +72,22 @@ h2 {
 h3 {
   font-family: var(--font-main);
   font-size: 0.85rem;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
   color: var(--primary-accent);
   margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+h3::after {
+  content: "";
+  height: 2px;
+  width: 20px;
+  background: var(--accent-vibrant);
+  display: inline-block;
 }
 
 /* --- PRISTINE RESPONSIVE GRID --- */
@@ -164,20 +180,38 @@ h3 {
   padding: 2.5rem;
   box-shadow: var(--shadow-md);
   transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-accent), var(--accent-vibrant));
+  opacity: 0;
+  transition: var(--transition);
 }
 
 .card:hover {
   box-shadow: var(--shadow-lg);
-  transform: translateY(-2px);
-  border-color: rgba(59, 130, 246, 0.2);
+  transform: translateY(-4px);
+  border-color: rgba(99, 102, 241, 0.2);
+}
+
+.card:hover::before {
+  opacity: 1;
 }
 
 /* --- TACTILE INPUTS --- */
 input, select {
   appearance: none;
   width: 100%;
-  padding: 1rem 1.25rem;
-  border-radius: 12px;
+  padding: 1.1rem 1.5rem;
+  border-radius: 14px;
   border: 1px solid var(--border);
   background: var(--input-bg);
   font-family: var(--font-main);
@@ -185,21 +219,23 @@ input, select {
   font-weight: 500;
   transition: var(--transition);
   color: var(--heading-color);
+  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.02);
 }
 
 input:focus {
   outline: none;
   border-color: var(--primary-accent);
   background: white;
-  box-shadow: 0 0 0 4px var(--primary-glow);
+  box-shadow: 0 0 0 4px var(--primary-glow), inset 0 2px 4px 0 rgba(0, 0, 0, 0.01);
 }
 
 label {
   display: block;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 600;
-  color: var(--secondary);
-  margin-bottom: 0.6rem;
+  color: var(--heading-color);
+  margin-bottom: 0.7rem;
+  opacity: 0.8;
 }
 
 /* --- BUTTONS --- */
@@ -207,23 +243,40 @@ label {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem 2.5rem;
-  border-radius: 12px;
+  padding: 1.1rem 2.5rem;
+  border-radius: 14px;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.1rem;
   text-decoration: none;
   transition: var(--transition);
   cursor: pointer;
   border: none;
-  background: var(--primary-accent);
+  background: linear-gradient(135deg, var(--primary-accent), #4f46e5);
   color: white;
-  box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.2);
+  box-shadow: 0 4px 14px 0 rgba(99, 102, 241, 0.39);
+  position: relative;
+  overflow: hidden;
+}
+
+.button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(255,255,255,0.2), transparent);
+  opacity: 0;
+  transition: var(--transition);
 }
 
 .button:hover {
-  background: #2563eb;
-  transform: translateY(-1px);
-  box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.45);
+}
+
+.button:hover::after {
+  opacity: 1;
 }
 
 /* --- MOBILE SWIPE NAV --- */
