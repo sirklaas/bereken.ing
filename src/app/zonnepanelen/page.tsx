@@ -13,7 +13,7 @@ export default function Page() {
     <ToolLayout 
       intro="Energie & Wonen"
       title="Zonnepanelen Rendement"
-      subtitle="Bereken direct de terugverdientijd en de jaarlijkse opbrengst van jouw zonnepanelen."
+      subtitle="Bereken direct de terugverdientijd en de jaarlijkse opbrengst van jouw zonnepanelen." topic="zonnepanelen"
     >
       
       <SolarCalculator />

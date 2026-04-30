@@ -50,7 +50,7 @@ export default function RootLayout({
         {/* Daisycon Auto-linking Automation */}
         <Script 
           id="daisycon-autolink"
-          src={`//ds1.nl/m.js?m=${AFFILIATE_CONFIG.mediaId}&v=1.1&t=1`}
+          src={`https://m.daisycon.com/m.js?m=${AFFILIATE_CONFIG.mediaId}&v=1.1&t=1`}
           strategy="afterInteractive"
         />
       </body>

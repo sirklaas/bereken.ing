@@ -97,6 +97,38 @@ export const PARTNER_CONFIG: Record<string, Partner[]> = {
     { name: "Coolblue Energie", logo: "https://www.google.com/s2/favicons?domain=coolblue.nl&sz=128", href: "https://www.coolblue.nl/energie", description: "Alles voor een glimlach" },
     { name: "Pure Energie", logo: "https://www.google.com/s2/favicons?domain=pure-energie.nl&sz=128", href: "https://www.pure-energie.nl", description: "De groenste van NL" },
     { name: "Tibber", logo: "https://www.google.com/s2/favicons?domain=tibber.com&sz=128", href: "https://www.tibber.com", description: "Digitale leverancier" }
+  ],
+  zonnepanelen: [
+    { name: "Zonneplan", logo: "https://www.google.com/s2/favicons?domain=zonneplan.nl&sz=128", href: "https://www.zonneplan.nl", description: "Nummer 1 in zonnepanelen" },
+    { name: "Vattenfall", logo: "https://www.google.com/s2/favicons?domain=vattenfall.nl&sz=128", href: "https://www.vattenfall.nl", description: "Samen voor fossielvrij" },
+    { name: "Essent", logo: "https://www.google.com/s2/favicons?domain=essent.nl&sz=128", href: "https://www.essent.nl", description: "De kracht van Nederland" },
+    { name: "Coolblue", logo: "https://www.google.com/s2/favicons?domain=coolblue.nl&sz=128", href: "https://www.coolblue.nl", description: "Alles voor een glimlach" },
+    { name: "Eneco", logo: "https://www.google.com/s2/favicons?domain=eneco.nl&sz=128", href: "https://www.eneco.nl", description: "Samen voor duurzaam" },
+    { name: "Budget Energie", logo: "https://www.google.com/s2/favicons?domain=budgetenergie.nl&sz=128", href: "https://www.budgetenergie.nl", description: "Gewoon goede energie" },
+    { name: "Greenchoice", logo: "https://www.google.com/s2/favicons?domain=greenchoice.nl&sz=128", href: "https://www.greenchoice.nl", description: "Samen voor groen" },
+    { name: "Zelfstroom", logo: "https://www.google.com/s2/favicons?domain=zelfstroom.nl&sz=128", href: "https://www.zelfstroom.nl", description: "Huren of kopen" }
+  ],
+  autoverzekering: [
+    { name: "Allianz Direct", logo: "https://www.google.com/s2/favicons?domain=allianzdirect.nl&sz=128", href: "https://www.allianzdirect.nl", description: "De online verzekeraar" },
+    { name: "Univé", logo: "https://www.google.com/s2/favicons?domain=unive.nl&sz=128", href: "https://www.unive.nl", description: "Vruchten van plukken" },
+    { name: "Centraal Beheer", logo: "https://www.google.com/s2/favicons?domain=centraalbeheer.nl&sz=128", href: "https://www.centraalbeheer.nl", description: "Even Apeldoorn bellen" },
+    { name: "FBTO", logo: "https://www.google.com/s2/favicons?domain=fbto.nl&sz=128", href: "https://www.fbto.nl", description: "Jij kiest, jij beslist" },
+    { name: "InShared", logo: "https://www.google.com/s2/favicons?domain=inshared.nl&sz=128", href: "https://www.inshared.nl", description: "We share, you share" },
+    { name: "Ohra", logo: "https://www.google.com/s2/favicons?domain=ohra.nl&sz=128", href: "https://www.ohra.nl", description: "Direct geregeld" },
+    { name: "Interpolis", logo: "https://www.google.com/s2/favicons?domain=interpolis.nl&sz=128", href: "https://www.interpolis.nl", description: "Glashelder" },
+    { name: "ANWB", logo: "https://www.google.com/s2/favicons?domain=anwb.nl&sz=128", href: "https://www.anwb.nl", description: "Altijd onderweg" }
+  ],
+  thuisbatterij: [
+    { name: "Zonneplan", logo: "https://www.google.com/s2/favicons?domain=zonneplan.nl&sz=128", href: "https://www.zonneplan.nl", description: "De slimste batterij" },
+    { name: "Btw-vrij", logo: "https://www.google.com/s2/favicons?domain=btwvrij.nl&sz=128", href: "https://www.btwvrij.nl", description: "Subsidie hulp" },
+    { name: "Sessy", logo: "https://www.google.com/s2/favicons?domain=sessy.nl&sz=128", href: "https://www.sessy.nl", description: "Nederlandse batterij" },
+    { name: "Vattenfall", logo: "https://www.google.com/s2/favicons?domain=vattenfall.nl&sz=128", href: "https://www.vattenfall.nl", description: "Samen voor duurzaam" }
+  ],
+  overlijdensrisico: [
+    { name: "Independer", logo: "https://www.google.com/s2/favicons?domain=independer.nl&sz=128", href: "https://www.independer.nl", description: "Vergelijk ze allemaal" },
+    { name: "FBTO", logo: "https://www.google.com/s2/favicons?domain=fbto.nl&sz=128", href: "https://www.fbto.nl", description: "Direct geregeld" },
+    { name: "Centraal Beheer", logo: "https://www.google.com/s2/favicons?domain=centraalbeheer.nl&sz=128", href: "https://www.centraalbeheer.nl", description: "Even Apeldoorn bellen" },
+    { name: "Allianz", logo: "https://www.google.com/s2/favicons?domain=allianz.nl&sz=128", href: "https://www.allianz.nl", description: "Wereldwijde zekerheid" }
   ]
 };
 
