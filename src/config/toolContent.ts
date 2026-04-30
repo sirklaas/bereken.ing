@@ -22,7 +22,7 @@ export const TOOL_CONTENT: Record<string, ToolContent> = {
   "metaDescription": "Bereken direct hoeveel je maximaal kunt lenen voor je woning in 2026. Onafhankelijk advies en vlijmscherpe berekeningen.",
   "category": "Wonen",
   "contentTitle": "Eenvoudig inzicht in je leencapaciteit",
-  "contentText": "Hoeveel je kunt lenen hangt af van je inkomen, eventuele schulden en de waarde van de woning. Onze tool geeft je direct een indicatie op basis van de Nibud-normen voor 2026. belangrijk "
+  "contentText": "Hoeveel je kunt lenen hangt af van je inkomen, eventuele schulden en de waarde van de woning. Onze tool geeft je direct een indicatie op basis van de Nibud-normen voor 2026. Snel en simpel. Zonder dat je jouw email moet delen."
 },
   "zonnepanelen": {
     id: "zonnepanelen",
