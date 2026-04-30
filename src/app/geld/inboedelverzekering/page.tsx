@@ -29,7 +29,7 @@ export default function Page() {
         title="Direct je premie berekenen"
         description="Vergelijk alle aanbieders op prijs en kwaliteit. Binnen 2 minuten weet je wat de beste inboedelverzekering is voor jouw situatie."
         buttonText="Vergelijk Inboedelverzekeringen"
-        href={AFFILIATE_CONFIG.links.inboedelverzekering}
+        href={AFFILIATE_CONFIG.topics.inboedel.preferred.url}
         badge="Top Keuze"
       />
 

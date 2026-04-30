@@ -117,7 +117,15 @@ export async function rewriteAllTools(tools: any[]) {
 export async function checkAffiliateLinks() {
   // Use dynamic import to avoid issues during build
   const { AFFILIATE_CONFIG } = require("@/config/affiliateConfig");
-  const links = Object.entries(AFFILIATE_CONFIG.links);
+  const links: [string, string][] = [];
+  
+  // Extract all preferred URLs from topics
+  Object.entries(AFFILIATE_CONFIG.topics).forEach(([topic, config]: [string, any]) => {
+    if (config.preferred?.url) {
+      links.push([topic, config.preferred.url]);
+    }
+  });
+  
   const status: Record<string, boolean> = {};
 
   for (const [key, url] of links) {

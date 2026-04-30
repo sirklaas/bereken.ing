@@ -24,7 +24,7 @@ export default function Page() {
         title="Besparen op je autoverzekering?"
         description="De verzekering is een grote maandelijkse kostenpost. Vergelijk nu de goedkoopste autoverzekeringen en bespaar direct tot wel €200 per jaar."
         buttonText="Vergelijk Autoverzekeringen"
-        href={AFFILIATE_CONFIG.links.autoverzekering}
+        href={AFFILIATE_CONFIG.topics.autoverzekering.preferred.url}
         badge="Bespaar Tip"
       />
 

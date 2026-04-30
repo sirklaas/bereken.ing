@@ -29,7 +29,7 @@ export default function Page() {
         title="Vergelijk ORV premies"
         description="De premies voor levensverzekeringen zijn de afgelopen jaren flink gedaald. Vergelijk nu en zie hoeveel jij kunt besparen."
         buttonText="Vergelijk Levensverzekeringen"
-        href={AFFILIATE_CONFIG.links.levensverzekering}
+        href={AFFILIATE_CONFIG.topics.overlijdensrisico.preferred.url}
         badge="Belangrijk"
       />
 

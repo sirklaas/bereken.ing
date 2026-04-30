@@ -29,7 +29,7 @@ export default function Page() {
         title="Vind de beste reisverzekering"
         description="Ga onbezorgd op reis. Vergelijk nu alle reisverzekeringen en kies de dekking die bij jouw vakantieplannen past."
         buttonText="Vergelijk Reisverzekeringen"
-        href={AFFILIATE_CONFIG.links.reisverzekering}
+        href={AFFILIATE_CONFIG.topics.reisverzekering.preferred.url}
         badge="Vakantie Tip"
       />
 

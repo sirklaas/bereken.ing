@@ -301,11 +301,11 @@ function ToolCard({ tool, isEditing, onEdit, onCancel, onSave, isPending, linkHe
             <label style={{ ...labelStyle, color: "var(--primary-accent)" }}>🔗 Geconfigureerde Affiliate Link</label>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "1rem" }}>
               <code style={{ fontSize: "0.85rem", color: "#475569", wordBreak: "break-all" }}>
-                {(AFFILIATE_CONFIG.links as any)[tool.topic] || "Geen link geconfigureerd voor dit topic"}
+                {(AFFILIATE_CONFIG.topics as any)[tool.topic]?.preferred?.url || "Geen link geconfigureerd voor dit topic"}
               </code>
-              {(AFFILIATE_CONFIG.links as any)[tool.topic] && (
+              {(AFFILIATE_CONFIG.topics as any)[tool.topic]?.preferred?.url && (
                 <a 
-                  href={(AFFILIATE_CONFIG.links as any)[tool.topic]} 
+                  href={(AFFILIATE_CONFIG.topics as any)[tool.topic].preferred.url} 
                   target="_blank" 
                   style={{ 
                     fontSize: "0.7rem", 

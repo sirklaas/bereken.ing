@@ -24,7 +24,7 @@ export default function Page() {
         title="Uitvaartverzekering Vergelijken"
         description="Een crematie is vaak goedkoper dan begraven, maar nog steeds een grote uitgave. Zorg dat je nabestaanden niet voor verrassingen komen te staan."
         buttonText="Vergelijk Verzekeringen"
-        href={AFFILIATE_CONFIG.links.uitvaartverzekering}
+        href={AFFILIATE_CONFIG.topics.uitvaart.preferred.url}
         badge="Scherpste Deal"
       />
 

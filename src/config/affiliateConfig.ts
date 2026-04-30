@@ -79,6 +79,10 @@ export const AFFILIATE_CONFIG = {
       preferred: { name: "Independer", url: "https://www.independer.nl", description: "Bespaar op al je vaste lasten" },
       partners: [{ name: "Vattenfall", url: "https://www.vattenfall.nl" }]
     },
+    overlijdensrisico: {
+      preferred: { name: "Independer", url: "https://www.independer.nl/overlijdensrisicoverzekering", description: "Vergelijk alle premies & bespaar" },
+      partners: [{ name: "FBTO", url: "https://www.fbto.nl" }]
+    },
     // Fun tools get an Amazon/Bol suggestion
     fun: {
       preferred: { name: "Bol.com", url: "https://www.bol.com", description: "Ontdek de leukste cadeaus & gadgets" },
