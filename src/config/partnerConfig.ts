@@ -158,7 +158,13 @@ export const PARTNER_CONFIG: Record<string, Partner[]> = {
     { name: "Independer", logo: "https://www.google.com/s2/favicons?domain=independer.nl&sz=128", href: "https://www.independer.nl", description: "Alles vergelijken" },
     { name: "Vattenfall", logo: "https://www.google.com/s2/favicons?domain=vattenfall.nl&sz=128", href: "https://www.vattenfall.nl", description: "Energie besparen" },
     { name: "KPN", logo: "https://www.google.com/s2/favicons?domain=kpn.com&sz=128", href: "https://www.kpn.com", description: "Internet & TV" },
-    { name: "Ziggo", logo: "https://www.google.com/s2/favicons?domain=ziggo.nl&sz=128", href: "https://www.ziggo.nl", description: "Snel internet" }
+    { name: "Ziggo", logo: "https://www.google.com/s2/favicons?domain=ziggo.nl&sz=128", href: "https://www.ziggo.nl", description: "Snel internet" },
+    { name: "Essent", logo: "https://www.google.com/s2/favicons?domain=essent.nl&sz=128", href: "https://www.essent.nl", description: "De kracht van NL" },
+    { name: "Budget Energie", logo: "https://www.google.com/s2/favicons?domain=budgetenergie.nl&sz=128", href: "https://www.budgetenergie.nl", description: "Voordelig wonen" },
+    { name: "Vodafone", logo: "https://www.google.com/s2/favicons?domain=vodafone.nl&sz=128", href: "https://www.vodafone.nl", description: "Altijd verbonden" },
+    { name: "T-Mobile", logo: "https://www.google.com/s2/favicons?domain=t-mobile.nl&sz=128", href: "https://www.odido.nl", description: "Snel mobiel" },
+    { name: "Centraal Beheer", logo: "https://www.google.com/s2/favicons?domain=centraalbeheer.nl&sz=128", href: "https://www.centraalbeheer.nl", description: "Zekerheid voorop" },
+    { name: "FBTO", logo: "https://www.google.com/s2/favicons?domain=fbto.nl&sz=128", href: "https://www.fbto.nl", description: "Direct geregeld" }
   ],
   "eigen-risico": [
     { name: "FBTO", logo: "https://www.google.com/s2/favicons?domain=fbto.nl&sz=128", href: "https://www.fbto.nl", description: "Jouw zorg, jouw keuze" },
