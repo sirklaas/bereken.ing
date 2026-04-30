@@ -145,7 +145,14 @@ export const PARTNER_CONFIG: Record<string, Partner[]> = {
   studentenlening: [
     { name: "Brand New Day", logo: "https://www.google.com/s2/favicons?domain=brandnewday.nl&sz=128", href: "https://www.brandnewday.nl", description: "Slim sparen" },
     { name: "Openbank", logo: "https://www.google.com/s2/favicons?domain=openbank.nl&sz=128", href: "https://www.openbank.nl", description: "Hoge spaarrente" },
-    { name: "Bunq", logo: "https://www.google.com/s2/favicons?domain=bunq.com&sz=128", href: "https://www.bunq.com", description: "Bank of the free" }
+    { name: "Bunq", logo: "https://www.google.com/s2/favicons?domain=bunq.com&sz=128", href: "https://www.bunq.com", description: "Bank of the free" },
+    { name: "ING", logo: "https://www.google.com/s2/favicons?domain=ing.nl&sz=128", href: "https://www.ing.nl", description: "Studentenrekening" },
+    { name: "Rabobank", logo: "https://www.google.com/s2/favicons?domain=rabobank.nl&sz=128", href: "https://www.rabobank.nl", description: "Starten met groeien" },
+    { name: "ABN AMRO", logo: "https://www.google.com/s2/favicons?domain=abnamro.nl&sz=128", href: "https://www.abnamro.nl", description: "Studentenpakket" },
+    { name: "Knab", logo: "https://www.google.com/s2/favicons?domain=knab.nl&sz=128", href: "https://www.knab.nl", description: "Voordelig bankieren" },
+    { name: "SNS Bank", logo: "https://www.google.com/s2/favicons?domain=snsbank.nl&sz=128", href: "https://www.snsbank.nl", description: "Persoonlijk bankieren" },
+    { name: "ASN Bank", logo: "https://www.google.com/s2/favicons?domain=asnbank.nl&sz=128", href: "https://www.asnbank.nl", description: "Duurzaam studenten" },
+    { name: "DUO", logo: "https://www.google.com/s2/favicons?domain=duo.nl&sz=128", href: "https://www.duo.nl", description: "Officiële info" }
   ],
   "vaste-lasten": [
     { name: "Independer", logo: "https://www.google.com/s2/favicons?domain=independer.nl&sz=128", href: "https://www.independer.nl", description: "Alles vergelijken" },
