@@ -129,6 +129,37 @@ export const PARTNER_CONFIG: Record<string, Partner[]> = {
     { name: "FBTO", logo: "https://www.google.com/s2/favicons?domain=fbto.nl&sz=128", href: "https://www.fbto.nl", description: "Direct geregeld" },
     { name: "Centraal Beheer", logo: "https://www.google.com/s2/favicons?domain=centraalbeheer.nl&sz=128", href: "https://www.centraalbeheer.nl", description: "Even Apeldoorn bellen" },
     { name: "Allianz", logo: "https://www.google.com/s2/favicons?domain=allianz.nl&sz=128", href: "https://www.allianz.nl", description: "Wereldwijde zekerheid" }
+  ],
+  isolatie: [
+    { name: "Offertevergelijker", logo: "https://www.google.com/s2/favicons?domain=offertevergelijker.nl&sz=128", href: "https://www.offertevergelijker.nl", description: "Vergelijk & bespaar" },
+    { name: "Isolatie-vergelijker", logo: "https://www.google.com/s2/favicons?domain=isolatie-vergelijker.nl&sz=128", href: "https://www.isolatie-vergelijker.nl", description: "Beste deal in de buurt" },
+    { name: "Vattenfall", logo: "https://www.google.com/s2/favicons?domain=vattenfall.nl&sz=128", href: "https://www.vattenfall.nl", description: "Isolatie advies" },
+    { name: "Essent", logo: "https://www.google.com/s2/favicons?domain=essent.nl&sz=128", href: "https://www.essent.nl", description: "Bespaar op energie" }
+  ],
+  studentenlening: [
+    { name: "Brand New Day", logo: "https://www.google.com/s2/favicons?domain=brandnewday.nl&sz=128", href: "https://www.brandnewday.nl", description: "Slim sparen" },
+    { name: "Openbank", logo: "https://www.google.com/s2/favicons?domain=openbank.nl&sz=128", href: "https://www.openbank.nl", description: "Hoge spaarrente" },
+    { name: "Bunq", logo: "https://www.google.com/s2/favicons?domain=bunq.com&sz=128", href: "https://www.bunq.com", description: "Bank of the free" }
+  ],
+  "vaste-lasten": [
+    { name: "Independer", logo: "https://www.google.com/s2/favicons?domain=independer.nl&sz=128", href: "https://www.independer.nl", description: "Alles vergelijken" },
+    { name: "Vattenfall", logo: "https://www.google.com/s2/favicons?domain=vattenfall.nl&sz=128", href: "https://www.vattenfall.nl", description: "Energie besparen" },
+    { name: "KPN", logo: "https://www.google.com/s2/favicons?domain=kpn.com&sz=128", href: "https://www.kpn.com", description: "Internet & TV" },
+    { name: "Ziggo", logo: "https://www.google.com/s2/favicons?domain=ziggo.nl&sz=128", href: "https://www.ziggo.nl", description: "Snel internet" }
+  ],
+  "eigen-risico": [
+    { name: "FBTO", logo: "https://www.google.com/s2/favicons?domain=fbto.nl&sz=128", href: "https://www.fbto.nl", description: "Jouw zorg, jouw keuze" },
+    { name: "Independer", logo: "https://www.google.com/s2/favicons?domain=independer.nl&sz=128", href: "https://www.independer.nl", description: "Vergelijk zorg" },
+    { name: "VGZ", logo: "https://www.google.com/s2/favicons?domain=vgz.nl&sz=128", href: "https://www.vgz.nl", description: "Goede zorg voor iedereen" }
+  ],
+  alcohol: [
+    { name: "Alcoholinfo", logo: "https://www.google.com/s2/favicons?domain=alcoholinfo.nl&sz=128", href: "https://www.alcoholinfo.nl", description: "Betrouwbare info" },
+    { name: "BOB", logo: "https://www.google.com/s2/favicons?domain=daid.nl&sz=128", href: "https://www.daid.nl", description: "Veilig naar huis" }
+  ],
+  fun: [
+    { name: "Bol.com", logo: "https://www.google.com/s2/favicons?domain=bol.com&sz=128", href: "https://www.bol.com", description: "De winkel van ons allemaal" },
+    { name: "Amazon", logo: "https://www.google.com/s2/favicons?domain=amazon.nl&sz=128", href: "https://www.amazon.nl", description: "Grootste assortiment" },
+    { name: "Coolblue", logo: "https://www.google.com/s2/favicons?domain=coolblue.nl&sz=128", href: "https://www.coolblue.nl", description: "Alles voor een glimlach" }
   ]
 };
 
