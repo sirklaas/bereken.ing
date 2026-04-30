@@ -21,9 +21,7 @@ export default function RatePage() {
   return (
     <ToolLayout 
       intro="Werk & Ondernemen"
-      title="Uurtarief ZZP" topic="uurtarief"
-      subtitle="Bereken welk uurtarief je moet vragen om je gewenste netto inkomen te behalen."
-      topic="uurtarief"
+      title="Uurtarief ZZP" topic=".*?"
     >
       <JsonLd data={schema} />
 
