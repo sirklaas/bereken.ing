@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <ToolLayout 
-      intro="Aftellen & Fun"
+      intro="Aftellen & Fun" topic="fun"
       title="I Ching (Itjing)"
       subtitle="Raadpleeg het eeuwenoude Chinese Boek der Veranderingen voor inzicht en wijsheid."
     >

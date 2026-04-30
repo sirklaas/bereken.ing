@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import FuneralCalculator from "@/components/FuneralCalculator";
 import ToolLayout from "@/components/ToolLayout";
 import AdSenseSlot from "@/components/AdSenseSlot";
-import AffiliateCTA from "@/components/AffiliateCTA";
-import { AFFILIATE_CONFIG } from "@/config/affiliateConfig";
 
 export const metadata: Metadata = {
   title: "Begrafeniskosten Berekenen 2026 | Wat kost een uitvaart?",
@@ -15,13 +13,12 @@ export default function Page() {
     <ToolLayout 
       intro="Geld & Zekerheid"
       title="Begrafeniskosten"
-      subtitle="Bereken de totale kosten van een uitvaart en voorkom financiële verrassingen voor nabestaanden."
+      subtitle="Bereken de totale kosten van een uitvaart en voorkom financiële verrassingen voor nabestaanden." topic="uitvaart"
     >
       
       <FuneralCalculator type="burial" />
 
-      <AffiliateCTA topic="uitvaartverzekering" />
-
+      
       <div style={{ marginTop: "4rem", maxWidth: "800px" }}>
         <h2 style={{ fontSize: "1.8rem" }}>Waarom stijgen de begrafeniskosten?</h2>
         <p>

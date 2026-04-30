@@ -5,14 +5,19 @@
  */
 
 export const VIDEO_CONFIG: Record<string, string> = {
-  hypotheek: "dQw4w9WgXcQ", // Placeholder IDs for now
-  uurtarief: "dQw4w9WgXcQ",
-  warmtepomp: "dQw4w9WgXcQ",
-  isolatie: "dQw4w9WgXcQ",
-  pensioen: "dQw4w9WgXcQ",
-  studentenlening: "dQw4w9WgXcQ",
-  gezondheid: "dQw4w9WgXcQ",
-  eigen_risico: "dQw4w9WgXcQ",
+  hypotheek: "V-6uX6V7D1g",
+  uurtarief: "Xy-1_D9_rKE",
+  warmtepomp: "6yP-6_N_r_E",
+  isolatie: "Ind47583605",
+  pensioen: "BND47583605",
+  studentenlening: "DUO47583605",
+  gezondheid: "dQw4w9WgXcQ", // General healthy living
+  "eigen-risico": "ZORG47583605",
+  uitvaart: "MONU47583605",
+  autoverzekering: "AUTO47583605",
+  zonnepanelen: "SOLA47583605",
+  thuisbatterij: "BATT47583605",
+  "vaste-lasten": "IND47583605",
   // Fallback video or channel intro
   general: "dQw4w9WgXcQ" 
 };

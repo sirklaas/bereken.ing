@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import SolarCalculator from "@/components/SolarCalculator";
 import ToolLayout from "@/components/ToolLayout";
 import AdSenseSlot from "@/components/AdSenseSlot";
-import AffiliateCTA from "@/components/AffiliateCTA";
 
 export const metadata: Metadata = {
   title: "Zonnepanelen Berekenen 2026 | Terugverdientijd & Opbrengst",
@@ -19,14 +18,7 @@ export default function Page() {
       
       <SolarCalculator />
 
-      <AffiliateCTA 
-        title="Ontvang 4 gratis offertes"
-        description="Bespaar tot 30% op je zonnepanelen door offertes van lokale installateurs te vergelijken. Gratis en volledig vrijblijvend."
-        buttonText="Vergelijk Offertes"
-        href="https://www.offertevergelijker.nl/zonnepanelen"
-        badge="Populairst"
-      />
-
+      
       <div style={{ marginTop: "4rem", maxWidth: "800px" }}>
         <h2 style={{ fontSize: "1.8rem" }}>Zijn zonnepanelen nog steeds rendabel?</h2>
         <p>

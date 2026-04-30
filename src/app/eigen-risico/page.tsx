@@ -21,7 +21,7 @@ export default function EigenRisicoPage() {
   return (
     <ToolLayout 
       intro="Zorg & Verzekeringen"
-      title="Eigen Risico"
+      title="Eigen Risico" topic="eigen-risico"
       subtitle="Ontdek of het verhogen van je eigen risico in 2026 loont voor jouw situatie."
     >
       <JsonLd data={schema} />

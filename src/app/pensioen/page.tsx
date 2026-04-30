@@ -21,7 +21,7 @@ export default function PensionPage() {
   return (
     <ToolLayout 
       intro="Geld & Toekomst"
-      title="Pensioen Opbouw"
+      title="Pensioen Opbouw" topic="pensioen"
       subtitle="Bereken of je voldoende opbouwt voor later en ontdek je jaarruimte voor 2026."
     >
       <JsonLd data={schema} />

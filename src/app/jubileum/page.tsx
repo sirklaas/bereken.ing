@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import ToolLayout from "@/components/ToolLayout";
 import AdSenseSlot from "@/components/AdSenseSlot";
-import AffiliateCTA from "@/components/AffiliateCTA";
 import EventCountdown from "@/components/EventCountdown";
 
 export default function AnniversaryPage() {
@@ -19,7 +18,7 @@ export default function AnniversaryPage() {
 
   return (
     <ToolLayout 
-      intro="Aftellen & Fun"
+      intro="Aftellen & Fun" topic="fun"
       title="Jubileum / Gouden Bruiloft"
       subtitle="Vier elke mijlpaal in je relatie of huwelijk. Hoeveel dagen ben je al samen?"
     >
@@ -35,14 +34,7 @@ export default function AnniversaryPage() {
 
       {targetDate && <EventCountdown targetDate={targetDate} title="Jubileum Countdown" />}
 
-      <AffiliateCTA 
-        title="Een bijzonder cadeau?"
-        description="Vier je Gouden Bruiloft of eerste jaar samen met een uniek en persoonlijk cadeau."
-        buttonText="Bekijk Cadeaus"
-        href="https://www.yoursurprise.nl/jubileum"
-        badge="Cadeau Tip"
-      />
-
+      
       <AdSenseSlot id="bottom-ad" format="rectangle" style={{ marginTop: "3rem" }} />
     </ToolLayout>
   );

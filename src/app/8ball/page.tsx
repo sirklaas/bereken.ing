@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <ToolLayout 
-      intro="Aftellen & Fun"
+      intro="Aftellen & Fun" topic="fun"
       title="Magische 8-Ball"
       subtitle="Stel een vraag en laat de magische 8-ball je toekomst voorspellen."
     >

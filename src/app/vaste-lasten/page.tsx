@@ -11,7 +11,7 @@ export default function VasteLastenPage() {
   return (
     <ToolLayout 
       intro="Persoonlijke Financiën"
-      title="Vaste Lasten"
+      title="Vaste Lasten" topic="vaste-lasten"
       subtitle="Krijg direct overzicht van al je maandelijkse uitgaven en zie wat je onderaan de streep overhoudt."
     >
       <FixedCostsCalculator />

@@ -21,7 +21,7 @@ export default function AlcoholPage() {
   return (
     <ToolLayout 
       intro="Gezondheid & Veiligheid"
-      title="Alcohol Berekenen"
+      title="Alcohol Berekenen" topic="alcohol"
       subtitle="Bereken je geschatte bloedalcoholgehalte (BAG) op basis van je consumpties."
     >
       <JsonLd data={schema} />

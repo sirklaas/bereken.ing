@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import EventCountdown from "@/components/EventCountdown";
 import ToolLayout from "@/components/ToolLayout";
 import AdSenseSlot from "@/components/AdSenseSlot";
-import AffiliateCTA from "@/components/AffiliateCTA";
 import { getSuikerfeest } from "@/utils/dateUtils";
 
 export const metadata: Metadata = {
@@ -19,21 +18,14 @@ export default function Page() {
 
   return (
     <ToolLayout 
-      intro="Aftellen & Fun"
+      intro="Aftellen & Fun" topic="fun"
       title="Dagen tot Suikerfeest"
       subtitle="Vier het einde van de vastenperiode. Tel af naar een vreugdevol Eid al-Fitr."
     >
       
       <EventCountdown targetDate={eid} title={`Eid al-Fitr ${eid.getFullYear()}`} />
 
-      <AffiliateCTA 
-        title="Cadeaus voor Suikerfeest?"
-        description="Verras je familie en vrienden met de mooiste cadeaus en lekkerste zoetigheden voor Eid al-Fitr."
-        buttonText="Bekijk Cadeau Tips"
-        href="https://www.bol.com/nl/nl/l/suikerfeest-cadeaus/52431/"
-        badge="Eid Tip"
-      />
-
+      
       <div style={{ marginTop: "4rem", maxWidth: "800px" }}>
         <h2 style={{ fontSize: "1.8rem" }}>Wat vieren we tijdens het Suikerfeest?</h2>
         <p>

@@ -3,6 +3,7 @@
 import React from "react";
 import YouTubeEmbed from "./YouTubeEmbed";
 import PartnerGrid from "./PartnerGrid";
+import AffiliateCTA from "./AffiliateCTA";
 import { getVideoIdByTopic } from "@/config/videoConfig";
 import { getPartnersByTopic } from "@/config/partnerConfig";
 
@@ -65,6 +66,12 @@ export default function ToolLayout({ children, intro, title, subtitle, topic, yo
         <main style={{ minWidth: 0, gridColumn: "span 1" }}>
           {children}
 
+          {/* AUTOMATED MAIN AFFILIATE CTA (The Money Maker) */}
+          {topic && (
+            <div style={{ marginTop: "3rem" }}>
+              <AffiliateCTA topic={topic} />
+            </div>
+          )}
         </main>
 
         {/* Right Side Slot */}

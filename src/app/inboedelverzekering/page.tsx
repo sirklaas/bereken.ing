@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import ToolLayout from "@/components/ToolLayout";
 import AdSenseSlot from "@/components/AdSenseSlot";
-import AffiliateCTA from "@/components/AffiliateCTA";
-import { AFFILIATE_CONFIG } from "@/config/affiliateConfig";
 
 export const metadata: Metadata = {
   title: "Inboedelverzekering Berekenen 2026 | Waarde & Premie",
@@ -14,7 +12,7 @@ export default function Page() {
     <ToolLayout 
       intro="Geld & Verzekeringen"
       title="Inboedelverzekering"
-      subtitle="Bereken de waarde van je inboedel en de bijbehorende maandelijkse premie."
+      subtitle="Bereken de waarde van je inboedel en de bijbehorende maandelijkse premie." topic="inboedel"
     >
       
       <div className="card" style={{ marginBottom: "2rem" }}>
@@ -25,14 +23,7 @@ export default function Page() {
         </p>
       </div>
 
-      <AffiliateCTA 
-        title="Direct je premie berekenen"
-        description="Vergelijk alle aanbieders op prijs en kwaliteit. Binnen 2 minuten weet je wat de beste inboedelverzekering is voor jouw situatie."
-        buttonText="Vergelijk Inboedelverzekeringen"
-        href={AFFILIATE_CONFIG.topics.inboedel.preferred.url}
-        badge="Top Keuze"
-      />
-
+      
       <AdSenseSlot id="bottom-ad" format="rectangle" style={{ marginTop: "3rem" }} />
     </ToolLayout>
   );

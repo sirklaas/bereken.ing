@@ -21,7 +21,7 @@ export default function StudentLoanPage() {
   return (
     <ToolLayout 
       intro="Geld & Studie"
-      title="Studieschuld"
+      title="Studieschuld" topic="studentenlening"
       subtitle="Bereken je maandelijkse aflossing en de impact van de rente op je totale studieschuld."
     >
       <JsonLd data={schema} />

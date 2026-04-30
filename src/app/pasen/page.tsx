@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import EventCountdown from "@/components/EventCountdown";
 import ToolLayout from "@/components/ToolLayout";
 import AdSenseSlot from "@/components/AdSenseSlot";
-import AffiliateCTA from "@/components/AffiliateCTA";
 import { getEaster } from "@/utils/dateUtils";
 
 export const metadata: Metadata = {
@@ -19,21 +18,14 @@ export default function Page() {
 
   return (
     <ToolLayout 
-      intro="Aftellen & Fun"
+      intro="Aftellen & Fun" topic="fun"
       title="Dagen tot Pasen"
       subtitle="Ontdek wanneer het paasweekend valt en tel af naar het zoeken van de eieren."
     >
       
       <EventCountdown targetDate={easter} title={`Countdown tot Pasen ${easter.getFullYear()}`} />
 
-      <AffiliateCTA 
-        title="Paasontbijt of chocolade?"
-        description="Maak je klaar voor Pasen met de lekkerste chocolade-eieren en decoraties voor je paastafel."
-        buttonText="Bekijk Paas Artikelen"
-        href="https://www.bol.com/nl/nl/l/pasen/10651/"
-        badge="Paas Deal"
-      />
-
+      
       <div style={{ marginTop: "4rem", maxWidth: "800px" }}>
         <h2 style={{ fontSize: "1.8rem" }}>Hoe wordt de datum van Pasen bepaald?</h2>
         <p>

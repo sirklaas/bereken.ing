@@ -11,7 +11,7 @@ export default function HeatPumpPage() {
   return (
     <ToolLayout 
       intro="Energie & Duurzaamheid"
-      title="Warmtepomp Rendement"
+      title="Warmtepomp Rendement" topic="warmtepomp"
       subtitle="Bereken direct jouw gasbesparing en de terugverdientijd van een hybride of volledige warmtepomp."
     >
       <HeatPumpCalculator />

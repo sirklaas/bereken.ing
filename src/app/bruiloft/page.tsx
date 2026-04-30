@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import ToolLayout from "@/components/ToolLayout";
 import AdSenseSlot from "@/components/AdSenseSlot";
-import AffiliateCTA from "@/components/AffiliateCTA";
 import EventCountdown from "@/components/EventCountdown";
 
 export default function WeddingPage() {
@@ -19,7 +18,7 @@ export default function WeddingPage() {
 
   return (
     <ToolLayout 
-      intro="Aftellen & Fun"
+      intro="Aftellen & Fun" topic="fun"
       title="Dagen tot Bruiloft"
       subtitle="Tel af naar de mooiste dag van je leven. Hoeveel nachtjes nog tot het ja-woord?"
     >
@@ -35,14 +34,7 @@ export default function WeddingPage() {
 
       {targetDate && <EventCountdown targetDate={targetDate} title="Wedding Countdown" />}
 
-      <AffiliateCTA 
-        title="Alles voor je bruiloft"
-        description="Van bedankjes tot decoratie en gastenboeken. Maak je bruiloft onvergetelijk met de mooiste extra's."
-        buttonText="Bekijk Trouw Artikelen"
-        href="https://www.weddingdeco.nl"
-        badge="Inspiratie Tip"
-      />
-
+      
       <AdSenseSlot id="bottom-ad" format="rectangle" style={{ marginTop: "3rem" }} />
     </ToolLayout>
   );

@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import ToolLayout from "@/components/ToolLayout";
 import AdSenseSlot from "@/components/AdSenseSlot";
-import AffiliateCTA from "@/components/AffiliateCTA";
 import EventCountdown from "@/components/EventCountdown";
 
 export default function BirthdayPage() {
@@ -22,7 +21,7 @@ export default function BirthdayPage() {
 
   return (
     <ToolLayout 
-      intro="Aftellen & Fun"
+      intro="Aftellen & Fun" topic="fun"
       title="Dagen tot Verjaardag"
       subtitle="Tel af naar je eigen feestje of die van een vriend. Maak van elke verjaardag een hoogtepunt."
     >
@@ -50,14 +49,7 @@ export default function BirthdayPage() {
 
       {targetDate && <EventCountdown targetDate={targetDate} title="Jouw verjaardag countdown" />}
 
-      <AffiliateCTA 
-        title="Tijd voor een feestje?"
-        description="Van versiering tot originele cadeaus: bekijk alles voor de perfecte verjaardag."
-        buttonText="Feest Artikelen Bekijken"
-        href="https://www.partywinkel.nl"
-        badge="Party Tip"
-      />
-
+      
       <AdSenseSlot id="bottom-ad" format="rectangle" style={{ marginTop: "3rem" }} />
     </ToolLayout>
   );

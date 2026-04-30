@@ -11,7 +11,7 @@ export default function InsulationPage() {
   return (
     <ToolLayout 
       intro="Energie & Comfort"
-      title="Isolatie Besparing"
+      title="Isolatie Besparing" topic="isolatie"
       subtitle="Bereken direct hoeveel m³ gas je bespaart met de verschillende vormen van isolatie."
     >
       <InsulationCalculator />

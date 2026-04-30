@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import MortgageCalculator from "@/components/MortgageCalculator";
-import AffiliateCTA from "@/components/AffiliateCTA";
 import ToolLayout from "@/components/ToolLayout";
 import JsonLd from "@/components/JsonLd";
 import { TOOL_CONTENT } from "@/config/toolContent";
@@ -40,7 +39,6 @@ export default function MortgagePage() {
         <p>{content.contentText}</p>
       </div>
 
-      <AffiliateCTA topic="hypotheek" />
     </ToolLayout>
   );
 }

@@ -2,7 +2,6 @@
 
 import React, { useState, useTransition, useEffect } from "react";
 import { TOOL_CONTENT, ToolContent } from "@/config/toolContent";
-import { AFFILIATE_CONFIG } from "@/config/affiliateConfig";
 import { updateToolContent, pushToGitHub, rewriteTool, rewriteAllTools, checkAffiliateLinks } from "./actions";
 import Link from "next/link";
 

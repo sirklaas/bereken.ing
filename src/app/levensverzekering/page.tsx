@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import ToolLayout from "@/components/ToolLayout";
 import AdSenseSlot from "@/components/AdSenseSlot";
-import AffiliateCTA from "@/components/AffiliateCTA";
-import { AFFILIATE_CONFIG } from "@/config/affiliateConfig";
 
 export const metadata: Metadata = {
   title: "Levensverzekering Berekenen 2026 | Overlijdensrisico",
@@ -14,7 +12,7 @@ export default function Page() {
     <ToolLayout 
       intro="Geld & Verzekeringen"
       title="Levensverzekering"
-      subtitle="Bescherm je nabestaanden en bereken de premie voor een levensverzekering."
+      subtitle="Bescherm je nabestaanden en bereken de premie voor een levensverzekering." topic="overlijdensrisico"
     >
       
       <div className="card" style={{ marginBottom: "2rem" }}>
@@ -25,14 +23,7 @@ export default function Page() {
         </p>
       </div>
 
-      <AffiliateCTA 
-        title="Vergelijk ORV premies"
-        description="De premies voor levensverzekeringen zijn de afgelopen jaren flink gedaald. Vergelijk nu en zie hoeveel jij kunt besparen."
-        buttonText="Vergelijk Levensverzekeringen"
-        href={AFFILIATE_CONFIG.topics.overlijdensrisico.preferred.url}
-        badge="Belangrijk"
-      />
-
+      
       <AdSenseSlot id="bottom-ad" format="rectangle" style={{ marginTop: "3rem" }} />
     </ToolLayout>
   );

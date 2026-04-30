@@ -21,7 +21,7 @@ export default function HealthPage() {
   return (
     <ToolLayout 
       intro="Gezondheid & Lifestyle"
-      title="BMI & Calorieën"
+      title="BMI & Calorieën" topic="gezondheid"
       subtitle="Bereken je Body Mass Index en ontdek je dagelijkse caloriebehoefte voor een gezonde balans."
       topic="gezondheid"
     >

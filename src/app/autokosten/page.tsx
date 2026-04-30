@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import CarCostCalculator from "@/components/CarCostCalculator";
 import ToolLayout from "@/components/ToolLayout";
 import AdSenseSlot from "@/components/AdSenseSlot";
-import AffiliateCTA from "@/components/AffiliateCTA";
-import { AFFILIATE_CONFIG } from "@/config/affiliateConfig";
 
 export const metadata: Metadata = {
   title: "Autokosten Berekenen 2026 | Wat kost mijn auto per maand?",
@@ -15,18 +13,10 @@ export default function Page() {
     <ToolLayout 
       intro="Geld & Verzekeringen"
       title="Autoverzekering"
-      subtitle="Bereken de maandelijkse kosten voor je autoverzekering op basis van je rijgedrag en auto."
+      subtitle="Bereken de maandelijkse kosten voor je autoverzekering op basis van je rijgedrag en auto." topic="autoverzekering"
     >
       
       <CarCostCalculator />
-
-      <AffiliateCTA 
-        title="Besparen op je autoverzekering?"
-        description="De verzekering is een grote maandelijkse kostenpost. Vergelijk nu de goedkoopste autoverzekeringen en bespaar direct tot wel €200 per jaar."
-        buttonText="Vergelijk Autoverzekeringen"
-        href={AFFILIATE_CONFIG.topics.autoverzekering.preferred.url}
-        badge="Bespaar Tip"
-      />
 
       <div style={{ marginTop: "4rem", maxWidth: "800px" }}>
         <h2 style={{ fontSize: "1.8rem" }}>De verborgen kosten van autorijden</h2>

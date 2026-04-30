@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import ToolLayout from "@/components/ToolLayout";
 import AdSenseSlot from "@/components/AdSenseSlot";
-import AffiliateCTA from "@/components/AffiliateCTA";
-import { AFFILIATE_CONFIG } from "@/config/affiliateConfig";
 
 export const metadata: Metadata = {
   title: "Reisverzekering Berekenen 2026 | Kortlopend of Doorlopend?",
@@ -14,7 +12,7 @@ export default function Page() {
     <ToolLayout 
       intro="Geld & Verzekeringen"
       title="Reisverzekering"
-      subtitle="Bereken de kosten voor een kortlopende of doorlopende reisverzekering."
+      subtitle="Bereken de kosten voor een kortlopende of doorlopende reisverzekering." topic="reisverzekering"
     >
       
       <div className="card" style={{ marginBottom: "2rem" }}>
@@ -25,14 +23,7 @@ export default function Page() {
         </p>
       </div>
 
-      <AffiliateCTA 
-        title="Vind de beste reisverzekering"
-        description="Ga onbezorgd op reis. Vergelijk nu alle reisverzekeringen en kies de dekking die bij jouw vakantieplannen past."
-        buttonText="Vergelijk Reisverzekeringen"
-        href={AFFILIATE_CONFIG.topics.reisverzekering.preferred.url}
-        badge="Vakantie Tip"
-      />
-
+      
       <AdSenseSlot id="bottom-ad" format="rectangle" style={{ marginTop: "3rem" }} />
     </ToolLayout>
   );

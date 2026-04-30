@@ -18,7 +18,7 @@ export default function Page() {
 
   return (
     <ToolLayout 
-      intro="Aftellen & Fun"
+      intro="Aftellen & Fun" topic="fun"
       title="Dagen tot Ramadan"
       subtitle="Bereid je voor op de heilige maand. Ontdek wanneer de Ramadan in 2026 begint."
     >

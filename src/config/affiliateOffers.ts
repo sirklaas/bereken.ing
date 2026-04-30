@@ -76,20 +76,41 @@ export const AFFILIATE_OFFERS: Record<string, AffiliateOffer> = {
     buttonText: "Vergelijk premies",
     href: "https://www.independer.nl/autoverzekering",
   },
-  uitvaartverzekering: {
-    topic: "uitvaartverzekering",
+  uitvaart: {
+    topic: "uitvaart",
     title: "Uitvaartverzekering Vergelijken",
     description: "Voorkom hoge kosten voor je nabestaanden. Vergelijk de beste uitvaartverzekeringen van 2026.",
     buttonText: "Bekijk premies",
     href: "https://www.independer.nl/uitvaartverzekering",
     badge: "Zekerheid"
   },
-  levensverzekering: {
-    topic: "levensverzekering",
+  overlijdensrisico: {
+    topic: "overlijdensrisico",
     title: "Overlijdensrisicoverzekering",
     description: "Zorg dat je gezin goed achterblijft. Vergelijk en bespaar op je overlijdensrisicoverzekering via Independer.",
     buttonText: "Bereken premie",
     href: "https://www.independer.nl/overlijdensrisicoverzekering",
+  },
+  zonnepanelen: {
+    topic: "zonnepanelen",
+    title: "Zonnepanelen Rendement",
+    description: "Bereken hoeveel jij kunt besparen met zonnepanelen. Ontvang direct offertes van specialisten.",
+    buttonText: "Start Besparing",
+    href: "https://www.offertevergelijker.nl/zonnepanelen",
+  },
+  thuisbatterij: {
+    topic: "thuisbatterij",
+    title: "Thuisbatterij Offertes",
+    description: "Optimaliseer je eigen verbruik en verlaag je energierekening met een thuisbatterij.",
+    buttonText: "Ontvang Offertes",
+    href: "https://www.offertevergelijker.nl/thuisbatterij",
+  },
+  "vaste-lasten": {
+    topic: "vaste-lasten",
+    title: "Bespaar op je Vaste Lasten",
+    description: "Check direct waar jij maandelijks geld laat liggen. Vergelijk energie, internet en verzekeringen.",
+    buttonText: "Check Besparing",
+    href: "https://www.independer.nl",
   },
   // Default fallback offer
   general: {
