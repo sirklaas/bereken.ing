@@ -193,7 +193,7 @@ function ToolCard({ tool, isEditing, onEdit, onCancel, onSave, isPending, linkHe
   const [isRewriting, setIsRewriting] = useState(false);
 
   // Check if this tool has an affiliate offer configured
-  const hasAffiliate = !!(AFFILIATE_CONFIG.links as any)[tool.topic];
+  const hasAffiliate = !!(AFFILIATE_CONFIG.topics as any)[tool.topic];
 
   const handleAiRewrite = async (e: React.MouseEvent) => {
     e.stopPropagation();
