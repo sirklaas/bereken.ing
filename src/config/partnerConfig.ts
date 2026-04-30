@@ -32,7 +32,9 @@ export const PARTNER_CONFIG: Record<string, Partner[]> = {
     { name: "Rabobank Zakelijk", logo: "https://www.google.com/s2/favicons?domain=rabobank.nl&sz=128", href: "https://www.rabobank.nl/bedrijven", description: "Samen groeien" },
     { name: "ABN AMRO Zakelijk", logo: "https://www.google.com/s2/favicons?domain=abnamro.nl&sz=128", href: "https://www.abnamro.nl/nl/zakelijk", description: "Ondernemen met ambitie" },
     { name: "Kamer van Koophandel", logo: "https://www.google.com/s2/favicons?domain=kvk.nl&sz=128", href: "https://www.kvk.nl", description: "Ondernemerschap" },
-    { name: "Tellow", logo: "https://www.google.com/s2/favicons?domain=tellow.nl&sz=128", href: "https://www.tellow.nl", description: "Boekhouding voor ZZP" }
+    { name: "Tellow", logo: "https://www.google.com/s2/favicons?domain=tellow.nl&sz=128", href: "https://www.tellow.nl", description: "Boekhouding voor ZZP" },
+    { name: "e-Boekhouden.nl", logo: "https://www.google.com/s2/favicons?domain=e-boekhouden.nl&sz=128", href: "https://www.e-boekhouden.nl", description: "Nr. 1 boekhouding" },
+    { name: "Jortt", logo: "https://www.google.com/s2/favicons?domain=jortt.nl&sz=128", href: "https://www.jortt.nl", description: "Slimme boekhouding" }
   ],
   uitvaart: [
     { name: "DELA", logo: "https://www.google.com/s2/favicons?domain=dela.nl&sz=128", href: "https://www.dela.nl", description: "Voor elkaar en met elkaar" },
