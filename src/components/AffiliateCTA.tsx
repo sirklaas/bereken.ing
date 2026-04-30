@@ -2,6 +2,7 @@
 
 import React from "react";
 import { getOfferByTopic } from "@/config/affiliateOffers";
+import { wrapAffiliateLink } from "@/config/affiliateConfig";
 
 interface AffiliateCTAProps {
   topic?: string;
@@ -29,6 +30,9 @@ export default function AffiliateCTA({
   const finalButtonText = buttonText || offer?.buttonText || "Bekijk aanbod";
   const finalHref = href || offer?.href || "/";
   const finalBadge = badge || offer?.badge;
+
+  // WRAP THE LINK WITH DAISYCON TRACKING
+  const wrappedHref = wrapAffiliateLink(finalHref);
 
   return (
     <div className="affiliate-card animate-in" style={{
@@ -66,7 +70,7 @@ export default function AffiliateCTA({
       </div>
 
       <a 
-        href={finalHref} 
+        href={wrappedHref} 
         target="_blank" 
         rel="noopener noreferrer nofollow"
         className="button"

@@ -9,6 +9,7 @@ export interface ToolContent {
   category: string;
   contentTitle?: string;
   contentText?: string;
+  suggestedCourse?: string;
 }
 
 export const TOOL_CONTENT: Record<string, ToolContent> = {
@@ -25,17 +26,17 @@ export const TOOL_CONTENT: Record<string, ToolContent> = {
   "contentText": "Hoeveel je kunt lenen hangt af van je inkomen, eventuele schulden en de waarde van de woning. Onze tool geeft je direct een indicatie op basis van de Nibud-normen voor 2026. Snel en simpel. Zonder dat je jouw email moet delen."
 },
   "zonnepanelen": {
-    id: "zonnepanelen",
-    topic: "zonnepanelen",
-    intro: "Energie & Wonen",
-    title: "Zonnepanelen Rendement",
-    subtitle: "Bereken direct de terugverdientijd en de jaarlijkse opbrengst van jouw zonnepanelen.",
-    metaTitle: "Zonnepanelen Berekenen 2026 | Terugverdientijd & Opbrengst",
-    metaDescription: "Bereken direct de opbrengst en terugverdientijd van zonnepanelen. Ontdek hoeveel je bespaart op je energierekening in 2026.",
-    category: "Wonen",
-    contentTitle: "Zijn zonnepanelen nog steeds rendabel?",
-    contentText: "Ondanks de discussie over de salderingsregeling en terugleverkosten blijven zonnepanelen een van de beste investeringen voor je woning. Met een gemiddelde terugverdientijd van 5 tot 7 jaar en een levensduur van 25 jaar, leveren ze nog steeds een fors rendement op."
-  },
+  "id": "zonnepanelen",
+  "topic": "zonnepanelen",
+  "intro": "Energie & Wonen",
+  "title": "Zonnepanelen Rendement Berekenen",
+  "subtitle": "Bereken in één oogopslag jouw terugverdientijd, jaarlijkse opbrengst en netto besparing op de energierekening.",
+  "metaTitle": "Zonnepanelen Berekenen 2026 | Terugverdientijd & Opbrengst Op Maat",
+  "metaDescription": "Bereken direct wat zonnepanelen jou opleveren in 2026. Ontdek jouw persoonlijke terugverdientijd, jaarlijkse besparing en rendement — snel en nauwkeurig.",
+  "category": "Wonen",
+  "contentTitle": "Zonnepanelen in 2026: nog steeds een van de slimste investeringen",
+  "contentText": "Ondanks de gewijzigde salderingsregeling en toenemende terugleverkosten blijven zonnepanelen structureel rendabel. Met een gemiddelde terugverdientijd van 5 tot 7 jaar en een technische levensduur van 25 tot 30 jaar realiseer je een netto rendement dat banksparen ruimschoots overtreft. Eigen verbruik optimaliseren — eventueel gecombineerd met een thuisbatterij — maakt het plaatje in 2026 alleen maar aantrekkelijker."
+},
   "pensioen": {
     id: "pensioen",
     topic: "pensioen",

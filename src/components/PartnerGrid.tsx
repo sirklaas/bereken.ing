@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import { wrapAffiliateLink } from "@/config/affiliateConfig";
 
 interface Partner {
   name: string;
@@ -31,7 +31,7 @@ export default function PartnerGrid({ partners, title = "Onze Partners" }: Partn
         {partners.map((partner) => (
           <a
             key={partner.name}
-            href={partner.href}
+            href={wrapAffiliateLink(partner.href)}
             target="_blank"
             rel="noopener noreferrer nofollow"
             className="partner-card"

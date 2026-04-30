@@ -1,37 +1,71 @@
 /**
  * DAISYCON / AFFILIATE CONFIGURATION
  * 
- * Change your Media ID and specific links here. 
- * All buttons on the site will update automatically.
+ * This is the heart of your monetization. 
+ * Wrap all links in Daisycon tracking parameters automatically.
  */
 
 export const AFFILIATE_CONFIG = {
-  // Your Daisycon Media ID (get this from your Daisycon dashboard)
-  mediaId: "YOUR_MEDIA_ID_HERE",
+  // Your Daisycon Media ID
+  mediaId: "1517771",
 
-  links: {
-    warmtepomp: "https://www.offertevergelijker.nl/warmtepomp",
-    isolatie: "https://www.offertevergelijker.nl/isolatie",
-    hypotheek: "https://www.independer.nl/hypotheek",
-    zzp_bank: "https://www.knab.nl/zakelijk",
-    zorgverzekering: "https://www.independer.nl/zorgverzekering",
-    boekhouden: "https://www.moneybird.nl",
-    uitvaartverzekering: "https://www.independer.nl/uitvaartverzekering",
-    autoverzekering: "https://www.independer.nl/autoverzekering",
-    reisverzekering: "https://www.independer.nl/reisverzekering",
-    inboedelverzekering: "https://www.independer.nl/inboedelverzekering",
-    levensverzekering: "https://www.independer.nl/overlijdensrisicoverzekering",
+  // Your Amazon Store ID
+  amazonStoreID: "pinkamazon0c-21",
+
+  // Your Plug&Pay Partner ID
+  plugAndPayId: "pink-plugandplay",
+
+  // Default tracking parameters
+  defaultParams: {
+    wi: "1517771",
+    si: "12345", // Default Program ID if not specified
+    li: "1",     // Default Link ID
+  },
+
+  // Topic-specific configurations
+  topics: {
+    hypotheek: {
+      preferred: {
+        name: "Independer",
+        url: "https://www.independer.nl/hypotheek",
+        description: "Vergelijk alle banken & bespaar"
+      },
+      partners: [
+        { name: "ING", url: "https://www.ing.nl/particulier/hypotheek" },
+        { name: "Rabobank", url: "https://www.rabobank.nl/particulieren/hypotheek" },
+        { name: "ABN AMRO", url: "https://www.abnamro.nl/nl/prive/hypotheken" },
+        { name: "ASN Bank", url: "https://www.asnbank.nl" },
+        { name: "RegioBank", url: "https://www.regiobank.nl" },
+        { name: "Triodos", url: "https://www.triodos.nl" },
+        { name: "Nationale-Nederlanden", url: "https://www.nn.nl" },
+        { name: "Hypotheker", url: "https://www.hypotheker.nl" }
+      ]
+    },
+    uurtarief: {
+      preferred: {
+        name: "Knab",
+        url: "https://www.knab.nl/zakelijk",
+        description: "De #1 bank voor ZZP'ers"
+      },
+      partners: [
+        { name: "Bunq", url: "https://www.bunq.com/business" },
+        { name: "Moneybird", url: "https://www.moneybird.nl" },
+        { name: "ING Zakelijk", url: "https://www.ing.nl/zakelijk" }
+      ]
+    }
+    // Add more topics as needed...
   }
 };
 
 /**
- * Helper to generate a Daisycon deep link if needed, 
- * or just return the URL if you are using Auto-linking.
+ * HELPER: Wraps any URL into a Daisycon tracking link
  */
-export const getAffiliateLink = (key: keyof typeof AFFILIATE_CONFIG.links) => {
-  const baseUrl = AFFILIATE_CONFIG.links[key];
+export const wrapAffiliateLink = (url: string, programId?: string) => {
+  if (AFFILIATE_CONFIG.mediaId === "YOUR_MEDIA_ID_HERE") return url;
   
-  // If you have a specific Daisycon deep-link format, we can wrap it here
-  // For now, it returns the base URL.
-  return baseUrl;
+  const mediaId = AFFILIATE_CONFIG.mediaId;
+  const si = programId || AFFILIATE_CONFIG.defaultParams.si;
+  
+  // Daisycon standard click URL format
+  return `https://ds1.nl/c/?wi=${mediaId}&si=${si}&dl=${encodeURIComponent(url)}`;
 };
