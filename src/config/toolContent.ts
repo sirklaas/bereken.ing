@@ -17,7 +17,7 @@ export const TOOL_CONTENT: Record<string, ToolContent> = {
   "topic": "hypotheek",
   "intro": "Snel antwoord op de vraag",
   "title": "Wat is jouw Ideale Maximale Hypotheek?",
-  "subtitle": "Bereken direct jouw leencapaciteit op basis van de Nibud-normen 2026.Bereken direct jouw leencapaciteit op basis van de Nibud-normen 2026.Bereken direct jouw leencapaciteit op basis van de Nibud-normen 2026. met minder text maar wel lekker ",
+  "subtitle": "Bereken direct jouw leencapaciteit op basis van de Nibud-normen 2026. met minder text maar wel lekker ",
   "metaTitle": "Maximale Hypotheek Berekenen 2026 | Snel & Onafhankelijk",
   "metaDescription": "Bereken direct hoeveel je maximaal kunt lenen voor je woning in 2026. Onafhankelijk advies en vlijmscherpe berekeningen.",
   "category": "Wonen",
