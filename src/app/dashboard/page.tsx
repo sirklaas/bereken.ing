@@ -3,6 +3,7 @@
 import React, { useState, useTransition, useEffect } from "react";
 import { TOOL_CONTENT, ToolContent } from "@/config/toolContent";
 import { updateToolContent, pushToGitHub, rewriteTool, rewriteAllTools, checkAffiliateLinks } from "./actions";
+import { AFFILIATE_CONFIG } from "@/config/affiliateConfig";
 import Link from "next/link";
 
 export default function ContentDashboard() {
