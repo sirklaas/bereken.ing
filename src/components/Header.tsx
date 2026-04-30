@@ -10,10 +10,10 @@ const CATEGORIES = [
     name: "Wonen", 
     links: [
       { name: "Hypotheek", href: "/hypotheek" },
-      { name: "Zonnepanelen", href: "/wonen/zonnepanelen" },
+      { name: "Zonnepanelen", href: "/zonnepanelen" },
       { name: "Warmtepomp", href: "/warmtepomp" },
       { name: "Isolatie", href: "/isolatie" },
-      { name: "Thuisbatterij", href: "/wonen/thuisbatterij" },
+      { name: "Thuisbatterij", href: "/thuisbatterij" },
     ]
   },
   { 
@@ -29,28 +29,25 @@ const CATEGORIES = [
   { 
     name: "Verzekering", 
     links: [
-      { name: "Autoverzekering", href: "/geld/autokosten" },
-      { name: "Begrafenis", href: "/geld/begrafenis" },
-      { name: "Crematie", href: "/geld/crematie" },
-      { name: "Inboedel", href: "/geld/inboedelverzekering" },
-      { name: "Reisverzekering", href: "/geld/reisverzekering" },
+      { name: "Autoverzekering", href: "/autokosten" },
+      { name: "Inboedelverzekering", href: "/inboedelverzekering" },
+      { name: "Reisverzekering", href: "/reisverzekering" },
+      { name: "Levensverzekering", href: "/levensverzekering" },
+      { name: "Uitvaart", href: "/begrafenis" },
     ]
   },
   { 
-    name: "Gezondheid", 
+    name: "Lifestyle & Fun", 
     links: [
-      { name: "BMI & Gezondheid", href: "/gezondheid" },
-      { name: "Alcohol Promillage", href: "/alcohol" },
-    ]
-  },
-  { 
-    name: "Fun", 
-    links: [
-      { name: "Magische 8-Ball", href: "/fun/8ball" },
-      { name: "Kerst Countdown", href: "/fun/kerst" },
-      { name: "Death Clock", href: "/fun/dagentot" },
-      { name: "I Ching", href: "/fun/iching" },
-      { name: "AI Fun", href: "/ai" },
+      { name: "Magische 8-Ball", href: "/8ball" },
+      { name: "I Ching Orakel", href: "/iching" },
+      { name: "Kerst Countdown", href: "/kerst" },
+      { name: "Pasen Aftellen", href: "/pasen" },
+      { name: "Bruiloft Planner", href: "/bruiloft" },
+      { name: "Ramadan & Eid", href: "/ramadan" },
+      { name: "Jubileum Tracker", href: "/jubileum" },
+      { name: "BMI Calculator", href: "/gezondheid" },
+      { name: "AI Hulp", href: "/ai" },
     ]
   }
 ];
