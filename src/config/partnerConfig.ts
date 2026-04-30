@@ -119,10 +119,14 @@ export const PARTNER_CONFIG: Record<string, Partner[]> = {
     { name: "ANWB", logo: "https://www.google.com/s2/favicons?domain=anwb.nl&sz=128", href: "https://www.anwb.nl", description: "Altijd onderweg" }
   ],
   thuisbatterij: [
-    { name: "Zonneplan", logo: "https://www.google.com/s2/favicons?domain=zonneplan.nl&sz=128", href: "https://www.zonneplan.nl", description: "De slimste batterij" },
+    { name: "Zonneplan", logo: "https://www.google.com/s2/favicons?domain=zonneplan.nl&sz=128", href: "https://www.zonneplan.nl/thuisbatterij", description: "De slimste batterij" },
     { name: "Btw-vrij", logo: "https://www.google.com/s2/favicons?domain=btwvrij.nl&sz=128", href: "https://www.btwvrij.nl", description: "Subsidie hulp" },
     { name: "Sessy", logo: "https://www.google.com/s2/favicons?domain=sessy.nl&sz=128", href: "https://www.sessy.nl", description: "Nederlandse batterij" },
-    { name: "Vattenfall", logo: "https://www.google.com/s2/favicons?domain=vattenfall.nl&sz=128", href: "https://www.vattenfall.nl", description: "Samen voor duurzaam" }
+    { name: "Vattenfall", logo: "https://www.google.com/s2/favicons?domain=vattenfall.nl&sz=128", href: "https://www.vattenfall.nl", description: "Samen voor duurzaam" },
+    { name: "Essent", logo: "https://www.google.com/s2/favicons?domain=essent.nl&sz=128", href: "https://www.essent.nl", description: "Energie opslaan" },
+    { name: "Eneco", logo: "https://www.google.com/s2/favicons?domain=eneco.nl&sz=128", href: "https://www.eneco.nl", description: "Zelfvoorzienend wonen" },
+    { name: "Budget Energie", logo: "https://www.google.com/s2/favicons?domain=budgetenergie.nl&sz=128", href: "https://www.budgetenergie.nl", description: "Slimme energie" },
+    { name: "Coolblue", logo: "https://www.google.com/s2/favicons?domain=coolblue.nl&sz=128", href: "https://www.coolblue.nl", description: "Alles voor een glimlach" }
   ],
   overlijdensrisico: [
     { name: "Independer", logo: "https://www.google.com/s2/favicons?domain=independer.nl&sz=128", href: "https://www.independer.nl", description: "Vergelijk ze allemaal" },
@@ -134,7 +138,9 @@ export const PARTNER_CONFIG: Record<string, Partner[]> = {
     { name: "Offertevergelijker", logo: "https://www.google.com/s2/favicons?domain=offertevergelijker.nl&sz=128", href: "https://www.offertevergelijker.nl", description: "Vergelijk & bespaar" },
     { name: "Isolatie-vergelijker", logo: "https://www.google.com/s2/favicons?domain=isolatie-vergelijker.nl&sz=128", href: "https://www.isolatie-vergelijker.nl", description: "Beste deal in de buurt" },
     { name: "Vattenfall", logo: "https://www.google.com/s2/favicons?domain=vattenfall.nl&sz=128", href: "https://www.vattenfall.nl", description: "Isolatie advies" },
-    { name: "Essent", logo: "https://www.google.com/s2/favicons?domain=essent.nl&sz=128", href: "https://www.essent.nl", description: "Bespaar op energie" }
+    { name: "Essent", logo: "https://www.google.com/s2/favicons?domain=essent.nl&sz=128", href: "https://www.essent.nl", description: "Bespaar op energie" },
+    { name: "Zonneplan", logo: "https://www.google.com/s2/favicons?domain=zonneplan.nl&sz=128", href: "https://www.zonneplan.nl", description: "Slim isoleren" },
+    { name: "Budget Energie", logo: "https://www.google.com/s2/favicons?domain=budgetenergie.nl&sz=128", href: "https://www.budgetenergie.nl", description: "Energiezuinig wonen" }
   ],
   studentenlening: [
     { name: "Brand New Day", logo: "https://www.google.com/s2/favicons?domain=brandnewday.nl&sz=128", href: "https://www.brandnewday.nl", description: "Slim sparen" },

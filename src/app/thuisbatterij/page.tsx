@@ -13,7 +13,7 @@ export default function Page() {
     <ToolLayout 
       intro="Energie & Wonen"
       title="Thuisbatterij Loont?"
-      subtitle="Ontdek of een thuisbatterij in 2026 rendabel is voor jouw specifieke situatie."
+      subtitle="Ontdek of een thuisbatterij in 2026 rendabel is voor jouw specifieke situatie." topic="thuisbatterij"
     >
       
       <BatteryCalculator />

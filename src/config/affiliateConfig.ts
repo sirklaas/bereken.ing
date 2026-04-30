@@ -83,6 +83,14 @@ export const AFFILIATE_CONFIG = {
       preferred: { name: "Independer", url: "https://www.independer.nl/overlijdensrisicoverzekering", description: "Vergelijk alle premies & bespaar" },
       partners: [{ name: "FBTO", url: "https://www.fbto.nl" }]
     },
+    zonnepanelen: {
+      preferred: { name: "Zonneplan", url: "https://www.zonneplan.nl", description: "Vraag nu een gratis dakcheck aan" },
+      partners: [{ name: "Vattenfall", url: "https://www.vattenfall.nl/zonnepanelen" }]
+    },
+    thuisbatterij: {
+      preferred: { name: "Zonneplan", url: "https://www.zonneplan.nl/thuisbatterij", description: "Slimme energieopslag voor thuis" },
+      partners: [{ name: "Btw-vrij", url: "https://www.btwvrij.nl" }]
+    },
     // Fun tools get an Amazon/Bol suggestion
     fun: {
       preferred: { name: "Bol.com", url: "https://www.bol.com", description: "Ontdek de leukste cadeaus & gadgets" },
