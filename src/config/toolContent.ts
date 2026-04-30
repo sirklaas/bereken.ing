@@ -158,7 +158,7 @@ export const TOOL_CONTENT: Record<string, ToolContent> = {
     contentText: "Een thuisbatterij helpt je om meer van je eigen zonne-energie te verbruiken. Dit wordt steeds belangrijker naarmate de salderingsregeling wordt afgebouwd en terugleverkosten stijgen."
   },
   "autoverzekering": {
-    id: "geld/autokosten",
+    id: "autokosten",
     topic: "autoverzekering",
     intro: "Geld & Verzekeringen",
     title: "Autoverzekering",
@@ -170,7 +170,7 @@ export const TOOL_CONTENT: Record<string, ToolContent> = {
     contentText: "De premie voor je autoverzekering hangt af van je schadevrije jaren, je woonplaats en de gekozen dekking. Door jaarlijks te vergelijken kun je vaak tientallen euro's per maand besparen."
   },
   "begrafeniskosten": {
-    id: "geld/begrafenis",
+    id: "begrafenis",
     topic: "uitvaart",
     intro: "Geld & Zekerheid",
     title: "Begrafeniskosten",
@@ -182,7 +182,7 @@ export const TOOL_CONTENT: Record<string, ToolContent> = {
     contentText: "Een begrafenis is vaak duurder dan een crematie vanwege grafrechten en het onderhoud van het graf. Gemiddeld liggen de kosten tussen de €8.000 and €11.000."
   },
   "crematiekosten": {
-    id: "geld/crematie",
+    id: "crematie",
     topic: "uitvaart",
     intro: "Geld & Zekerheid",
     title: "Crematiekosten",
@@ -194,7 +194,7 @@ export const TOOL_CONTENT: Record<string, ToolContent> = {
     contentText: "Door de kosten van een crematie vooraf in kaart te brengen, kun je bepalen of een uitvaartverzekering nodig is om de financiële last voor je familie te verlichten."
   },
   "inboedelverzekering": {
-    id: "geld/inboedelverzekering",
+    id: "inboedelverzekering",
     topic: "inboedel",
     intro: "Geld & Verzekeringen",
     title: "Inboedelverzekering",
@@ -206,7 +206,7 @@ export const TOOL_CONTENT: Record<string, ToolContent> = {
     contentText: "Je inboedel is vaak meer waard dan je denkt. Met een goede verzekering zijn je spullen beschermd tegen brand, diefstal en waterschade."
   },
   "reisverzekering": {
-    id: "geld/reisverzekering",
+    id: "reisverzekering",
     topic: "reisverzekering",
     intro: "Geld & Verzekeringen",
     title: "Reisverzekering",
@@ -218,7 +218,7 @@ export const TOOL_CONTENT: Record<string, ToolContent> = {
     contentText: "Ga je vaker dan twee keer per jaar op vakantie? Dan is een doorlopende reisverzekering vaak goedkoper dan elke keer een losse verzekering afsluiten."
   },
   "levensverzekering": {
-    id: "geld/levensverzekering",
+    id: "levensverzekering",
     topic: "overlijdensrisico",
     intro: "Geld & Verzekeringen",
     title: "Levensverzekering",
@@ -230,7 +230,7 @@ export const TOOL_CONTENT: Record<string, ToolContent> = {
     contentText: "Een overlijdensrisicoverzekering (ORV) geeft je partner en kinderen financiële rust als jij er niet meer bent. De premies zijn de afgelopen jaren flink gedaald."
   },
   "8ball": {
-    id: "fun/8ball",
+    id: "8ball",
     topic: "fun",
     intro: "Aftellen & Fun",
     title: "Magische 8-Ball",
@@ -240,7 +240,7 @@ export const TOOL_CONTENT: Record<string, ToolContent> = {
     category: "Fun"
   },
   "kerst": {
-    id: "fun/kerst",
+    id: "kerst",
     topic: "countdown",
     intro: "Aftellen & Fun",
     title: "Dagen tot Kerst",
@@ -252,7 +252,7 @@ export const TOOL_CONTENT: Record<string, ToolContent> = {
     contentText: "De kerstdagen komen altijd sneller dan je denkt. Door op tijd te beginnen met de voorbereidingen voorkom je stress en kun je optimaal genieten van de feestdagen."
   },
   "dagentot": {
-    id: "fun/dagentot",
+    id: "dagentot",
     topic: "deathclock",
     intro: "Aftellen & Fun",
     title: "Dagentot (Death Clock)",
@@ -262,7 +262,7 @@ export const TOOL_CONTENT: Record<string, ToolContent> = {
     category: "Fun"
   },
   "iching": {
-    id: "fun/iching",
+    id: "iching",
     topic: "iching",
     intro: "Aftellen & Fun",
     title: "I Ching (Itjing)",
