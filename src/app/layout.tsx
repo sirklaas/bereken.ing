@@ -3,8 +3,16 @@ import { Fugaz_One, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ConsentBanner from "@/components/ConsentBanner";
 import Script from "next/script";
 import { AFFILIATE_CONFIG } from "@/config/affiliateConfig";
+
+declare global {
+  interface Window {
+    gtag: (...args: any[]) => void;
+    dataLayer: any[];
+  }
+}
 
 const fugazOne = Fugaz_One({ weight: "400", subsets: ["latin"], variable: "--font-fugaz" });
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakarta" });
@@ -22,6 +30,21 @@ export default function RootLayout({
   return (
     <html lang="nl" className={`${fugazOne.variable} ${jakarta.variable}`}>
       <head>
+        {/* Google Consent Mode v2 Defaults */}
+        <Script id="google-consent-mode" strategy="beforeInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('consent', 'default', {
+              'ad_storage': 'denied',
+              'ad_user_data': 'denied',
+              'ad_personalization': 'denied',
+              'analytics_storage': 'denied',
+              'wait_for_update': 500
+            });
+          `}
+        </Script>
+
         {/* Google AdSense Auto Ads */}
         <Script
           async
@@ -42,6 +65,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body>
+        <ConsentBanner />
         <a href="#main-content" className="skip-link">Skip naar content</a>
         <Header />
         <main>{children}</main>
