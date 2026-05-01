@@ -70,15 +70,16 @@ export default function ConsentBanner() {
           left: 5%;
           right: 5%;
           width: 90%;
-          max-width: 700px;
+          max-width: 600px;
           margin: 0 auto;
-          background: rgba(240, 248, 255, 0.9);
-          backdrop-filter: blur(15px);
-          border: 2px solid #000;
-          border-radius: 20px;
-          padding: 1.5rem 2rem;
+          background: rgba(224, 242, 254, 0.5);
+          backdrop-filter: blur(12px);
+          border: 1px solid rgba(0, 0, 0, 0.85);
+          border-radius: 24px;
+          padding: 2.5rem 2rem;
           z-index: 10000;
-          box-shadow: 10px 10px 0px rgba(0, 0, 0, 1);
+          box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.85);
+          text-align: center;
         }
         
         .animate-in {
@@ -90,71 +91,75 @@ export default function ConsentBanner() {
         }
         
         @keyframes slideUp {
-          from { transform: translateY(100%) scale(0.9); opacity: 0; }
+          from { transform: translateY(100%) scale(0.95); opacity: 0; }
           to { transform: translateY(0) scale(1); opacity: 1; }
         }
         
         @keyframes slideDown {
           from { transform: translateY(0) scale(1); opacity: 1; }
-          to { transform: translateY(120%) scale(0.9); opacity: 0; }
+          to { transform: translateY(120%) scale(0.95); opacity: 0; }
         }
 
         .consent-content {
           display: flex;
           flex-direction: column;
-          gap: 1rem;
+          gap: 2rem;
           align-items: center;
-        }
-        
-        @media (min-width: 768px) {
-          .consent-content {
-            flex-direction: row;
-            justify-content: space-between;
-            text-align: left;
-          }
         }
 
         .consent-text h3 {
-          font-family: var(--font-fugaz);
-          font-size: 1.1rem;
-          margin-bottom: 0.3rem;
-          color: #000;
-          letter-spacing: 0.05em;
+          font-family: var(--font-jakarta);
+          font-weight: 800;
+          font-size: 1.2rem;
+          margin-bottom: 0.5rem;
+          color: rgba(0, 0, 0, 0.85);
+          letter-spacing: -0.02em;
         }
         
         .consent-text p {
           font-family: var(--font-jakarta);
-          font-size: 0.85rem;
-          line-height: 1.4;
-          color: #334155;
-          max-width: 450px;
+          font-size: 0.9rem;
+          line-height: 1.6;
+          color: rgba(30, 41, 59, 0.9);
+          max-width: 100%;
         }
 
         .consent-actions {
           display: flex;
+          flex-direction: column;
           gap: 0.8rem;
+          width: 100%;
+        }
+        
+        @media (min-width: 480px) {
+          .consent-actions {
+            flex-direction: row;
+            justify-content: center;
+          }
         }
 
         .button-primary {
-          background: #000;
+          background: rgba(0, 0, 0, 0.85);
           color: #fff;
-          border: 2px solid #000;
-          padding: 0.7rem 1.5rem;
-          border-radius: 12px;
+          border: 1px solid rgba(0, 0, 0, 0.85);
+          padding: 0.8rem 2.5rem;
+          border-radius: 14px;
           font-family: var(--font-jakarta);
           font-weight: 800;
+          font-size: 0.95rem;
           cursor: pointer;
           transition: all 0.2s;
         }
         
         .button-secondary {
           background: transparent;
-          color: #000;
-          border: 2px solid #000;
-          padding: 0.7rem 1.5rem;
-          border-radius: 12px;
+          color: rgba(0, 0, 0, 0.85);
+          border: 1px solid rgba(0, 0, 0, 0.85);
+          padding: 0.8rem 2rem;
+          border-radius: 14px;
           font-family: var(--font-jakarta);
           font-weight: 700;
+          font-size: 0.9rem;
           cursor: pointer;
           transition: all 0.2s;
         }
