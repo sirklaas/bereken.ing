@@ -1,8 +1,4 @@
-"use client";
-
-import React from "react";
-import { getOfferByTopic } from "@/config/affiliateOffers";
-import { wrapAffiliateLink } from "@/config/affiliateConfig";
+import { AFFILIATE_CONFIG, wrapAffiliateLink } from "@/config/affiliateConfig";
 
 interface AffiliateCTAProps {
   topic?: string;
@@ -21,15 +17,15 @@ export default function AffiliateCTA({
   href, 
   badge 
 }: AffiliateCTAProps) {
-  // If a topic is provided, get the default offer for that topic
-  const offer = topic ? getOfferByTopic(topic) : null;
+  // If a topic is provided, get the default offer for that topic from our UNIFIED config
+  const offerConfig = topic ? (AFFILIATE_CONFIG.topics as any)[topic]?.preferred : null;
 
   // Use provided props or fallback to the offer from the config
-  const finalTitle = title || offer?.title || "Vergelijk & Bespaar";
-  const finalDescription = description || offer?.description || "Bespaar op je vaste lasten via onze partners.";
-  const finalButtonText = buttonText || offer?.buttonText || "Bekijk aanbod";
-  const finalHref = href || offer?.href || "/";
-  const finalBadge = badge || offer?.badge;
+  const finalTitle = title || offerConfig?.name || "Vergelijk & Bespaar";
+  const finalDescription = description || offerConfig?.description || "Bespaar op je vaste lasten via onze partners.";
+  const finalButtonText = buttonText || offerConfig?.cta || "Bekijk Deal";
+  const finalHref = href || offerConfig?.url || "/";
+  const finalBadge = badge || offerConfig?.badge;
 
   // WRAP THE LINK WITH DAISYCON TRACKING
   const wrappedHref = wrapAffiliateLink(finalHref);

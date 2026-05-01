@@ -185,7 +185,7 @@ function MonetizationEditor({ topic, onSave }: { topic: string, onSave: () => vo
   const affiliateConfig = (AFFILIATE_CONFIG.topics as any)[topic];
   const partners = PARTNER_CONFIG[topic] || [];
 
-  const [prefData, setPrefData] = useState(affiliateConfig?.preferred || { name: "", description: "", url: "" });
+  const [prefData, setPrefData] = useState(affiliateConfig?.preferred || { name: "", description: "", url: "", cta: "Bekijk Deal" });
   const [partnerList, setPartnerList] = useState(partners);
   const [isSaving, setIsSaving] = useState(false);
 
@@ -208,13 +208,31 @@ function MonetizationEditor({ topic, onSave }: { topic: string, onSave: () => vo
 
   const updatePartner = (index: number, field: string, value: string) => {
     const newList = [...partnerList];
-    newList[index] = { ...newList[index], [field]: value };
+    const updatedPartner = { ...newList[index], [field]: value };
+    
+    // Smart Favicon Logic: If website changes, update logo automatically
+    if (field === "website" && value) {
+      try {
+        const domain = new URL(value.startsWith('http') ? value : `https://${value}`).hostname;
+        updatedPartner.logo = `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
+      } catch (e) {
+        // Keep current logo if URL is invalid
+      }
+    }
+    
+    newList[index] = updatedPartner;
     setPartnerList(newList);
   };
 
   const addPartner = () => {
-    if (partnerList.length >= 12) return; // Keep it clean
-    setPartnerList([...partnerList, { name: "", logo: "https://www.google.com/s2/favicons?domain=google.com&sz=128", href: "", description: "" }]);
+    if (partnerList.length >= 15) return; // Allow more if needed
+    setPartnerList([...partnerList, { 
+      name: "", 
+      logo: "https://www.google.com/s2/favicons?domain=google.com&sz=128", 
+      href: "", 
+      website: "",
+      description: "" 
+    }]);
   };
 
   return (
@@ -226,12 +244,29 @@ function MonetizationEditor({ topic, onSave }: { topic: string, onSave: () => vo
       {/* Preferred Offer Section */}
       <div style={{ background: "#f8fafc", padding: "1.5rem", borderRadius: "16px", border: "1px solid #e2e8f0", marginBottom: "2rem" }}>
         <h4 style={{ fontSize: "0.8rem", color: "var(--primary-accent)", textTransform: "uppercase", marginBottom: "1rem" }}>Preferred Partner (Top Deal Box)</h4>
-        <div style={{ display: "grid", gap: "1rem" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: "1rem" }}>
-            <input style={inputStyle} placeholder="Naam (Heading)" value={prefData.name} onChange={e => setPrefData({...prefData, name: e.target.value})} />
-            <input style={inputStyle} placeholder="Affiliate URL" value={prefData.url} onChange={e => setPrefData({...prefData, url: e.target.value})} />
+        <div style={{ display: "grid", gap: "1.5rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1.5fr 2fr 1fr", gap: "1rem" }}>
+            <div>
+              <label style={miniLabelStyle}>Heading</label>
+              <input style={inputStyle} placeholder="Naam (Heading)" value={prefData.name} onChange={e => setPrefData({...prefData, name: e.target.value})} />
+            </div>
+            <div>
+              <label style={miniLabelStyle}>Affiliate Link</label>
+              <input style={inputStyle} placeholder="Affiliate URL" value={prefData.url} onChange={e => setPrefData({...prefData, url: e.target.value})} />
+            </div>
+            <div>
+              <label style={miniLabelStyle}>Button Text</label>
+              <input style={inputStyle} placeholder="CTA (Bijv: Bekijk Deal)" value={prefData.cta || "Bekijk Deal"} onChange={e => setPrefData({...prefData, cta: e.target.value})} />
+            </div>
+            <div>
+              <label style={miniLabelStyle}>Badge Label</label>
+              <input style={inputStyle} placeholder="Bijv: Populairst" value={prefData.badge || ""} onChange={e => setPrefData({...prefData, badge: e.target.value})} />
+            </div>
           </div>
-          <input style={inputStyle} placeholder="Description (Body)" value={prefData.description} onChange={e => setPrefData({...prefData, description: e.target.value})} />
+          <div>
+            <label style={miniLabelStyle}>Body Content</label>
+            <textarea style={{...inputStyle, minHeight: "80px"}} placeholder="Description (Body)" value={prefData.description} onChange={e => setPrefData({...prefData, description: e.target.value})} />
+          </div>
           <button onClick={handleSavePref} disabled={isSaving} style={miniButtonStyle}>Update Preferred Offer</button>
         </div>
       </div>
@@ -243,24 +278,48 @@ function MonetizationEditor({ topic, onSave }: { topic: string, onSave: () => vo
           <button onClick={addPartner} style={{ ...miniButtonStyle, background: "#10b981" }}>+ Partner Toevoegen</button>
         </div>
         
-        <div style={{ display: "grid", gap: "0.8rem" }}>
+        <div style={{ display: "grid", gap: "1rem" }}>
           {partnerList.map((p, i) => (
-            <div key={i} style={{ display: "grid", gridTemplateColumns: "1.5fr 2fr 1fr 40px", gap: "0.5rem", alignItems: "center", padding: "0.5rem", background: "#f8fafc", borderRadius: "8px" }}>
-              <input style={{...inputStyle, padding: "0.5rem"}} placeholder="Naam" value={p.name} onChange={e => updatePartner(i, "name", e.target.value)} />
-              <input style={{...inputStyle, padding: "0.5rem"}} placeholder="Link" value={p.href} onChange={e => updatePartner(i, "href", e.target.value)} />
-              <input style={{...inputStyle, padding: "0.5rem"}} placeholder="Favicon" value={p.logo} onChange={e => updatePartner(i, "logo", e.target.value)} />
-              <button 
-                onClick={() => setPartnerList(partnerList.filter((_, idx) => idx !== i))}
-                style={{ background: "none", border: "none", color: "#ef4444", cursor: "pointer", fontWeight: 800 }}
-              >✕</button>
+            <div key={i} style={{ padding: "1rem", background: "#f8fafc", borderRadius: "12px", border: "1px solid #e2e8f0" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "1.5fr 2fr 2fr 40px", gap: "1rem", alignItems: "center", marginBottom: "0.8rem" }}>
+                <div>
+                  <label style={miniLabelStyle}>Partner Naam</label>
+                  <input style={{...inputStyle, padding: "0.6rem"}} placeholder="Naam" value={p.name} onChange={e => updatePartner(i, "name", e.target.value)} />
+                </div>
+                <div>
+                  <label style={miniLabelStyle}>Website (voor Favicon)</label>
+                  <input style={{...inputStyle, padding: "0.6rem"}} placeholder="Bijv: coolblue.nl" value={p.website || ""} onChange={e => updatePartner(i, "website", e.target.value)} />
+                </div>
+                <div>
+                  <label style={miniLabelStyle}>Affiliate Link</label>
+                  <input style={{...inputStyle, padding: "0.6rem"}} placeholder="Tracking URL" value={p.href} onChange={e => updatePartner(i, "href", e.target.value)} />
+                </div>
+                <button 
+                  onClick={() => setPartnerList(partnerList.filter((_, idx) => idx !== i))}
+                  style={{ background: "none", border: "none", color: "#ef4444", cursor: "pointer", fontWeight: 800, marginTop: "1.2rem" }}
+                >✕</button>
+              </div>
+              <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+                <img src={p.logo} alt="Favicon Preview" style={{ width: "32px", height: "32px", borderRadius: "4px", background: "white", padding: "2px", border: "1px solid #e2e8f0" }} />
+                <input style={{...inputStyle, padding: "0.4rem", fontSize: "0.75rem"}} placeholder="Logo URL (Auto-generated)" value={p.logo} onChange={e => updatePartner(i, "logo", e.target.value)} />
+              </div>
             </div>
           ))}
         </div>
-        <button onClick={handleSavePartners} disabled={isSaving} style={{ ...miniButtonStyle, marginTop: "1rem", width: "100%" }}>Opslaan Partner Grid</button>
+        <button onClick={handleSavePartners} disabled={isSaving} style={{ ...miniButtonStyle, marginTop: "1.5rem", width: "100%", padding: "1rem" }}>Opslaan Partner Grid</button>
       </div>
     </div>
   );
 }
+
+const miniLabelStyle = {
+  display: "block",
+  fontSize: "0.65rem",
+  fontWeight: 800,
+  color: "#94a3b8",
+  marginBottom: "0.3rem",
+  textTransform: "uppercase" as const
+};
 
 const miniButtonStyle = {
   padding: "0.6rem 1rem",

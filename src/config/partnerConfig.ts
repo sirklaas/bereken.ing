@@ -9,6 +9,7 @@ export interface Partner {
   name: string;
   logo: string;
   href: string;
+  website?: string;
   description?: string;
 }
 
