@@ -54,11 +54,11 @@ export default function ConsentBanner() {
           </p>
         </div>
         <div className="consent-actions">
-          <button className="button-secondary" onClick={() => handleConsent("minimal")}>
-            Instellingen
-          </button>
           <button className="button-primary" onClick={() => handleConsent("all")}>
             Akkoord
+          </button>
+          <button className="link-secondary" onClick={() => handleConsent("minimal")}>
+            Instellingen beheren
           </button>
         </div>
       </div>
@@ -78,7 +78,7 @@ export default function ConsentBanner() {
           border-radius: 32px;
           padding: 3.5rem 3rem;
           z-index: 10000;
-          box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.85);
+          box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.85);
           text-align: center;
         }
         
@@ -103,7 +103,7 @@ export default function ConsentBanner() {
         .consent-content {
           display: flex;
           flex-direction: column;
-          gap: 2rem;
+          gap: 2.5rem;
           align-items: center;
         }
 
@@ -127,52 +127,48 @@ export default function ConsentBanner() {
         .consent-actions {
           display: flex;
           flex-direction: column;
-          gap: 0.8rem;
+          gap: 1.2rem;
+          align-items: center;
           width: 100%;
-        }
-        
-        @media (min-width: 480px) {
-          .consent-actions {
-            flex-direction: row;
-            justify-content: center;
-          }
         }
 
         .button-primary {
           background: rgba(0, 0, 0, 0.85);
           color: #fff;
           border: 1px solid rgba(0, 0, 0, 0.85);
-          padding: 0.8rem 2.5rem;
-          border-radius: 14px;
+          padding: 1rem 3.5rem;
+          border-radius: 16px;
           font-family: var(--font-jakarta);
           font-weight: 800;
-          font-size: 0.95rem;
+          font-size: 1rem;
           cursor: pointer;
           transition: all 0.2s;
+          width: 100%;
+          max-width: 300px;
         }
         
-        .button-secondary {
+        .link-secondary {
           background: transparent;
-          color: rgba(0, 0, 0, 0.85);
-          border: 1px solid rgba(0, 0, 0, 0.85);
-          padding: 0.8rem 2rem;
-          border-radius: 14px;
+          color: rgba(0, 0, 0, 0.5);
+          border: none;
+          padding: 0;
           font-family: var(--font-jakarta);
-          font-weight: 700;
-          font-size: 0.9rem;
+          font-weight: 600;
+          font-size: 0.8rem;
           cursor: pointer;
-          transition: all 0.2s;
+          text-decoration: underline;
+          transition: color 0.2s;
         }
         
         .button-primary:hover { 
           background: var(--primary-accent);
           border-color: var(--primary-accent);
           transform: translateY(-2px); 
+          box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
         }
         
-        .button-secondary:hover { 
-          background: rgba(0,0,0,0.05);
-          transform: translateY(-2px); 
+        .link-secondary:hover { 
+          color: rgba(0, 0, 0, 0.85);
         }
       `}</style>
     </div>
