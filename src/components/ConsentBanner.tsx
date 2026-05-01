@@ -16,7 +16,7 @@ export default function ConsentBanner() {
   const handleConsent = (type: "all" | "minimal") => {
     setIsExiting(true);
     
-    // Wait for animation to finish (matching new duration)
+    // Wait for animation to finish (matching new 2.5s duration)
     setTimeout(() => {
       if (typeof window.gtag === "function") {
         if (type === "all") {
@@ -38,7 +38,7 @@ export default function ConsentBanner() {
 
       localStorage.setItem("google_consent", type);
       setShow(false);
-    }, 800); // Matching the slideDown duration
+    }, 2500); // Matching the slideDown duration
   };
 
   if (!show) return null;
@@ -83,11 +83,11 @@ export default function ConsentBanner() {
         }
         
         .animate-in {
-          animation: slideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          animation: slideUp 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
         
         .animate-out {
-          animation: slideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          animation: slideDown 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
         
         @keyframes slideUp {
