@@ -35,12 +35,70 @@ export async function updateToolContent(updatedTool: any) {
 
     fs.writeFileSync(filePath, newFileContent, "utf-8");
     
-    revalidatePath("/dashboard");
     revalidatePath(`/${toolId}`);
     
     return { success: true };
   } catch (error) {
     console.error("Failed to update tool content:", error);
+    return { success: false, error: String(error) };
+  }
+}
+
+export async function updateAffiliateTopic(topic: string, updatedConfig: any) {
+  try {
+    const filePath = path.join(process.cwd(), "src/config/affiliateConfig.ts");
+    const fileContent = fs.readFileSync(filePath, "utf-8");
+
+    const startMarker = "topics: {";
+    const startIndex = fileContent.indexOf(startMarker);
+    const endIndex = fileContent.lastIndexOf("}");
+
+    if (startIndex === -1) throw new Error("Could not find topics in affiliateConfig.ts");
+
+    const topicsPart = fileContent.slice(startIndex, endIndex + 1);
+    const topicRegex = new RegExp(`"${topic}": \\{[^}]+\\}(?=,|\\s*\\})`, "s");
+    
+    // We want to preserve the structure but update the values
+    const newTopicString = `"${topic}": ${JSON.stringify(updatedConfig, null, 2)}`;
+    const updatedTopicsPart = topicsPart.replace(topicRegex, newTopicString);
+
+    const newFileContent = fileContent.slice(0, startIndex) + updatedTopicsPart + fileContent.slice(endIndex + 1);
+    fs.writeFileSync(filePath, newFileContent, "utf-8");
+    
+    revalidatePath("/dashboard");
+    return { success: true };
+  } catch (error) {
+    console.error("Failed to update affiliate config:", error);
+    return { success: false, error: String(error) };
+  }
+}
+
+export async function updatePartnerGrid(topic: string, updatedPartners: any[]) {
+  try {
+    const filePath = path.join(process.cwd(), "src/config/partnerConfig.ts");
+    const fileContent = fs.readFileSync(filePath, "utf-8");
+
+    const startMarker = "export const PARTNER_CONFIG: Record<string, Partner[]> = {";
+    const startIndex = fileContent.indexOf(startMarker);
+    const endIndex = fileContent.lastIndexOf("};");
+
+    if (startIndex === -1) throw new Error("Could not find PARTNER_CONFIG in partnerConfig.ts");
+
+    const configPart = fileContent.slice(startIndex, endIndex + 1);
+    
+    // Regex to find the topic array, even if it has quotes or not
+    const topicRegex = new RegExp(`(?:"${topic}"|${topic}): \\[[^\\]]+\\](?=,|\\s*\\})`, "s");
+    
+    const newTopicString = `"${topic}": ${JSON.stringify(updatedPartners, null, 2)}`;
+    const updatedConfigPart = configPart.replace(topicRegex, newTopicString);
+
+    const newFileContent = fileContent.slice(0, startIndex) + updatedConfigPart + fileContent.slice(endIndex + 1);
+    fs.writeFileSync(filePath, newFileContent, "utf-8");
+    
+    revalidatePath("/dashboard");
+    return { success: true };
+  } catch (error) {
+    console.error("Failed to update partner grid:", error);
     return { success: false, error: String(error) };
   }
 }

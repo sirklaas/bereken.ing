@@ -2,8 +2,9 @@
 
 import React, { useState, useTransition, useEffect } from "react";
 import { TOOL_CONTENT, ToolContent } from "@/config/toolContent";
-import { updateToolContent, pushToGitHub, rewriteTool, rewriteAllTools, checkAffiliateLinks } from "./actions";
+import { updateToolContent, pushToGitHub, rewriteTool, rewriteAllTools, checkAffiliateLinks, updateAffiliateTopic, updatePartnerGrid } from "./actions";
 import { AFFILIATE_CONFIG } from "@/config/affiliateConfig";
+import { PARTNER_CONFIG } from "@/config/partnerConfig";
 import Link from "next/link";
 
 export default function ContentDashboard() {
@@ -180,6 +181,99 @@ export default function ContentDashboard() {
   );
 }
 
+function MonetizationEditor({ topic, onSave }: { topic: string, onSave: () => void }) {
+  const affiliateConfig = (AFFILIATE_CONFIG.topics as any)[topic];
+  const partners = PARTNER_CONFIG[topic] || [];
+
+  const [prefData, setPrefData] = useState(affiliateConfig?.preferred || { name: "", description: "", url: "" });
+  const [partnerList, setPartnerList] = useState(partners);
+  const [isSaving, setIsSaving] = useState(false);
+
+  const handleSavePref = async () => {
+    setIsSaving(true);
+    const updated = { ...affiliateConfig, preferred: prefData };
+    const res = await updateAffiliateTopic(topic, updated);
+    setIsSaving(false);
+    if (res.success) alert("Preferred Offer opgeslagen!");
+    else alert("Fout: " + res.error);
+  };
+
+  const handleSavePartners = async () => {
+    setIsSaving(true);
+    const res = await updatePartnerGrid(topic, partnerList);
+    setIsSaving(false);
+    if (res.success) alert("Partner Grid opgeslagen!");
+    else alert("Fout: " + res.error);
+  };
+
+  const updatePartner = (index: number, field: string, value: string) => {
+    const newList = [...partnerList];
+    newList[index] = { ...newList[index], [field]: value };
+    setPartnerList(newList);
+  };
+
+  const addPartner = () => {
+    if (partnerList.length >= 12) return; // Keep it clean
+    setPartnerList([...partnerList, { name: "", logo: "https://www.google.com/s2/favicons?domain=google.com&sz=128", href: "", description: "" }]);
+  };
+
+  return (
+    <div style={{ marginTop: "2rem", paddingTop: "2rem", borderTop: "2px solid #f1f5f9" }}>
+      <h3 style={{ marginBottom: "1.5rem", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+        💰 Monetization & Authority Grid
+      </h3>
+      
+      {/* Preferred Offer Section */}
+      <div style={{ background: "#f8fafc", padding: "1.5rem", borderRadius: "16px", border: "1px solid #e2e8f0", marginBottom: "2rem" }}>
+        <h4 style={{ fontSize: "0.8rem", color: "var(--primary-accent)", textTransform: "uppercase", marginBottom: "1rem" }}>Preferred Partner (Top Deal Box)</h4>
+        <div style={{ display: "grid", gap: "1rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: "1rem" }}>
+            <input style={inputStyle} placeholder="Naam (Heading)" value={prefData.name} onChange={e => setPrefData({...prefData, name: e.target.value})} />
+            <input style={inputStyle} placeholder="Affiliate URL" value={prefData.url} onChange={e => setPrefData({...prefData, url: e.target.value})} />
+          </div>
+          <input style={inputStyle} placeholder="Description (Body)" value={prefData.description} onChange={e => setPrefData({...prefData, description: e.target.value})} />
+          <button onClick={handleSavePref} disabled={isSaving} style={miniButtonStyle}>Update Preferred Offer</button>
+        </div>
+      </div>
+
+      {/* Partner Grid Section */}
+      <div style={{ background: "white", padding: "1.5rem", borderRadius: "16px", border: "1px solid #e2e8f0" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
+          <h4 style={{ fontSize: "0.8rem", color: "#64748b", textTransform: "uppercase" }}>Authority Partners ({partnerList.length})</h4>
+          <button onClick={addPartner} style={{ ...miniButtonStyle, background: "#10b981" }}>+ Partner Toevoegen</button>
+        </div>
+        
+        <div style={{ display: "grid", gap: "0.8rem" }}>
+          {partnerList.map((p, i) => (
+            <div key={i} style={{ display: "grid", gridTemplateColumns: "1.5fr 2fr 1fr 40px", gap: "0.5rem", alignItems: "center", padding: "0.5rem", background: "#f8fafc", borderRadius: "8px" }}>
+              <input style={{...inputStyle, padding: "0.5rem"}} placeholder="Naam" value={p.name} onChange={e => updatePartner(i, "name", e.target.value)} />
+              <input style={{...inputStyle, padding: "0.5rem"}} placeholder="Link" value={p.href} onChange={e => updatePartner(i, "href", e.target.value)} />
+              <input style={{...inputStyle, padding: "0.5rem"}} placeholder="Favicon" value={p.logo} onChange={e => updatePartner(i, "logo", e.target.value)} />
+              <button 
+                onClick={() => setPartnerList(partnerList.filter((_, idx) => idx !== i))}
+                style={{ background: "none", border: "none", color: "#ef4444", cursor: "pointer", fontWeight: 800 }}
+              >✕</button>
+            </div>
+          ))}
+        </div>
+        <button onClick={handleSavePartners} disabled={isSaving} style={{ ...miniButtonStyle, marginTop: "1rem", width: "100%" }}>Opslaan Partner Grid</button>
+      </div>
+    </div>
+  );
+}
+
+const miniButtonStyle = {
+  padding: "0.6rem 1rem",
+  background: "var(--primary-accent)",
+  color: "white",
+  border: "none",
+  borderRadius: "8px",
+  fontSize: "0.75rem",
+  fontWeight: 700,
+  cursor: "pointer",
+  transition: "opacity 0.2s"
+};
+
 function ToolCard({ tool, isEditing, onEdit, onCancel, onSave, isPending, linkHealth }: { 
   tool: ToolContent, 
   isEditing: boolean, 
@@ -297,31 +391,9 @@ function ToolCard({ tool, isEditing, onEdit, onCancel, onSave, isPending, linkHe
             />
           </div>
 
-          <div style={{ padding: "1.5rem", background: "#f8fafc", borderRadius: "12px", border: "1px solid #e2e8f0" }}>
-            <label style={{ ...labelStyle, color: "var(--primary-accent)" }}>🔗 Geconfigureerde Affiliate Link</label>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "1rem" }}>
-              <code style={{ fontSize: "0.85rem", color: "#475569", wordBreak: "break-all" }}>
-                {(AFFILIATE_CONFIG.topics as any)[tool.topic]?.preferred?.url || "Geen link geconfigureerd voor dit topic"}
-              </code>
-              {(AFFILIATE_CONFIG.topics as any)[tool.topic]?.preferred?.url && (
-                <a 
-                  href={(AFFILIATE_CONFIG.topics as any)[tool.topic].preferred.url} 
-                  target="_blank" 
-                  style={{ 
-                    fontSize: "0.7rem", 
-                    fontWeight: 800, 
-                    color: "white", 
-                    background: "var(--primary-accent)", 
-                    padding: "6px 12px", 
-                    borderRadius: "6px", 
-                    textDecoration: "none"
-                  }}
-                >TEST LINK</a>
-              )}
-            </div>
-          </div>
+          <MonetizationEditor topic={tool.topic} onSave={() => {}} />
           
-          <div style={{ display: "flex", gap: "1rem", marginTop: "1rem" }}>
+          <div style={{ display: "flex", gap: "1rem", marginTop: "2rem" }}>
             <button 
               onClick={() => onSave(formData)} 
               disabled={isPending}
