@@ -39,8 +39,14 @@ export const ALL_TOOLS: ToolItem[] = [
   
   // AI
   { name: "AI Besparingshulp", href: "/ai", category: "AI" },
+  { name: "AI Video Generator", href: "/ai-video", category: "AI" },
+  { name: "AI Afbeeldingen", href: "/ai-plaatjes", category: "AI" },
+  { name: "Beste AI Tools", href: "/ai-tools", category: "AI" },
   
-  // Fun
+  // Fun & Tools
+  { name: "Valuta Converter", href: "/valuta", category: "Geld" },
+  { name: "Eenheden Omrekenen", href: "/eenheden", category: "Fun" },
+  { name: "Typesnelheid Test", href: "/typesnelheid", category: "Fun" },
   { name: "Dagentot (Death Clock)", href: "/dagentot", category: "Fun" },
   { name: "Magic 8-Ball", href: "/8ball", category: "Fun" },
   { name: "I Ching Oracle", href: "/iching", category: "Fun" },

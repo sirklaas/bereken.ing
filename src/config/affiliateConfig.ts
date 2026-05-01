@@ -196,6 +196,16 @@ export const AFFILIATE_CONFIG = {
         badge: "Cadeau Tip"
       },
       partners: [{ name: "Amazon", url: "https://www.amazon.nl" }]
+    },
+    ai: {
+      preferred: { 
+        name: "Amazon AI Hardware", 
+        url: "https://www.amazon.nl", 
+        description: "De beste hardware voor AI-enthousiastelingen. Van krachtige GPU's tot slimme assistenten.",
+        cta: "Bekijk Deals",
+        badge: "AI Ready"
+      },
+      partners: [{ name: "Coolblue AI", url: "https://www.coolblue.nl" }]
     }
   }
 };

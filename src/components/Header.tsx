@@ -7,7 +7,26 @@ import { SITE_VERSION } from "@/config/version";
 
 const CATEGORIES = [
   { 
-    name: "Wonen", 
+    name: "AI Lab", 
+    links: [
+      { name: "AI Hulp (Chat)", href: "/ai" },
+      { name: "AI Video Generator", href: "/ai-video" },
+      { name: "AI Afbeeldingen", href: "/ai-plaatjes" },
+      { name: "Beste AI Tools", href: "/ai-tools" },
+    ]
+  },
+  { 
+    name: "Geld & Valuta", 
+    links: [
+      { name: "Valuta Omrekenen", href: "/valuta" },
+      { name: "Vaste Lasten", href: "/vaste-lasten" },
+      { name: "Studieschuld DUO", href: "/studentenlening" },
+      { name: "Uurtarief ZZP", href: "/uurtarief" },
+      { name: "Pensioen", href: "/pensioen" },
+    ]
+  },
+  { 
+    name: "Wonen & Energie", 
     links: [
       { name: "Hypotheek", href: "/hypotheek" },
       { name: "Zonnepanelen", href: "/zonnepanelen" },
@@ -17,37 +36,13 @@ const CATEGORIES = [
     ]
   },
   { 
-    name: "Geld", 
+    name: "Handige Hulpjes", 
     links: [
-      { name: "Studieschuld DUO", href: "/studentenlening" },
-      { name: "Vaste Lasten", href: "/vaste-lasten" },
-      { name: "Uurtarief ZZP", href: "/uurtarief" },
-      { name: "Pensioen", href: "/pensioen" },
-      { name: "Eigen Risico", href: "/eigen-risico" },
-    ]
-  },
-  { 
-    name: "Verzekering", 
-    links: [
-      { name: "Autoverzekering", href: "/autokosten" },
-      { name: "Inboedelverzekering", href: "/inboedelverzekering" },
-      { name: "Reisverzekering", href: "/reisverzekering" },
-      { name: "Levensverzekering", href: "/levensverzekering" },
-      { name: "Uitvaart", href: "/begrafenis" },
-    ]
-  },
-  { 
-    name: "Lifestyle & Fun", 
-    links: [
+      { name: "Eenheden Omrekenen", href: "/eenheden" },
+      { name: "Typesnelheid Test", href: "/typesnelheid" },
+      { name: "BMI Calculator", href: "/gezondheid" },
       { name: "Magische 8-Ball", href: "/8ball" },
       { name: "I Ching Orakel", href: "/iching" },
-      { name: "Kerst Countdown", href: "/kerst" },
-      { name: "Pasen Aftellen", href: "/pasen" },
-      { name: "Bruiloft Planner", href: "/bruiloft" },
-      { name: "Ramadan & Eid", href: "/ramadan" },
-      { name: "Jubileum Tracker", href: "/jubileum" },
-      { name: "BMI Calculator", href: "/gezondheid" },
-      { name: "AI Hulp", href: "/ai" },
     ]
   }
 ];
