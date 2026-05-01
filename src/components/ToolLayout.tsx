@@ -66,6 +66,19 @@ export default function ToolLayout({ children, intro, title, subtitle, topic, yo
         <main style={{ minWidth: 0, gridColumn: "span 1" }}>
           {children}
 
+          {/* MANUAL ADSENSE UNIT (Manual units often appear faster than Auto Ads) */}
+          <div style={{ marginTop: "3rem", minHeight: "100px", textAlign: "center" }}>
+            <ins className="adsbygoogle"
+                 style={{ display: "block" }}
+                 data-ad-client="ca-pub-6805783605124617"
+                 data-ad-slot="auto"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script dangerouslySetInnerHTML={{
+              __html: `(adsbygoogle = window.adsbygoogle || []).push({});`
+            }} />
+          </div>
+
           {/* AUTOMATED MAIN AFFILIATE CTA (The Money Maker) */}
           {topic && (
             <div style={{ marginTop: "3rem" }}>

@@ -40,18 +40,23 @@ export default function RootLayout({
               'ad_user_data': 'denied',
               'ad_personalization': 'denied',
               'analytics_storage': 'denied',
-              'wait_for_update': 500
+              'wait_for_update': 2000
             });
           `}
         </Script>
 
-        {/* Google AdSense Auto Ads */}
-        <Script
+        {/* Google AdSense Auto Ads - Native Tag to avoid data-nscript issues */}
+        <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6805783605124617"
           crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
+        ></script>
+        <script dangerouslySetInnerHTML={{
+          __html: `(adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-6805783605124617",
+            enable_page_level_ads: true
+          });`
+        }} />
 
         {/* LinkPizza Affiliate Automation */}
         <Script id="linkpizza-script" strategy="afterInteractive">
