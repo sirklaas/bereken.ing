@@ -16,7 +16,7 @@ export default function ConsentBanner() {
   const handleConsent = (type: "all" | "minimal") => {
     setIsExiting(true);
     
-    // Wait for animation to finish
+    // Wait for animation to finish (matching new duration)
     setTimeout(() => {
       if (typeof window.gtag === "function") {
         if (type === "all") {
@@ -38,7 +38,7 @@ export default function ConsentBanner() {
 
       localStorage.setItem("google_consent", type);
       setShow(false);
-    }, 500); // Animation duration
+    }, 800); // Matching the slideDown duration
   };
 
   if (!show) return null;
@@ -66,38 +66,38 @@ export default function ConsentBanner() {
       <style jsx>{`
         .consent-banner {
           position: fixed;
-          bottom: 2rem;
+          bottom: 3rem;
           left: 5%;
           right: 5%;
           width: 90%;
-          max-width: 600px;
+          max-width: 720px;
           margin: 0 auto;
-          background: rgba(224, 242, 254, 0.5);
-          backdrop-filter: blur(12px);
+          background: rgba(224, 242, 254, 0.4);
+          backdrop-filter: blur(15px);
           border: 1px solid rgba(0, 0, 0, 0.85);
-          border-radius: 24px;
-          padding: 2.5rem 2rem;
+          border-radius: 32px;
+          padding: 3.5rem 3rem;
           z-index: 10000;
-          box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.85);
+          box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.85);
           text-align: center;
         }
         
         .animate-in {
-          animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          animation: slideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
         
         .animate-out {
-          animation: slideDown 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          animation: slideDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
         
         @keyframes slideUp {
-          from { transform: translateY(100%) scale(0.95); opacity: 0; }
+          from { transform: translateY(120%) scale(0.9); opacity: 0; }
           to { transform: translateY(0) scale(1); opacity: 1; }
         }
         
         @keyframes slideDown {
           from { transform: translateY(0) scale(1); opacity: 1; }
-          to { transform: translateY(120%) scale(0.95); opacity: 0; }
+          to { transform: translateY(150%) scale(0.9); opacity: 0; }
         }
 
         .consent-content {
