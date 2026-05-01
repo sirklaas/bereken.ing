@@ -20,6 +20,10 @@ const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakart
 export const metadata: Metadata = {
   title: "bereken.ing | De slimste rekentools",
   description: "Vlijmscherpe berekeningen voor elke vraag. Van hypotheek tot studieschuld.",
+  icons: {
+    icon: "/icon.png",
+    apple: "/apple-icon.png",
+  }
 };
 
 export default function RootLayout({
