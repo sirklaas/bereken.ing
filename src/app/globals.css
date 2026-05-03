@@ -248,15 +248,21 @@ h3 {
   padding: 0 clamp(1rem, 5vw, 2rem);
 }
 
+/* --- PRISTINE CARD DESIGN --- */
+.pristine-card, .card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
 /* --- PRISTINE CALCULATOR WRAPPER --- */
 .home-main-content, .pristine-grid main {
   width: 100%;
   min-width: 0;
-  background: var(--surface);
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  padding: var(--calc-padding);
-  box-shadow: var(--shadow-md);
 }
 
 .hero-section {
