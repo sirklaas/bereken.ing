@@ -18,8 +18,8 @@ export const AFFILIATE_CONFIG = {
   // Default tracking parameters
   defaultParams: {
     wi: "1517771",
-    si: "12345", // Default Program ID if not specified
-    li: "1",     // Default Link ID
+    si: "", // No default - must be specific
+    li: "1",     
   },
 
   // Topic-specific configurations (The Gold List 2026)
@@ -223,12 +223,14 @@ export const AFFILIATE_CONFIG = {
  * HELPER: Wraps any URL into a Daisycon tracking link
  */
 export const wrapAffiliateLink = (url: string, programId?: string) => {
-  // Never wrap PayPro links (prevents redirection loops/ManyStores issues)
+  // Never wrap PayPro links
   if (url.includes("paypro.nl")) return url;
 
   const mediaId = AFFILIATE_CONFIG.mediaId;
-  if (!mediaId || mediaId === "YOUR_MEDIA_ID_HERE") return url;
-  
   const si = programId || AFFILIATE_CONFIG.defaultParams.si;
+
+  // If no Media ID or no specific Program ID, return the raw URL (clean)
+  if (!mediaId || mediaId === "YOUR_MEDIA_ID_HERE" || !si) return url;
+  
   return `https://ds1.nl/c/?wi=${mediaId}&si=${si}&dl=${encodeURIComponent(url)}`;
 };
