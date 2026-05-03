@@ -24,6 +24,12 @@ export default function Page() {
         siteId="1517771"
       />
 
+      <BolProduct 
+        id="bol_1777803568907"
+        productId="9300000148770215"
+        siteId="1517771"
+      />
+
       <AdSenseSlot id="bottom-ad" format="rectangle" style={{ marginTop: "3rem" }} />
     </ToolLayout>
   );

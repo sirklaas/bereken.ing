@@ -22,13 +22,18 @@ export default function AdSenseSlot({ id, slot, format = "auto", style }: AdSens
     }
   }, [slot]);
 
+  const [isDebug, setIsDebug] = React.useState(false);
+
+  React.useEffect(() => {
+    if (typeof window !== "undefined" && window.location.search.includes("debug=ads")) {
+      setIsDebug(true);
+    }
+  }, []);
+
   // Use your new live Slot ID
   const defaultSlot = "2654242201";
   const activeSlot = slot || defaultSlot;
   const pubId = "ca-pub-6805783605124617";
-
-  // Check for debug mode in URL
-  const isDebug = typeof window !== "undefined" && window.location.search.includes("debug=ads");
 
   // Prevent rendering if both are missing
   if (!activeSlot || activeSlot === "1234567890") {
