@@ -43,8 +43,8 @@ export default function ToolLayout({ children, intro, title, subtitle, topic, yo
         {subtitle && <h2 style={{ fontSize: "1.4rem", fontWeight: 500, opacity: 0.5, maxWidth: "850px", margin: "0 auto", lineHeight: 1.4 }}>{subtitle}</h2>}
       </div>
 
-      {/* 2. 3-Column Layout (Independent of fluid-grid to prevent overlap) */}
-      <div className="main-tool-grid">
+      {/* 2. Proportional Fluid Grid */}
+      <div className="pristine-grid">
         {/* Left Side Slot (Skyscraper Ad) */}
         <div className="side-slot left-slot" style={{ display: "flex", justifyContent: "center" }}>
           <AdSenseSlot 
@@ -55,7 +55,7 @@ export default function ToolLayout({ children, intro, title, subtitle, topic, yo
         </div>
 
         {/* Center: The actual Tool (Occupies more space on desktop) */}
-        <main style={{ minWidth: 0, gridColumn: "span 1" }}>
+        <main style={{ minWidth: 0 }}>
           {children}
 
           {/* AUTO ADS WILL FILL THIS SPACE */}
@@ -103,26 +103,6 @@ export default function ToolLayout({ children, intro, title, subtitle, topic, yo
         )}
 
       </div>
-      
-      <style jsx>{`
-        @media (min-width: 1280px) {
-          .main-tool-grid {
-            grid-template-columns: 300px 1fr 300px !important;
-          }
-        }
-        @media (max-width: 1279px) and (min-width: 1024px) {
-          .main-tool-grid {
-            grid-template-columns: 1fr 300px !important;
-          }
-          .left-slot { display: none; }
-        }
-        @media (max-width: 1023px) {
-          .main-tool-grid {
-            grid-template-columns: 1fr !important;
-          }
-          .side-slot { display: none !important; }
-        }
-      `}</style>
     </div>
   );
 }

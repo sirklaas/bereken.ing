@@ -23,8 +23,11 @@
   --shadow-lg: 0 20px 40px -12px rgba(99, 102, 241, 0.12), 0 10px 20px -10px rgba(0, 0, 0, 0.05);
   
   --radius: 16px;
-  --gap: clamp(1rem, 3vw, 2rem);
-  --max-width: 1440px;
+  --shell-padding: clamp(12px, 2.5vw, 40px);
+  --col-gap: clamp(12px, 2vw, 36px);
+  --max-width: clamp(1000px, 95vw, 1600px);
+  --ad-height: 600px;
+  --calc-padding: clamp(20px, 4vw, 48px);
 
   /* Typography choice: Plus Jakarta Sans (Global) */
   --font-main: var(--font-jakarta), sans-serif;
@@ -101,15 +104,42 @@ h3 {
   margin-bottom: 1rem;
 }
 
-/* --- PRISTINE RESPONSIVE GRID --- */
+/* --- FLUID RESPONSIVE SYSTEM --- */
 .pristine-grid {
   display: grid;
-  grid-template-columns: 300px 1fr 300px;
-  gap: 3rem;
-  max-width: 1600px;
+  gap: var(--col-gap);
+  max-width: var(--max-width);
   margin: 0 auto;
+  padding-inline: var(--shell-padding);
   align-items: start;
   width: 100%;
+}
+
+/* DESKTOP: Triple-Horizontal (Proportional) */
+@media (min-width: 1200px) {
+  .pristine-grid {
+    grid-template-columns: 1fr 3fr 1fr;
+  }
+}
+
+/* TABLET: Dual-Horizontal (Calculator Priority) */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .pristine-grid {
+    grid-template-columns: 3fr 1fr;
+  }
+  .left-slot {
+    display: none !important;
+  }
+}
+
+/* MOBILE: Vertical Stack (Focus Mode) */
+@media (max-width: 767px) {
+  .pristine-grid {
+    grid-template-columns: 1fr;
+  }
+  .side-slot {
+    display: none !important;
+  }
 }
 
 .main-tool-grid {
