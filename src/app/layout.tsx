@@ -39,13 +39,32 @@ export default function RootLayout({
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
-            gtag('consent', 'default', {
+            
+            var savedConsent = null;
+            try {
+              savedConsent = localStorage.getItem('google_consent');
+            } catch (e) {}
+
+            var defaults = {
               'ad_storage': 'denied',
               'ad_user_data': 'denied',
               'ad_personalization': 'denied',
               'analytics_storage': 'denied',
-              'wait_for_update': 2000
-            });
+              'wait_for_update': 500
+            };
+
+            if (savedConsent === 'all') {
+              defaults = {
+                'ad_storage': 'granted',
+                'ad_user_data': 'granted',
+                'ad_personalization': 'granted',
+                'analytics_storage': 'granted'
+              };
+            } else if (savedConsent === 'minimal') {
+              defaults.analytics_storage = 'granted';
+            }
+
+            gtag('consent', 'default', defaults);
           `}
         </Script>
 
@@ -55,12 +74,6 @@ export default function RootLayout({
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6805783605124617"
           crossOrigin="anonymous"
         ></script>
-        <script dangerouslySetInnerHTML={{
-          __html: `(adsbygoogle = window.adsbygoogle || []).push({
-            google_ad_client: "ca-pub-6805783605124617",
-            enable_page_level_ads: true
-          });`
-        }} />
 
         {/* LinkPizza Affiliate Automation */}
         <Script id="linkpizza-script" strategy="afterInteractive">

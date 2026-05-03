@@ -14,29 +14,32 @@ export default function ConsentBanner() {
   }, []);
 
   const handleConsent = (type: "all" | "minimal") => {
+    // 1. Apply consent immediately
+    if (typeof window.gtag === "function") {
+      if (type === "all") {
+        window.gtag("consent", "update", {
+          ad_storage: "granted",
+          ad_user_data: "granted",
+          ad_personalization: "granted",
+          analytics_storage: "granted",
+        });
+      } else {
+        window.gtag("consent", "update", {
+          ad_storage: "denied",
+          ad_user_data: "denied",
+          ad_personalization: "denied",
+          analytics_storage: "granted",
+        });
+      }
+    }
+
+    localStorage.setItem("google_consent", type);
+    
+    // 2. Start exit animation
     setIsExiting(true);
     
-    // Wait for animation to finish (matching new 2.5s duration)
+    // 3. Hide after animation
     setTimeout(() => {
-      if (typeof window.gtag === "function") {
-        if (type === "all") {
-          window.gtag("consent", "update", {
-            ad_storage: "granted",
-            ad_user_data: "granted",
-            ad_personalization: "granted",
-            analytics_storage: "granted",
-          });
-        } else {
-          window.gtag("consent", "update", {
-            ad_storage: "denied",
-            ad_user_data: "denied",
-            ad_personalization: "denied",
-            analytics_storage: "granted",
-          });
-        }
-      }
-
-      localStorage.setItem("google_consent", type);
       setShow(false);
     }, 2500); // Matching the slideDown duration
   };
