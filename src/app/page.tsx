@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import AdSenseSlot from "@/components/AdSenseSlot";
 
 export default function Home() {
   const tools = [
@@ -14,25 +15,10 @@ export default function Home() {
   return (
     <div style={{ overflowX: "hidden" }}>
       
-      {/* 1. TOP AD SLOT (Full Width Banner) */}
-      <section className="top-ad-section" style={{ background: "#f1f5f9", padding: "1.5rem 0" }}>
+      {/* 1. TOP AD SLOT */}
+      <section className="top-ad-section" style={{ background: "transparent", padding: "1.5rem 0" }}>
         <div className="fluid-container" style={{ display: "flex", justifyContent: "center" }}>
-          <div style={{ 
-            background: "#FF007F", 
-            width: "100%",
-            maxWidth: "970px",
-            height: "90px", 
-            borderRadius: "12px", 
-            display: "flex", 
-            alignItems: "center", 
-            justifyContent: "center", 
-            color: "white",
-            fontWeight: 900,
-            fontSize: "1.2rem",
-            boxShadow: "0 10px 30px rgba(255,0,127,0.3)"
-          }}>
-             AD SLOT 1 - TOP BANNER (970x90)
-          </div>
+          <AdSenseSlot id="home-top-banner" format="auto" style={{ width: "100%", maxWidth: "970px", height: "90px" }} />
         </div>
       </section>
 
@@ -47,21 +33,8 @@ export default function Home() {
           
           {/* Left Sidebar */}
           <aside className="side-slot left-slot" style={{ display: "flex", flexDirection: "column", gap: "2rem", alignItems: "center" }}>
-            <div style={{ 
-              background: "#FF007F", 
-              width: "300px", 
-              height: "600px", 
-              borderRadius: "24px", 
-              display: "flex", 
-              alignItems: "center", 
-              justifyContent: "center", 
-              color: "white",
-              fontWeight: 900,
-              boxShadow: "0 15px 35px rgba(255,0,127,0.2)"
-            }}>
-              LEFT SKYSCRAPER
-            </div>
-            <div style={{ background: "#FF007F", width: "300px", height: "250px", borderRadius: "24px" }} />
+            <AdSenseSlot id="home-left-sky" format="vertical" style={{ width: "300px", height: "600px" }} />
+            <AdSenseSlot id="home-left-box" format="rectangle" style={{ width: "300px", height: "250px" }} />
           </aside>
 
           {/* Center Content */}
@@ -125,22 +98,7 @@ export default function Home() {
 
             {/* Mid Ad Slot */}
             <section style={{ paddingBottom: "6rem", display: "flex", justifyContent: "center" }}>
-              <div style={{ 
-                background: "#FF007F", 
-                width: "100%",
-                maxWidth: "728px",
-                height: "250px", 
-                borderRadius: "24px", 
-                display: "flex", 
-                alignItems: "center", 
-                justifyContent: "center", 
-                color: "white",
-                fontWeight: 900,
-                fontSize: "1.2rem",
-                boxShadow: "0 15px 35px rgba(255,0,127,0.15)"
-              }}>
-                 MID AD SLOT (728x250)
-              </div>
+              <AdSenseSlot id="home-mid-rect" format="rectangle" style={{ width: "100%", maxWidth: "728px", height: "250px" }} />
             </section>
 
             {/* About Section */}
@@ -155,43 +113,17 @@ export default function Home() {
 
           {/* Right Sidebar */}
           <aside className="side-slot right-slot" style={{ display: "flex", flexDirection: "column", gap: "2rem", alignItems: "center" }}>
-            <div style={{ background: "#FF007F", width: "300px", height: "250px", borderRadius: "24px" }} />
-            <div style={{ 
-              background: "#FF007F", 
-              width: "300px", 
-              height: "600px", 
-              borderRadius: "24px", 
-              display: "flex", 
-              alignItems: "center", 
-              justifyContent: "center", 
-              color: "white",
-              fontWeight: 900,
-              boxShadow: "0 15px 35px rgba(255,0,127,0.2)"
-            }}>
-              RIGHT SKYSCRAPER
-            </div>
+            <AdSenseSlot id="home-right-box" format="rectangle" style={{ width: "300px", height: "250px" }} />
+            <AdSenseSlot id="home-right-sky" format="vertical" style={{ width: "300px", height: "600px" }} />
           </aside>
 
         </div>
       </div>
 
-      {/* 4. BOTTOM AD SLOT (Full Width) */}
+      {/* 4. BOTTOM AD SLOT */}
       <section style={{ padding: "5rem 0", background: "white", borderTop: "1px solid #f1f5f9" }}>
         <div className="fluid-container" style={{ display: "flex", justifyContent: "center" }}>
-          <div style={{ 
-            background: "#FF007F", 
-            width: "100%",
-            maxWidth: "970px",
-            height: "90px", 
-            borderRadius: "12px", 
-            display: "flex", 
-            alignItems: "center", 
-            justifyContent: "center", 
-            color: "white",
-            fontWeight: 900
-          }}>
-             BOTTOM AD SLOT (970x90)
-          </div>
+          <AdSenseSlot id="home-bottom-banner" format="auto" style={{ width: "100%", maxWidth: "970px", height: "90px" }} />
         </div>
       </section>
 
