@@ -5,7 +5,7 @@ import { useEffect } from "react";
 interface AdSenseSlotProps {
   id: string;
   slot?: string;
-  format?: "auto" | "fluid" | "rectangle";
+  format?: "auto" | "fluid" | "rectangle" | "vertical";
   style?: React.CSSProperties;
 }
 

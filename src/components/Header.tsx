@@ -7,15 +7,6 @@ import { SITE_VERSION } from "@/config/version";
 
 const CATEGORIES = [
   { 
-    name: "AI Lab", 
-    links: [
-      { name: "AI Hulp (Chat)", href: "/ai" },
-      { name: "AI Video Generator", href: "/ai-video" },
-      { name: "AI Afbeeldingen", href: "/ai-plaatjes" },
-      { name: "Beste AI Tools", href: "/ai-tools" },
-    ]
-  },
-  { 
     name: "Geld & Valuta", 
     links: [
       { name: "Valuta Omrekenen", href: "/valuta" },
@@ -33,6 +24,15 @@ const CATEGORIES = [
       { name: "Warmtepomp", href: "/warmtepomp" },
       { name: "Isolatie", href: "/isolatie" },
       { name: "Thuisbatterij", href: "/thuisbatterij" },
+    ]
+  },
+  { 
+    name: "AI Lab", 
+    links: [
+      { name: "AI Hulp (Chat)", href: "/ai" },
+      { name: "AI Video Generator", href: "/ai-video" },
+      { name: "AI Afbeeldingen", href: "/ai-plaatjes" },
+      { name: "Beste AI Tools", href: "/ai-tools" },
     ]
   },
   { 
