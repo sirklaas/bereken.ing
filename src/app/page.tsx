@@ -221,12 +221,14 @@ export default function Home() {
 
         @media (min-width: 1400px) {
           .home-main-grid {
-            grid-template-columns: 300px 1fr 300px;
+            grid-template-columns: clamp(250px, 18vw, 300px) 1fr clamp(250px, 18vw, 300px);
+            gap: clamp(1rem, 3vw, 3rem);
           }
         }
         @media (max-width: 1399px) and (min-width: 1100px) {
           .home-main-grid {
-            grid-template-columns: 1fr 300px;
+            grid-template-columns: 1fr clamp(250px, 20vw, 300px);
+            gap: 2rem;
           }
           .left-slot { display: none; }
         }
