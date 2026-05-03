@@ -218,15 +218,20 @@ export default function MortgageCalculator() {
           .internal-sidebar {
             border-right: none;
             border-bottom: 1px solid var(--border);
+            padding: 1rem;
             display: flex;
             overflow-x: auto;
-            padding: 1rem;
+            -webkit-overflow-scrolling: touch;
           }
           .internal-sidebar > div {
             flex-direction: row !important;
+            gap: 1rem !important;
           }
           .internal-sidebar button {
-            white-space: nowrap;
+            white-space: nowrap !important;
+            padding: 0.6rem 1rem !important;
+            font-size: 0.85rem !important;
+            flex-shrink: 0;
           }
         }
       `}</style>
