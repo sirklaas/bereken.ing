@@ -23,7 +23,7 @@ export default function ToolLayout({ children, intro, title, subtitle, topic, yo
   const partners = topic ? getPartnersByTopic(topic) : [];
 
   return (
-    <div id="main-content" className="fluid-container" style={{ paddingTop: "4rem", paddingBottom: "8rem" }}>
+    <div id="main-content" className="page-shell" style={{ paddingTop: "4rem", paddingBottom: "8rem" }}>
       
       {/* 1. Centered Header Section */}
       <div style={{ textAlign: "center", marginBottom: "3rem" }}>
@@ -55,7 +55,7 @@ export default function ToolLayout({ children, intro, title, subtitle, topic, yo
         </div>
 
         {/* Center: The actual Tool (Occupies more space on desktop) */}
-        <main style={{ minWidth: 0 }}>
+        <main>
           {children}
 
           {/* AUTO ADS WILL FILL THIS SPACE */}
