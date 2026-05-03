@@ -202,13 +202,16 @@ export const AFFILIATE_CONFIG = {
     },
     ai: {
       preferred: { 
-        name: "Amazon AI Hardware", 
-        url: "https://www.amazon.nl", 
-        description: "De beste hardware voor AI-enthousiastelingen. Van krachtige GPU's tot slimme assistenten.",
-        cta: "Bekijk Deals",
-        badge: "AI Ready"
+        name: "WegMetDieKilos - Smart Health", 
+        url: "https://www.paypro.nl/producten/WegMetDieKilos_Bronze_Plan/114766/223271", 
+        description: "Ontdek hoe slimme plannen en data je kunnen helpen je streefgewicht te bereiken. Start vandaag met het Bronze Plan.",
+        cta: "Start Nu",
+        badge: "AI Keuze"
       },
-      partners: [{ name: "Coolblue AI", url: "https://www.coolblue.nl" }]
+      partners: [
+        { name: "Amazon AI Hardware", url: "https://www.amazon.nl" },
+        { name: "Coolblue AI", url: "https://www.coolblue.nl" }
+      ]
     }
   }
 };
