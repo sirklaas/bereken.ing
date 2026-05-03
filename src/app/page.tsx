@@ -22,74 +22,48 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Main Content Grid with Sidebars */}
-      <div className="fluid-container" style={{ paddingTop: "4rem", paddingBottom: "8rem" }}>
-        <div className="home-main-grid" style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-          gap: "var(--gap)",
-          alignItems: "start"
-        }}>
+      {/* Main Content Grid */}
+      <div className="fluid-container" style={{ paddingTop: "2rem", paddingBottom: "8rem" }}>
+        <div className="home-main-grid">
           
           {/* Left Sidebar */}
-          <aside className="side-slot left-slot" style={{ display: "flex", flexDirection: "column", gap: "2rem", alignItems: "center" }}>
+          <aside className="side-slot left-slot">
             <AdSenseSlot id="home-left-sky" format="vertical" style={{ width: "300px", height: "600px" }} />
+            <div style={{ height: "2rem" }} />
             <AdSenseSlot id="home-left-box" format="rectangle" style={{ width: "300px", height: "250px" }} />
           </aside>
 
           {/* Center Content */}
-          <main style={{ minWidth: 0 }}>
+          <main className="home-main-content">
             {/* Hero Section */}
-            <section style={{ padding: "0 0 4rem", background: "white", textAlign: "center" }}>
-              <h3 style={{ color: "var(--primary-accent)", letterSpacing: "0.2em", fontWeight: 800, fontSize: "0.8rem", marginBottom: "1.5rem" }}>DE SLIMSTE REKENTOOLS VAN 2026</h3>
-              <h1 style={{ margin: "0 auto 1.5rem", fontSize: "clamp(2.5rem, 6vw, 4.5rem)", lineHeight: 1.1, letterSpacing: "-0.02em" }}>
-                Berekeningen die je <span style={{ color: "var(--primary-accent)" }}>geld besparen</span>.
+            <section className="hero-section">
+              <h3 className="hero-eyebrow">DE SLIMSTE REKENTOOLS VAN 2026</h3>
+              <h1 className="hero-title">
+                Berekeningen die je <span className="text-gradient">geld besparen</span>.
               </h1>
-              <p style={{ maxWidth: "750px", margin: "0 auto 3.5rem", color: "var(--secondary)", fontSize: "1.1rem", fontWeight: 500, lineHeight: 1.6 }}>
+              <p className="hero-text">
                 Van maximale hypotheek tot je studieschuld. Wij gebruiken de meest actuele wetgeving en Nibud-normen.
               </p>
-              <p style={{ marginBottom: "1rem", fontSize: "0.75rem", fontWeight: 900, color: "var(--secondary)", letterSpacing: "0.1em" }}>ANDERE HANDIGE HULPJES</p>
-              <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
-                <Link href="/hypotheek" className="btn btn-primary" style={{ padding: "1.2rem 2.5rem", borderRadius: "14px" }}>Bekijk je Hypotheek</Link>
-                <Link href="/uurtarief" className="btn" style={{ padding: "1.2rem 2.5rem", borderRadius: "14px", border: "2px solid #e2e8f0", background: "white" }}>ZZP Calculator</Link>
+              <div className="hero-actions">
+                <Link href="/hypotheek" className="btn btn-primary main-cta">Bekijk je Hypotheek</Link>
+                <Link href="/uurtarief" className="btn secondary-cta">ZZP Calculator</Link>
               </div>
             </section>
 
             {/* Popular Tools Grid */}
             <section style={{ paddingBottom: "6rem" }}>
-              <h2 style={{ fontSize: "clamp(2rem, 5vw, 2.8rem)", marginBottom: "3.5rem", textAlign: "center", letterSpacing: "-0.01em" }}>
-                Populaire <span style={{ color: "var(--primary-accent)" }}>Hulpjes</span>
+              <h2 className="section-title">
+                Populaire <span className="text-gradient">Hulpjes</span>
               </h2>
-              <div style={{ 
-                display: "grid", 
-                gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", 
-                gap: "1.5rem" 
-              }}>
+              <div className="tools-grid">
                 {tools.map((tool) => (
-                  <Link key={tool.href} href={tool.href} style={{ textDecoration: "none" }}>
-                    <div className="pristine-card" style={{ 
-                      height: "100%", 
-                      padding: "2.5rem 1.5rem",
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                      textAlign: "center"
-                    }}>
-                      <div style={{ 
-                        width: "60px", 
-                        height: "60px", 
-                        background: "#f8fafc", 
-                        borderRadius: "16px", 
-                        display: "flex", 
-                        alignItems: "center", 
-                        justifyContent: "center",
-                        fontSize: "2.5rem",
-                        marginBottom: "1.5rem"
-                      }}>
+                  <Link key={tool.href} href={tool.href} className="tool-card-link">
+                    <div className="pristine-card tool-card">
+                      <div className="tool-icon-wrapper">
                         {tool.icon}
                       </div>
-                      <h3 style={{ fontSize: "1.1rem", marginBottom: "0.8rem", color: "var(--heading-color)" }}>{tool.name}</h3>
-                      <p style={{ fontSize: "0.85rem", color: "var(--secondary)", lineHeight: 1.5 }}>{tool.desc}</p>
+                      <h3 className="tool-card-title">{tool.name}</h3>
+                      <p className="tool-card-desc">{tool.desc}</p>
                     </div>
                   </Link>
                 ))}
@@ -97,23 +71,24 @@ export default function Home() {
             </section>
 
             {/* Mid Ad Slot */}
-            <section style={{ paddingBottom: "6rem", display: "flex", justifyContent: "center" }}>
+            <section className="mid-ad-wrapper">
               <AdSenseSlot id="home-mid-rect" format="rectangle" style={{ width: "100%", maxWidth: "728px", height: "250px" }} />
             </section>
 
             {/* About Section */}
-            <section style={{ padding: "4rem", background: "#f8fafc", borderRadius: "32px", border: "1px solid #e2e8f0" }}>
-              <h3 style={{ color: "var(--primary-accent)", letterSpacing: "0.15em", fontWeight: 800, fontSize: "0.8rem", marginBottom: "1.5rem" }}>OVER BEREKEN.ING</h3>
-              <h2 style={{ fontSize: "2.2rem", marginBottom: "2rem", lineHeight: 1.2 }}>Onafhankelijke berekeningen voor slimme beslissingen.</h2>
-              <p style={{ fontSize: "1.1rem", color: "var(--secondary)", lineHeight: 1.7 }}>
+            <section className="about-card">
+              <h3 className="hero-eyebrow">OVER BEREKEN.ING</h3>
+              <h2 className="about-title">Onafhankelijke berekeningen voor slimme beslissingen.</h2>
+              <p className="about-text">
                 Wij geloven dat financiële duidelijkheid voor iedereen toegankelijk moet zijn. Alleen de harde cijfers, gebaseerd op de meest recente wetgeving van 2026.
               </p>
             </section>
           </main>
 
           {/* Right Sidebar */}
-          <aside className="side-slot right-slot" style={{ display: "flex", flexDirection: "column", gap: "2rem", alignItems: "center" }}>
+          <aside className="side-slot right-slot">
             <AdSenseSlot id="home-right-box" format="rectangle" style={{ width: "300px", height: "250px" }} />
+            <div style={{ height: "2rem" }} />
             <AdSenseSlot id="home-right-sky" format="vertical" style={{ width: "300px", height: "600px" }} />
           </aside>
 
@@ -128,24 +103,138 @@ export default function Home() {
       </section>
 
       <style jsx>{`
-        @media (max-width: 1023px) {
-          .top-ad-section, .side-slot {
-            display: none !important;
-          }
-          .home-main-grid {
-            grid-template-columns: 1fr !important;
-          }
+        .home-main-grid {
+          display: grid;
+          gap: 3rem;
+          align-items: start;
         }
+        .home-main-content {
+          min-width: 0;
+        }
+        .hero-section {
+          padding: 0 0 4rem;
+          text-align: center;
+        }
+        .hero-eyebrow {
+          color: var(--primary-accent);
+          letter-spacing: 0.2em;
+          font-weight: 800;
+          font-size: 0.8rem;
+          margin-bottom: 1.5rem;
+        }
+        .hero-title {
+          font-size: clamp(2.5rem, 6vw, 4.2rem);
+          line-height: 1.1;
+          letter-spacing: -0.02em;
+          margin-bottom: 1.5rem;
+        }
+        .text-gradient {
+          color: var(--primary-accent);
+          background: linear-gradient(135deg, #FF007F, #6366f1);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+        .hero-text {
+          max-width: 700px;
+          margin: 0 auto 3.5rem;
+          color: var(--secondary);
+          font-size: 1.2rem;
+          font-weight: 500;
+          line-height: 1.6;
+        }
+        .hero-actions {
+          display: flex;
+          gap: 1.5rem;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+        .main-cta {
+          padding: 1.2rem 2.5rem;
+          border-radius: 16px;
+          font-weight: 700;
+          box-shadow: 0 10px 20px rgba(255,0,127,0.2);
+        }
+        .secondary-cta {
+          padding: 1.2rem 2.5rem;
+          border-radius: 16px;
+          border: 2px solid #e2e8f0;
+          background: white;
+          font-weight: 700;
+        }
+        .section-title {
+          font-size: clamp(2rem, 5vw, 2.8rem);
+          margin-bottom: 3.5rem;
+          text-align: center;
+        }
+        .tools-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+          gap: 1.5rem;
+        }
+        .tool-card-link {
+          text-decoration: none;
+          transition: transform 0.3s ease;
+        }
+        .tool-card-link:hover {
+          transform: translateY(-8px);
+        }
+        .tool-card {
+          height: 100%;
+          padding: 3rem 2rem;
+          text-align: center;
+        }
+        .tool-icon-wrapper {
+          font-size: 3rem;
+          margin-bottom: 1.5rem;
+        }
+        .tool-card-title {
+          font-size: 1.2rem;
+          margin-bottom: 0.8rem;
+          color: var(--heading-color);
+        }
+        .tool-card-desc {
+          font-size: 0.95rem;
+          color: var(--secondary);
+          line-height: 1.5;
+        }
+        .mid-ad-wrapper {
+          padding-bottom: 6rem;
+          display: flex;
+          justify-content: center;
+        }
+        .about-card {
+          padding: 4rem;
+          background: #f8fafc;
+          border-radius: 32px;
+          border: 1px solid #e2e8f0;
+        }
+        .about-title {
+          font-size: 2.2rem;
+          margin-bottom: 2rem;
+          line-height: 1.2;
+        }
+        .about-text {
+          font-size: 1.1rem;
+          color: var(--secondary);
+          line-height: 1.7;
+        }
+
         @media (min-width: 1400px) {
           .home-main-grid {
-            grid-template-columns: 300px 1fr 300px !important;
+            grid-template-columns: 300px 1fr 300px;
           }
         }
-        @media (max-width: 1399px) and (min-width: 1024px) {
+        @media (max-width: 1399px) and (min-width: 1100px) {
           .home-main-grid {
-            grid-template-columns: 1fr 300px !important;
+            grid-template-columns: 1fr 300px;
           }
           .left-slot { display: none; }
+        }
+        @media (max-width: 1099px) {
+          .home-main-grid {
+            grid-template-columns: 1fr;
+          }
+          .side-slot { display: none; }
         }
       `}</style>
     </div>
