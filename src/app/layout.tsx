@@ -71,7 +71,7 @@ export default function RootLayout({
         {/* Google AdSense Auto Ads - Native Tag to avoid data-nscript issues */}
         <script
           async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6805783605124617"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6805783605124617&v=6.1"
           crossOrigin="anonymous"
         ></script>
 
