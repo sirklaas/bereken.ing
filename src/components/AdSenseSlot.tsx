@@ -22,14 +22,16 @@ export default function AdSenseSlot({ id, slot, format = "auto", style }: AdSens
     }
   }, [slot]);
 
-  // Use current production ID if available, otherwise show placeholder
+  // Use your new live Slot ID
+  const defaultSlot = "2654242201";
+  const activeSlot = slot || defaultSlot;
   const pubId = "pub-6805783605124617";
 
   // Check for debug mode in URL
   const isDebug = typeof window !== "undefined" && window.location.search.includes("debug=ads");
 
-  // Prevent rendering with placeholder IDs
-  if (!slot || slot === "1234567890") {
+  // Prevent rendering if both are missing (shouldn't happen now)
+  if (!activeSlot || activeSlot === "1234567890") {
     if (isDebug) {
       return (
         <div style={{ 
@@ -76,7 +78,7 @@ export default function AdSenseSlot({ id, slot, format = "auto", style }: AdSens
         className="adsbygoogle"
         style={{ display: "block", width: "100%", ...style }}
         data-ad-client={`ca-${pubId}`}
-        data-ad-slot={slot}
+        data-ad-slot={activeSlot}
         data-ad-format={format}
         data-full-width-responsive="true"
       />
