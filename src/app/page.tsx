@@ -15,22 +15,15 @@ export default function Home() {
   return (
     <div style={{ overflowX: "hidden" }}>
       
-      {/* 1. TOP AD SLOT */}
-      <section className="top-ad-section" style={{ background: "transparent", padding: "1.5rem 0" }}>
-        <div className="fluid-container" style={{ display: "flex", justifyContent: "center" }}>
-          <AdSenseSlot id="home-top-banner" format="auto" style={{ width: "100%", maxWidth: "970px", height: "90px" }} />
-        </div>
-      </section>
-
       {/* Main Content Grid */}
-      <div className="fluid-container" style={{ paddingTop: "2rem", paddingBottom: "8rem" }}>
-        <div className="home-main-grid">
+      <div className="page-shell" style={{ paddingTop: "2rem", paddingBottom: "8rem" }}>
+        <div className="pristine-grid">
           
           {/* Left Sidebar */}
           <aside className="side-slot left-slot">
-            <AdSenseSlot id="home-left-sky" format="vertical" style={{ width: "300px", height: "600px" }} />
+            <AdSenseSlot id="home-left-sky" format="vertical" style={{ width: "100%", height: "600px" }} />
             <div style={{ height: "2rem" }} />
-            <AdSenseSlot id="home-left-box" format="rectangle" style={{ width: "300px", height: "250px" }} />
+            <AdSenseSlot id="home-left-box" format="rectangle" style={{ width: "100%", height: "250px" }} />
           </aside>
 
           {/* Center Content */}
@@ -87,9 +80,9 @@ export default function Home() {
 
           {/* Right Sidebar */}
           <aside className="side-slot right-slot">
-            <AdSenseSlot id="home-right-box" format="rectangle" style={{ width: "300px", height: "250px" }} />
+            <AdSenseSlot id="home-right-box" format="rectangle" style={{ width: "100%", height: "250px" }} />
             <div style={{ height: "2rem" }} />
-            <AdSenseSlot id="home-right-sky" format="vertical" style={{ width: "300px", height: "600px" }} />
+            <AdSenseSlot id="home-right-sky" format="vertical" style={{ width: "100%", height: "600px" }} />
           </aside>
 
         </div>
@@ -97,17 +90,12 @@ export default function Home() {
 
       {/* 4. BOTTOM AD SLOT */}
       <section style={{ padding: "5rem 0", background: "white", borderTop: "1px solid #f1f5f9" }}>
-        <div className="fluid-container" style={{ display: "flex", justifyContent: "center" }}>
+        <div className="page-shell" style={{ display: "flex", justifyContent: "center" }}>
           <AdSenseSlot id="home-bottom-banner" format="auto" style={{ width: "100%", maxWidth: "970px", height: "90px" }} />
         </div>
       </section>
 
       <style jsx>{`
-        .home-main-grid {
-          display: grid;
-          gap: 3rem;
-          align-items: start;
-        }
         .home-main-content {
           min-width: 0;
         }
@@ -217,26 +205,6 @@ export default function Home() {
           font-size: 1.1rem;
           color: var(--secondary);
           line-height: 1.7;
-        }
-
-        @media (min-width: 1400px) {
-          .home-main-grid {
-            grid-template-columns: clamp(250px, 18vw, 300px) 1fr clamp(250px, 18vw, 300px);
-            gap: clamp(1rem, 3vw, 3rem);
-          }
-        }
-        @media (max-width: 1399px) and (min-width: 1100px) {
-          .home-main-grid {
-            grid-template-columns: 1fr clamp(250px, 20vw, 300px);
-            gap: 2rem;
-          }
-          .left-slot { display: none; }
-        }
-        @media (max-width: 1099px) {
-          .home-main-grid {
-            grid-template-columns: 1fr;
-          }
-          .side-slot { display: none; }
         }
       `}</style>
     </div>
