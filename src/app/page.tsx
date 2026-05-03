@@ -19,7 +19,7 @@ export default function Home() {
       <div className="page-shell" style={{ paddingTop: "4rem", paddingBottom: "8rem" }}>
         
         {/* Hero Section (Aligned to Content Width) */}
-        <div className="pristine-grid" style={{ marginBottom: "6rem" }}>
+        <div className="pristine-grid" style={{ marginBottom: "3rem" }}>
           <section className="hero-section" style={{ gridColumn: 2, textAlign: "center", marginBottom: 0 }}>
             <h3 className="hero-eyebrow">DE SLIMSTE REKENTOOLS VAN 2026</h3>
             <h1 className="hero-title">
