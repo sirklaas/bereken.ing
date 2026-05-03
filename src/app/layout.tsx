@@ -35,7 +35,7 @@ export default function RootLayout({
     <html lang="nl" className={`${fugazOne.variable} ${jakarta.variable}`}>
       <head>
         {/* Google Consent Mode v2 Defaults */}
-        <Script id="google-consent-mode" strategy="beforeInteractive">
+        <Script id="google-consent-mode" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -68,12 +68,13 @@ export default function RootLayout({
           `}
         </Script>
 
-        {/* Google AdSense Auto Ads - Native Tag to avoid data-nscript issues */}
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6805783605124617&v=6.1"
+        {/* Google AdSense Auto Ads */}
+        <Script
+          id="adsense-init"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6805783605124617"
+          strategy="afterInteractive"
           crossOrigin="anonymous"
-        ></script>
+        />
 
         {/* Daisycon Auto-linking Automation is handled at the bottom of the body */}
       </head>
