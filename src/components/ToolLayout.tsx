@@ -51,7 +51,7 @@ export default function ToolLayout({ children, intro, title, subtitle, topic, yo
           <AdSenseSlot 
             id="sidebar-left" 
             format="vertical" 
-            style={{ width: "300px", height: "600px", borderRadius: "24px", margin: 0 }} 
+            style={{ width: "100%", height: "600px", borderRadius: "24px", margin: 0 }} 
           />
         </div>
 
@@ -70,16 +70,16 @@ export default function ToolLayout({ children, intro, title, subtitle, topic, yo
         </main>
 
         {/* Right Side Slot (Rectangle & Skyscraper) */}
-        <div className="side-slot right-slot" style={{ display: "flex", flexDirection: "column", gap: "2rem", alignItems: "center" }}>
+        <div className="side-slot right-slot" style={{ display: "flex", flexDirection: "column", gap: "2rem", alignItems: "center", width: "100%" }}>
           <AdSenseSlot 
             id="sidebar-right-top" 
             format="rectangle" 
-            style={{ width: "300px", height: "250px", borderRadius: "24px", margin: 0 }} 
+            style={{ width: "100%", height: "250px", borderRadius: "24px", margin: 0 }} 
           />
           <AdSenseSlot 
             id="sidebar-right-bottom" 
             format="vertical" 
-            style={{ width: "300px", height: "600px", borderRadius: "24px", margin: 0 }} 
+            style={{ width: "100%", height: "600px", borderRadius: "24px", margin: 0 }} 
           />
         </div>
 
