@@ -223,6 +223,9 @@ export const AFFILIATE_CONFIG = {
  * HELPER: Wraps any URL into a Daisycon tracking link
  */
 export const wrapAffiliateLink = (url: string, programId?: string) => {
+  // Never wrap PayPro links (prevents redirection loops/ManyStores issues)
+  if (url.includes("paypro.nl")) return url;
+
   const mediaId = AFFILIATE_CONFIG.mediaId;
   if (!mediaId || mediaId === "YOUR_MEDIA_ID_HERE") return url;
   
