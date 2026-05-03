@@ -78,10 +78,11 @@ export default function AdSenseSlot({ id, slot, format = "auto", style }: AdSens
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
-      background: isDebug ? "rgba(255, 0, 127, 0.03)" : "transparent",
-      border: isDebug ? "1px dashed rgba(255, 0, 127, 0.3)" : "none",
-      borderRadius: "16px",
-      margin: "1.5rem 0",
+      background: isDebug ? "rgba(255, 0, 127, 0.05)" : "rgba(0, 0, 0, 0.02)",
+      border: isDebug ? "2px dashed rgba(255, 0, 127, 0.3)" : "1px solid rgba(0, 0, 0, 0.05)",
+      borderRadius: "24px",
+      margin: "2rem 0",
+      transition: "all 0.3s ease",
       ...style 
     }}>
       <ins
