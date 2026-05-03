@@ -1,111 +1,22 @@
 :root {
-  /* Color Palette - Vibrant Premium SaaS */
-  --background: #fdfdfd;
-  --foreground: #0f172a;
-  --surface: #ffffff;
-  
-  --primary: #1a365d;
-  --primary-accent: #6366f1; /* Indigo / Violet vibrant */
-  --primary-glow: rgba(99, 102, 241, 0.2);
-  --accent-vibrant: #ec4899; /* Pink accent */
-  
-  --secondary: #64748b;
-  --border: rgba(0, 0, 0, 0.05);
-  --input-bg: #f8fafc;
-  --heading-color: #1e293b;
-  
-  /* Glassmorphism / Vibrant Surfaces */
-  --glass-bg: rgba(255, 255, 255, 0.8);
-  --glass-border: rgba(255, 255, 255, 0.4);
-  
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 12px -2px rgba(99, 102, 241, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
-  --shadow-lg: 0 20px 40px -12px rgba(99, 102, 241, 0.12), 0 10px 20px -10px rgba(0, 0, 0, 0.05);
-  
-  --radius: 16px;
-  --shell-padding: clamp(16px, 3.5vw, 64px);
-  --col-gap: var(--shell-padding); /* The Unified X */
-  --sidebar-width: clamp(200px, 20vw, 350px);
+  /* User Blueprint Variables */
+  --shell-padding: clamp(12px, 2.5vw, 40px);
+  --col-gap: clamp(12px, 2vw, 36px);
   --max-width: clamp(1000px, 95vw, 1600px);
   --ad-height: 600px;
   --calc-padding: clamp(20px, 4vw, 48px);
-
-  /* Typography choice: Plus Jakarta Sans (Global) */
-  --font-main: var(--font-jakarta), sans-serif;
-  --font-heading: var(--font-jakarta), var(--font-main);
-  --font-brand: var(--font-fugaz), var(--font-heading);
   
+  --background: #fdfdfd;
+  --foreground: #0f172a;
+  --surface: #ffffff;
+  --primary: #1a365d;
+  --primary-accent: #6366f1;
+  --border: rgba(0, 0, 0, 0.05);
+  --radius: 16px;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.skip-link {
-  position: absolute;
-  top: -100px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--primary-accent);
-  color: white;
-  padding: 1rem 2rem;
-  z-index: 100000;
-  text-decoration: none;
-  font-weight: 700;
-  border-radius: 0 0 12px 12px;
-  transition: top 0.3s ease;
-}
-
-.skip-link:focus {
-  top: 0;
-}
-
-body {
-  font-family: var(--font-main);
-  background: var(--background);
-  color: var(--foreground);
-  line-height: 1.625;
-  letter-spacing: -0.011em;
-  font-variant-numeric: tabular-nums;
-}
-
-/* --- PRISTINE TYPOGRAPHY --- */
-h1 {
-  font-family: var(--font-brand);
-  font-size: clamp(3rem, 10vw, 5rem);
-  font-weight: 400;
-  letter-spacing: -0.04em;
-  line-height: 0.95;
-  color: var(--heading-color);
-  margin-bottom: 1.5rem;
-}
-
-h2 {
-  font-family: var(--font-heading);
-  font-size: clamp(1.75rem, 5vw, 2.5rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  color: var(--heading-color);
-  line-height: 1.1;
-  margin-bottom: 1.25rem;
-}
-
-h3 {
-  font-family: var(--font-heading);
-  font-size: 0.85rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--primary-accent);
-  margin-bottom: 1rem;
-}
-
-/* --- THE LIQUID SHELL (User Blueprint) --- */
+/* --- THE USER'S FLUID LAYOUT --- */
 .page-shell {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -114,36 +25,16 @@ h3 {
 
 .pristine-grid {
   display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
   gap: var(--col-gap);
   align-items: start;
-  min-height: 80vh;
   width: 100%;
 }
 
-/* DESKTOP: Proportional Fluid 1-3-1 Split */
-@media (min-width: 1200px) {
-  .pristine-grid {
-    grid-template-columns: var(--sidebar-width) 1fr var(--sidebar-width);
-  }
-}
-
-/* TABLET: Proportional Fluid 3-1 Split */
-@media (max-width: 1199px) and (min-width: 768px) {
-  .pristine-grid {
-    grid-template-columns: 1fr var(--sidebar-width);
-  }
-  .left-slot {
-    display: none !important;
-  }
-}
-
-/* MOBILE: Proportional Stack */
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
   .pristine-grid {
     grid-template-columns: 1fr;
-  }
-  .side-slot {
-    display: none !important;
+    gap: 40px;
   }
 }
 
