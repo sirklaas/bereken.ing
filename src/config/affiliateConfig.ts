@@ -89,13 +89,16 @@ export const AFFILIATE_CONFIG = {
     },
     gezondheid: {
       preferred: { 
-        name: "FBTO Zorgverzekering", 
-        url: "https://www.fbto.nl/zorgverzekering", 
-        description: "Jouw zorg, jouw keuze. Stel zelf je ideale verzekering samen.",
-        cta: "Check FBTO",
-        badge: "Flexibel"
+        name: "WegMetDieKilos - Bronze Plan", 
+        url: "https://www.paypro.nl/producten/WegMetDieKilos_Bronze_Plan/114766/223271", 
+        description: "Zet vandaag de eerste stap naar een gezonder gewicht met het wetenschappelijk onderbouwde Bronze Plan.",
+        cta: "Start Jouw Transformatie",
+        badge: "Beste Resultaat"
       },
-      partners: [{ name: "Zilveren Kruis", url: "https://www.zilverenkruis.nl" }]
+      partners: [
+        { name: "FBTO Zorgverzekering", url: "https://www.fbto.nl/zorgverzekering" },
+        { name: "Zilveren Kruis", url: "https://www.zilverenkruis.nl" }
+      ]
     },
     uurtarief: {
       preferred: { 
