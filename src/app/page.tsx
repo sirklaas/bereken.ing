@@ -16,7 +16,23 @@ export default function Home() {
     <div style={{ overflowX: "hidden" }}>
       
       {/* Main Content Grid */}
-      <div className="page-shell" style={{ paddingTop: "2rem", paddingBottom: "8rem" }}>
+      <div className="page-shell" style={{ paddingTop: "4rem", paddingBottom: "8rem" }}>
+        
+        {/* Hero Section (Now Above the Grid) */}
+        <section className="hero-section" style={{ textAlign: "center", marginBottom: "6rem" }}>
+          <h3 className="hero-eyebrow">DE SLIMSTE REKENTOOLS VAN 2026</h3>
+          <h1 className="hero-title">
+            Berekeningen die je <span className="text-gradient">geld besparen</span>.
+          </h1>
+          <p className="hero-text">
+            Van maximale hypotheek tot je studieschuld. Wij gebruiken de meest actuele wetgeving en Nibud-normen.
+          </p>
+          <div className="hero-actions">
+            <Link href="/hypotheek" className="btn btn-primary main-cta">Bekijk je Hypotheek</Link>
+            <Link href="/uurtarief" className="btn secondary-cta">ZZP Calculator</Link>
+          </div>
+        </section>
+
         <div className="pristine-grid">
           
           {/* Left Sidebar */}
@@ -28,21 +44,6 @@ export default function Home() {
 
           {/* Center Content */}
           <main className="home-main-content">
-            {/* Hero Section */}
-            <section className="hero-section">
-              <h3 className="hero-eyebrow">DE SLIMSTE REKENTOOLS VAN 2026</h3>
-              <h1 className="hero-title">
-                Berekeningen die je <span className="text-gradient">geld besparen</span>.
-              </h1>
-              <p className="hero-text">
-                Van maximale hypotheek tot je studieschuld. Wij gebruiken de meest actuele wetgeving en Nibud-normen.
-              </p>
-              <div className="hero-actions">
-                <Link href="/hypotheek" className="btn btn-primary main-cta">Bekijk je Hypotheek</Link>
-                <Link href="/uurtarief" className="btn secondary-cta">ZZP Calculator</Link>
-              </div>
-            </section>
-
             {/* Popular Tools Grid */}
             <section style={{ paddingBottom: "6rem" }}>
               <h2 className="section-title">
