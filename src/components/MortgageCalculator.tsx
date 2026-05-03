@@ -190,13 +190,18 @@ export default function MortgageCalculator() {
       <style jsx>{`
         .internal-grid {
           display: grid;
-          grid-template-columns: clamp(180px, 25%, 280px) 1fr;
+          grid-template-columns: clamp(220px, 25%, 300px) 1fr;
           width: 100%;
         }
         .internal-sidebar {
           background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
           border-right: 1px solid var(--border);
-          padding: var(--calc-padding) 1.2rem;
+          padding: var(--calc-padding) 0.8rem;
+        }
+        .internal-sidebar button {
+          white-space: normal !important;
+          line-height: 1.2 !important;
+          word-break: break-word;
         }
         .internal-content {
           padding: var(--calc-padding);
