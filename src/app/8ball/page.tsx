@@ -19,12 +19,6 @@ export default function Page() {
       <Magic8Ball />
       
       <BolProduct 
-        id="bol_1777803262520"
-        productId="9300000148770215"
-        siteId="1517771"
-      />
-
-      <BolProduct 
         id="bol_1777803568907"
         productId="9300000148770215"
         siteId="1517771"
