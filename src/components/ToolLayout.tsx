@@ -25,11 +25,13 @@ export default function ToolLayout({ children, intro, title, subtitle, topic, yo
   return (
     <div id="main-content" className="page-shell" style={{ paddingTop: "4rem", paddingBottom: "8rem" }}>
       
-      {/* 1. Simple, Proportional Header */}
-      <div style={{ textAlign: "center", marginBottom: "4rem" }}>
-        {intro && <h3 className="hero-eyebrow">{intro.toUpperCase()}</h3>}
-        <h1 style={{ marginBottom: "1rem" }}>{title}</h1>
-        {subtitle && <h2 style={{ fontWeight: 500, opacity: 0.7, maxWidth: "800px", margin: "0 auto" }}>{subtitle}</h2>}
+      {/* 1. Simple, Proportional Header (Aligned to Calculator Width) */}
+      <div className="pristine-grid" style={{ marginBottom: "4rem" }}>
+        <div style={{ gridColumn: 2, textAlign: "center" }}>
+          {intro && <h3 className="hero-eyebrow">{intro.toUpperCase()}</h3>}
+          <h1 style={{ marginBottom: "1rem" }}>{title}</h1>
+          {subtitle && <h2 style={{ fontWeight: 500, opacity: 0.7, maxWidth: "100%", margin: "0 auto" }}>{subtitle}</h2>}
+        </div>
       </div>
 
       {/* 2. Pure 1-3-1 Grid */}

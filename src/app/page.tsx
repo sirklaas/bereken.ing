@@ -18,20 +18,22 @@ export default function Home() {
       {/* Main Content Grid */}
       <div className="page-shell" style={{ paddingTop: "4rem", paddingBottom: "8rem" }}>
         
-        {/* Hero Section (Now Above the Grid) */}
-        <section className="hero-section" style={{ textAlign: "center", marginBottom: "6rem" }}>
-          <h3 className="hero-eyebrow">DE SLIMSTE REKENTOOLS VAN 2026</h3>
-          <h1 className="hero-title">
-            Berekeningen die je <span className="text-gradient">geld besparen</span>.
-          </h1>
-          <p className="hero-text">
-            Van maximale hypotheek tot je studieschuld. Wij gebruiken de meest actuele wetgeving en Nibud-normen.
-          </p>
-          <div className="hero-actions">
-            <Link href="/hypotheek" className="btn btn-primary main-cta">Bekijk je Hypotheek</Link>
-            <Link href="/uurtarief" className="btn secondary-cta">ZZP Calculator</Link>
-          </div>
-        </section>
+        {/* Hero Section (Aligned to Content Width) */}
+        <div className="pristine-grid" style={{ marginBottom: "6rem" }}>
+          <section className="hero-section" style={{ gridColumn: 2, textAlign: "center", marginBottom: 0 }}>
+            <h3 className="hero-eyebrow">DE SLIMSTE REKENTOOLS VAN 2026</h3>
+            <h1 className="hero-title">
+              Berekeningen die je <span className="text-gradient">geld besparen</span>.
+            </h1>
+            <p className="hero-text">
+              Van maximale hypotheek tot je studieschuld. Wij gebruiken de meest actuele wetgeving en Nibud-normen.
+            </p>
+            <div className="hero-actions">
+              <Link href="/hypotheek" className="btn btn-primary main-cta">Bekijk je Hypotheek</Link>
+              <Link href="/uurtarief" className="btn secondary-cta">ZZP Calculator</Link>
+            </div>
+          </section>
+        </div>
 
         <div className="pristine-grid">
           
