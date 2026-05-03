@@ -7,16 +7,6 @@ import { SITE_VERSION } from "@/config/version";
 
 const CATEGORIES = [
   { 
-    name: "Geld & Valuta", 
-    links: [
-      { name: "Valuta Omrekenen", href: "/valuta" },
-      { name: "Vaste Lasten", href: "/vaste-lasten" },
-      { name: "Studieschuld DUO", href: "/studentenlening" },
-      { name: "Uurtarief ZZP", href: "/uurtarief" },
-      { name: "Pensioen", href: "/pensioen" },
-    ]
-  },
-  { 
     name: "Wonen & Energie", 
     links: [
       { name: "Hypotheek", href: "/hypotheek" },
@@ -24,6 +14,16 @@ const CATEGORIES = [
       { name: "Warmtepomp", href: "/warmtepomp" },
       { name: "Isolatie", href: "/isolatie" },
       { name: "Thuisbatterij", href: "/thuisbatterij" },
+    ]
+  },
+  { 
+    name: "Geld & Valuta", 
+    links: [
+      { name: "Valuta Omrekenen", href: "/valuta" },
+      { name: "Vaste Lasten", href: "/vaste-lasten" },
+      { name: "Studieschuld DUO", href: "/studentenlening" },
+      { name: "Uurtarief ZZP", href: "/uurtarief" },
+      { name: "Pensioen", href: "/pensioen" },
     ]
   },
   { 
