@@ -64,6 +64,10 @@ export default function PartnerGrid({ partners, title = "Onze Partners" }: Partn
               <img 
                 src={partner.logo} 
                 alt={partner.name} 
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = "https://www.google.com/s2/favicons?domain=bereken.ing&sz=128";
+                  (e.target as HTMLImageElement).style.opacity = "0.3";
+                }}
                 style={{ 
                   maxWidth: "100%", 
                   maxHeight: "100%", 
