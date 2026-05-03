@@ -192,13 +192,16 @@ export const AFFILIATE_CONFIG = {
     },
     fun: {
       preferred: { 
-        name: "Bol.com Gadgets", 
-        url: "https://www.bol.com", 
-        description: "Ontdek de leukste cadeaus, gadgets en boeken voor elke gelegenheid.",
-        cta: "Shop op Bol",
-        badge: "Cadeau Tip"
+        name: "Jouw Gezonde Toekomst", 
+        url: "https://www.paypro.nl/producten/WegMetDieKilos_Bronze_Plan/114766/223271", 
+        description: "De 8-ball voorspelt de toekomst, maar jij bepaalt hoe je eruit ziet. Start vandaag met jouw transformatie.",
+        cta: "Vorm Jouw Toekomst",
+        badge: "Top Keuze"
       },
-      partners: [{ name: "Amazon", url: "https://www.amazon.nl" }]
+      partners: [
+        { name: "Bol.com Gadgets", url: "https://www.bol.com" },
+        { name: "Amazon", url: "https://www.amazon.nl" }
+      ]
     },
     ai: {
       preferred: { 
