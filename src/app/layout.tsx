@@ -75,16 +75,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         ></script>
 
-        {/* LinkPizza Affiliate Automation */}
-        <Script id="linkpizza-script" strategy="afterInteractive">
-          {`
-            (function(p,z,Z){
-                z=p.createElement("script");z.async=1;
-                z.src="https://pzz.io/pzz.js?uid=103571&host="+p.domain;
-                (p.head||p.documentElement).insertBefore(z,Z);
-            })(document);
-          `}
-        </Script>
+        {/* Daisycon Auto-linking Automation is handled at the bottom of the body */}
       </head>
       <body>
         <ConsentBanner />
