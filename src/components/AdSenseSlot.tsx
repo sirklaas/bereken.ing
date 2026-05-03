@@ -25,12 +25,12 @@ export default function AdSenseSlot({ id, slot, format = "auto", style }: AdSens
   // Use your new live Slot ID
   const defaultSlot = "2654242201";
   const activeSlot = slot || defaultSlot;
-  const pubId = "pub-6805783605124617";
+  const pubId = "ca-pub-6805783605124617";
 
   // Check for debug mode in URL
   const isDebug = typeof window !== "undefined" && window.location.search.includes("debug=ads");
 
-  // Prevent rendering if both are missing (shouldn't happen now)
+  // Prevent rendering if both are missing
   if (!activeSlot || activeSlot === "1234567890") {
     if (isDebug) {
       return (
@@ -63,14 +63,15 @@ export default function AdSenseSlot({ id, slot, format = "auto", style }: AdSens
           <p style={{ fontWeight: 400, opacity: 0.8, fontSize: "0.9rem", maxWidth: "400px", margin: "0 auto" }}>
             This placeholder is ready for ads, but you haven't provided a 10-digit Slot ID in the code yet.
           </p>
-          <div style={{ marginTop: "1.5rem", fontSize: "0.8rem", background: "rgba(0,0,0,0.05)", padding: "0.5rem", borderRadius: "8px", display: "inline-block" }}>
-            <code>ID: {id}</code> | <code>Format: {format}</code>
-          </div>
         </div>
       );
     }
     return null; 
   }
+
+  // Map 'vertical' to 'auto' for the actual AdSense attribute if needed, 
+  // but keep our internal logic for sizing.
+  const adFormat = format === "vertical" ? "auto" : format;
 
   return (
     <div className="ad-container" id={id} style={{ 
@@ -88,9 +89,9 @@ export default function AdSenseSlot({ id, slot, format = "auto", style }: AdSens
       <ins
         className="adsbygoogle"
         style={{ display: "block", width: "100%", ...style }}
-        data-ad-client={`ca-${pubId}`}
+        data-ad-client={pubId}
         data-ad-slot={activeSlot}
-        data-ad-format={format}
+        data-ad-format={adFormat}
         data-full-width-responsive="true"
       />
     </div>
