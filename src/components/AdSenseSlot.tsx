@@ -73,7 +73,17 @@ export default function AdSenseSlot({ id, slot, format = "auto", style }: AdSens
   }
 
   return (
-    <div className="ad-container" id={id} style={style}>
+    <div className="ad-container" id={id} style={{ 
+      minHeight: format === "rectangle" ? "250px" : "100px",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      background: isDebug ? "rgba(255, 0, 127, 0.03)" : "transparent",
+      border: isDebug ? "1px dashed rgba(255, 0, 127, 0.3)" : "none",
+      borderRadius: "16px",
+      margin: "1.5rem 0",
+      ...style 
+    }}>
       <ins
         className="adsbygoogle"
         style={{ display: "block", width: "100%", ...style }}

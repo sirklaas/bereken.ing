@@ -4,6 +4,7 @@ import React from "react";
 import YouTubeEmbed from "./YouTubeEmbed";
 import PartnerGrid from "./PartnerGrid";
 import AffiliateCTA from "./AffiliateCTA";
+import AdSenseSlot from "./AdSenseSlot";
 import { getVideoIdByTopic } from "@/config/videoConfig";
 import { getPartnersByTopic } from "@/config/partnerConfig";
 
@@ -44,22 +45,13 @@ export default function ToolLayout({ children, intro, title, subtitle, topic, yo
 
       {/* 2. 3-Column Layout (Independent of fluid-grid to prevent overlap) */}
       <div className="main-tool-grid">
-        {/* Left Side Slot */}
+        {/* Left Side Slot (Skyscraper Ad) */}
         <div className="side-slot left-slot" style={{ display: "flex", justifyContent: "center" }}>
-          <div style={{ 
-            background: "#FF007F", 
-            width: "300px", 
-            height: "600px", 
-            borderRadius: "20px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            color: "white",
-            fontWeight: 900,
-            fontSize: "1.2rem"
-          }}>
-            RESERVED SLOT
-          </div>
+          <AdSenseSlot 
+            id="sidebar-left" 
+            format="vertical" 
+            style={{ width: "300px", height: "600px", borderRadius: "24px", margin: 0 }} 
+          />
         </div>
 
         {/* Center: The actual Tool (Occupies more space on desktop) */}
@@ -76,10 +68,18 @@ export default function ToolLayout({ children, intro, title, subtitle, topic, yo
           )}
         </main>
 
-        {/* Right Side Slot */}
+        {/* Right Side Slot (Rectangle & Skyscraper) */}
         <div className="side-slot right-slot" style={{ display: "flex", flexDirection: "column", gap: "2rem", alignItems: "center" }}>
-          <div style={{ background: "#FF007F", width: "300px", height: "250px", borderRadius: "20px" }} />
-          <div style={{ background: "#FF007F", width: "300px", height: "600px", borderRadius: "20px" }} />
+          <AdSenseSlot 
+            id="sidebar-right-top" 
+            format="rectangle" 
+            style={{ width: "300px", height: "250px", borderRadius: "24px", margin: 0 }} 
+          />
+          <AdSenseSlot 
+            id="sidebar-right-bottom" 
+            format="vertical" 
+            style={{ width: "300px", height: "600px", borderRadius: "24px", margin: 0 }} 
+          />
         </div>
 
         {/* Automated Partner Grid - Spanning Full Width */}
