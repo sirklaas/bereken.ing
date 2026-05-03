@@ -28,10 +28,6 @@ export default function Home() {
             <p className="hero-text">
               Van maximale hypotheek tot je studieschuld. Wij gebruiken de meest actuele wetgeving en Nibud-normen.
             </p>
-            <div className="hero-actions">
-              <Link href="/hypotheek" className="btn btn-primary main-cta">Bekijk je Hypotheek</Link>
-              <Link href="/uurtarief" className="btn secondary-cta">ZZP Calculator</Link>
-            </div>
           </section>
         </div>
 
