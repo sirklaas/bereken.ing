@@ -23,8 +23,9 @@
   --shadow-lg: 0 20px 40px -12px rgba(99, 102, 241, 0.12), 0 10px 20px -10px rgba(0, 0, 0, 0.05);
   
   --radius: 16px;
-  --shell-padding: clamp(16px, 3vw, 48px);
-  --col-gap: var(--shell-padding); /* Unified X Logic */
+  --shell-padding: clamp(16px, 3.5vw, 64px);
+  --col-gap: var(--shell-padding); /* The Unified X */
+  --sidebar-width: clamp(200px, 20vw, 350px);
   --max-width: clamp(1000px, 95vw, 1600px);
   --ad-height: 600px;
   --calc-padding: clamp(20px, 4vw, 48px);
@@ -119,17 +120,17 @@ h3 {
   width: 100%;
 }
 
-/* DESKTOP: Pure Proportional 1-3-1 Split */
+/* DESKTOP: Proportional Fluid 1-3-1 Split */
 @media (min-width: 1200px) {
   .pristine-grid {
-    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-columns: var(--sidebar-width) 1fr var(--sidebar-width);
   }
 }
 
-/* TABLET: Pure Proportional 3-1 Split */
+/* TABLET: Proportional Fluid 3-1 Split */
 @media (max-width: 1199px) and (min-width: 768px) {
   .pristine-grid {
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 1fr var(--sidebar-width);
   }
   .left-slot {
     display: none !important;

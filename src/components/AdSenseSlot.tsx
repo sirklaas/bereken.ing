@@ -80,14 +80,14 @@ export default function AdSenseSlot({ id, slot, format = "auto", style }: AdSens
 
   return (
     <div className="ad-container" id={id} style={{ 
-      minHeight: format === "rectangle" ? "250px" : "100px",
+      width: "100%",
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
-      background: isDebug ? "rgba(255, 0, 127, 0.05)" : "rgba(0, 0, 0, 0.02)",
-      border: isDebug ? "2px dashed rgba(255, 0, 127, 0.3)" : "1px solid rgba(0, 0, 0, 0.05)",
+      background: isDebug ? "rgba(255, 0, 127, 0.05)" : "transparent",
+      border: isDebug ? "2px dashed rgba(255, 0, 127, 0.3)" : "none",
       borderRadius: "24px",
-      margin: "2rem 0",
+      margin: "0 0 2rem",
       transition: "all 0.3s ease",
       ...style 
     }}>
