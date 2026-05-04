@@ -6,7 +6,9 @@ export default function MortgageCalculator() {
   const [activeStep, setActiveStep] = useState(0); 
   const [situation, setSituation] = useState<"single" | "together" | null>(null);
   const [employment, setEmployment] = useState<"vast" | "tijdelijk" | "zelfstandig" | null>(null);
+  const [partnerEmployment, setPartnerEmployment] = useState<"vast" | "tijdelijk" | "zelfstandig" | null>(null);
   const [yearsZzp, setYearsZzp] = useState<number>(3);
+  const [partnerYearsZzp, setPartnerYearsZzp] = useState<number>(3);
   const [income, setIncome] = useState<number | "">("");
   const [partnerIncome, setPartnerIncome] = useState<number | "">("");
   const [debts, setDebts] = useState<number | "">("");
@@ -20,16 +22,26 @@ export default function MortgageCalculator() {
     
     if (inc1 === 0) return;
 
+    // Realistic Dutch 2026 logic base
     let multiplier = nhg ? 4.75 : 4.45;
     
-    if (employment === "zelfstandig") {
-      if (yearsZzp < 3) multiplier *= 0.85;
-    } else if (employment === "tijdelijk") {
-      multiplier *= 0.95;
-    }
+    // Adjustment Logic for dual employment
+    const getAdjustment = (type: any, years: number) => {
+      if (type === "zelfstandig" && years < 3) return 0.85;
+      if (type === "tijdelijk") return 0.95;
+      return 1.0;
+    };
+
+    const adj1 = getAdjustment(employment, yearsZzp);
+    const adj2 = situation === "together" ? getAdjustment(partnerEmployment, partnerYearsZzp) : 1.0;
+    
+    // Weighted average multiplier based on income contribution
+    const weight1 = inc1 / (inc1 + inc2 || 1);
+    const weight2 = 1 - weight1;
+    const finalMultiplier = multiplier * ((adj1 * weight1) + (adj2 * weight2));
 
     const totalIncome = inc1 + (inc2 * 0.9);
-    const baseAmount = totalIncome * multiplier;
+    const baseAmount = totalIncome * finalMultiplier;
     const debtImpact = debt * 12 * 1.6;
     
     setResult(Math.max(0, baseAmount - debtImpact));
@@ -70,49 +82,54 @@ export default function MortgageCalculator() {
           </div>
         )}
 
-        {/* Step 1: Employment */}
+        {/* Step 1: Employment (Dual if together) */}
         {activeStep === 1 && (
           <div className="step-chapter animate-majestic">
             <h3 className="hero-eyebrow">STAP 2: DIENSTVERBAND</h3>
-            <h2 style={{ marginBottom: "2rem" }}>Wat is je <span style={{ color: "var(--primary-accent)" }}>arbeidssituatie</span>?</h2>
+            <h2 style={{ marginBottom: "2rem" }}>Wat is de <span style={{ color: "var(--primary-accent)" }}>arbeidssituatie</span>?</h2>
             
-            <div className="selector-grid-three">
-              <button 
-                className={`selector-btn small ${employment === "vast" ? "active" : ""}`}
-                onClick={() => { setEmployment("vast"); setActiveStep(2); }}
-              >
-                <span className="label">Vast Contract</span>
-              </button>
-              <button 
-                className={`selector-btn small ${employment === "tijdelijk" ? "active" : ""}`}
-                onClick={() => { setEmployment("tijdelijk"); setActiveStep(2); }}
-              >
-                <span className="label">Tijdelijk</span>
-              </button>
-              <button 
-                className={`selector-btn small ${employment === "zelfstandig" ? "active" : ""}`}
-                onClick={() => setEmployment("zelfstandig")}
-              >
-                <span className="label">Zelfstandig</span>
-              </button>
-            </div>
-
-            {employment === "zelfstandig" && (
-              <div className="animate-majestic" style={{ marginTop: "2rem" }}>
-                <label style={{ fontSize: "0.8rem", fontWeight: 700, marginBottom: "0.5rem", display: "block" }}>Aantal jaar ondernemer:</label>
-                <div style={{ display: "flex", gap: "1rem" }}>
-                  {[1, 2, 3].map(y => (
+            <div className="employment-stack">
+              <div className="emp-section">
+                <p style={{ fontSize: "0.8rem", fontWeight: 700, marginBottom: "0.8rem", opacity: 0.6 }}>JOUW SITUATIE</p>
+                <div className="selector-grid-three">
+                  {["vast", "tijdelijk", "zelfstandig"].map(type => (
                     <button 
-                      key={y}
-                      className={`btn-toggle ${yearsZzp === y ? "active" : ""}`}
-                      onClick={() => { setYearsZzp(y); setActiveStep(2); }}
+                      key={type}
+                      className={`selector-btn small ${employment === type ? "active" : ""}`}
+                      onClick={() => setEmployment(type as any)}
                     >
-                      {y === 3 ? "3+ jaar" : `${y} jaar`}
+                      <span className="label">{type.charAt(0).toUpperCase() + type.slice(1)}</span>
                     </button>
                   ))}
                 </div>
               </div>
-            )}
+
+              {situation === "together" && (
+                <div className="emp-section animate-majestic" style={{ marginTop: "2rem" }}>
+                  <p style={{ fontSize: "0.8rem", fontWeight: 700, marginBottom: "0.8rem", opacity: 0.6 }}>SITUATIE PARTNER</p>
+                  <div className="selector-grid-three">
+                    {["vast", "tijdelijk", "zelfstandig"].map(type => (
+                      <button 
+                        key={type}
+                        className={`selector-btn small ${partnerEmployment === type ? "active" : ""}`}
+                        onClick={() => setPartnerEmployment(type as any)}
+                      >
+                        <span className="label">{type.charAt(0).toUpperCase() + type.slice(1)}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              <button 
+                className="button" 
+                style={{ marginTop: "2.5rem", width: "100%" }}
+                onClick={() => setActiveStep(2)}
+                disabled={!employment || (situation === "together" && !partnerEmployment)}
+              >
+                VOLGENDE STAP →
+              </button>
+            </div>
           </div>
         )}
 
@@ -124,12 +141,12 @@ export default function MortgageCalculator() {
             
             <div className="input-stack">
               <div className="input-group">
-                <label>Jouw jaarinkomen (incl. vakantiegeld)</label>
+                <label>Jouw jaarinkomen</label>
                 <div className="input-wrapper">
                   <span className="currency">€</span>
                   <input 
                     type="number" 
-                    placeholder="bijv. 45000"
+                    placeholder="0"
                     value={income} 
                     onChange={(e) => setIncome(Number(e.target.value))} 
                     autoFocus
@@ -144,7 +161,7 @@ export default function MortgageCalculator() {
                     <span className="currency">€</span>
                     <input 
                       type="number" 
-                      placeholder="bijv. 35000"
+                      placeholder="0"
                       value={partnerIncome} 
                       onChange={(e) => setPartnerIncome(Number(e.target.value))} 
                     />
@@ -201,7 +218,6 @@ export default function MortgageCalculator() {
                     Zonder NHG
                   </button>
                 </div>
-                <p style={{ fontSize: "0.7rem", marginTop: "0.8rem", opacity: 0.6 }}>NHG is mogelijk voor woningen tot € 435.000.</p>
               </div>
 
               <button 
@@ -272,7 +288,7 @@ export default function MortgageCalculator() {
 
         .step-chapter {
           width: 100%;
-          max-width: 500px;
+          max-width: 550px;
         }
 
         .animate-majestic {
@@ -310,15 +326,8 @@ export default function MortgageCalculator() {
           transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .selector-btn.small {
-          padding: 1.5rem 1rem;
-        }
-
-        .selector-btn:hover {
-          border-color: var(--primary-accent);
-          transform: translateY(-5px);
-        }
-
+        .selector-btn.small { padding: 1.2rem 0.8rem; }
+        .selector-btn:hover { border-color: var(--primary-accent); transform: translateY(-5px); }
         .selector-btn.active {
           border-color: var(--primary-accent);
           background: rgba(99, 102, 241, 0.05);
@@ -326,24 +335,7 @@ export default function MortgageCalculator() {
         }
 
         .selector-btn .icon { font-size: 2.5rem; }
-        .selector-btn .label { font-weight: 800; font-size: 0.95rem; color: var(--primary); }
-
-        .btn-toggle {
-          flex: 1;
-          padding: 0.8rem;
-          border-radius: 12px;
-          border: 1px solid var(--border);
-          background: white;
-          cursor: pointer;
-          font-weight: 700;
-          transition: 0.3s;
-        }
-
-        .btn-toggle.active {
-          background: var(--primary-accent);
-          color: white;
-          border-color: var(--primary-accent);
-        }
+        .selector-btn .label { font-weight: 800; font-size: 0.9rem; color: var(--primary); }
 
         .toggle-pill-container {
           display: flex;
