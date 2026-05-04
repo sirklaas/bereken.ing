@@ -20,14 +20,12 @@ export default function MortgageCalculator() {
     
     if (inc1 === 0) return;
 
-    // Realistic Dutch 2026 logic
     let multiplier = nhg ? 4.75 : 4.45;
     
-    // Employment adjustments
     if (employment === "zelfstandig") {
-      if (yearsZzp < 3) multiplier *= 0.85; // Penalty for < 3 years ZZP
+      if (yearsZzp < 3) multiplier *= 0.85;
     } else if (employment === "tijdelijk") {
-      multiplier *= 0.95; // Slight adjustment for temporary
+      multiplier *= 0.95;
     }
 
     const totalIncome = inc1 + (inc2 * 0.9);
@@ -36,6 +34,10 @@ export default function MortgageCalculator() {
     
     setResult(Math.max(0, baseAmount - debtImpact));
     setActiveStep(4);
+  };
+
+  const handleOfferteClick = () => {
+    window.open("https://www.independer.nl/hypotheek", "_blank");
   };
 
   return (
@@ -246,7 +248,11 @@ export default function MortgageCalculator() {
               >
                 Opnieuw
               </button>
-              <button className="button" style={{ flex: 1, background: "white", color: "var(--primary-accent)" }}>
+              <button 
+                className="button" 
+                style={{ flex: 1, background: "white", color: "var(--primary-accent)" }}
+                onClick={handleOfferteClick}
+              >
                 GRATIS OFFERTE
               </button>
             </div>
@@ -270,7 +276,7 @@ export default function MortgageCalculator() {
         }
 
         .animate-majestic {
-          animation: majesticSlide 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          animation: majesticSlide 3.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
           opacity: 0;
         }
 
@@ -394,7 +400,7 @@ export default function MortgageCalculator() {
         .detail-card label { color: white; opacity: 0.6; font-size: 0.75rem; margin-bottom: 0.4rem; }
         .detail-card p { font-size: 1.3rem; font-weight: 800; margin: 0; }
         .gauge-outer { height: 8px; background: rgba(255, 255, 255, 0.2); border-radius: 10px; overflow: hidden; }
-        .gauge-inner { height: 100%; background: white; border-radius: 10px; transition: width 2.5s cubic-bezier(0.34, 1.56, 0.64, 1); }
+        .gauge-inner { height: 100%; background: white; border-radius: 10px; transition: width 3.5s cubic-bezier(0.34, 1.56, 0.64, 1); }
 
         @media (max-width: 600px) {
           .selector-grid-three { grid-template-columns: 1fr; }
