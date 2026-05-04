@@ -34,23 +34,27 @@ export default function RootLayout({
   return (
     <html lang="nl" className={`${fugazOne.variable} ${jakarta.variable}`}>
       <head>
+        {/* Google AdSense Auto Ads - Highest Priority */}
+        <Script
+          id="adsense-init"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6805783605124617"
+          strategy="afterInteractive"
+          crossOrigin="anonymous"
+        />
+
         {/* Google Consent Mode v2 Defaults */}
-        <Script id="google-consent-mode" strategy="afterInteractive">
+        <Script id="google-consent-mode" strategy="beforeInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             
-            var savedConsent = null;
-            try {
-              savedConsent = localStorage.getItem('google_consent');
-            } catch (e) {}
+            var savedConsent = localStorage.getItem('google_consent');
 
             var defaults = {
               'ad_storage': 'denied',
               'ad_user_data': 'denied',
               'ad_personalization': 'denied',
-              'analytics_storage': 'denied',
-              'wait_for_update': 500
+              'analytics_storage': 'denied'
             };
 
             if (savedConsent === 'all') {
@@ -60,23 +64,11 @@ export default function RootLayout({
                 'ad_personalization': 'granted',
                 'analytics_storage': 'granted'
               };
-            } else if (savedConsent === 'minimal') {
-              defaults.analytics_storage = 'granted';
             }
 
             gtag('consent', 'default', defaults);
           `}
         </Script>
-
-        {/* Google AdSense Auto Ads */}
-        <Script
-          id="adsense-init"
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6805783605124617"
-          strategy="afterInteractive"
-          crossOrigin="anonymous"
-        />
-
-        {/* Daisycon Auto-linking Automation is handled at the bottom of the body */}
       </head>
       <body>
         <ConsentBanner />
@@ -89,7 +81,7 @@ export default function RootLayout({
         <Script 
           id="daisycon-autolink"
           src={`https://m.daisycon.com/m.js?m=${AFFILIATE_CONFIG.mediaId}&v=1.1&t=1`}
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
       </body>
     </html>
