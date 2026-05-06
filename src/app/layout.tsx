@@ -21,8 +21,8 @@ export const metadata: Metadata = {
   title: "bereken.ing | De slimste rekentools",
   description: "Vlijmscherpe berekeningen voor elke vraag. Van hypotheek tot studieschuld.",
   icons: {
-    icon: "/icon.png?v=9.6",
-    apple: "/apple-icon.png?v=9.6",
+    icon: "/icon.png?v=9.7",
+    apple: "/apple-icon.png?v=9.7",
   }
 };
 
@@ -35,12 +35,11 @@ export default function RootLayout({
     <html lang="nl" className={`${fugazOne.variable} ${jakarta.variable}`}>
       <head>
         {/* Google AdSense Auto Ads - Highest Priority */}
-        <Script
-          id="adsense-init"
+        <script
+          async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6805783605124617"
-          strategy="afterInteractive"
           crossOrigin="anonymous"
-        />
+        ></script>
 
         {/* 
             Option A: Letting Google Funding Choices handle consent 
