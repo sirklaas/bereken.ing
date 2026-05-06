@@ -21,8 +21,8 @@ export const metadata: Metadata = {
   title: "bereken.ing | De slimste rekentools",
   description: "Vlijmscherpe berekeningen voor elke vraag. Van hypotheek tot studieschuld.",
   icons: {
-    icon: "/icon.png?v=9.5",
-    apple: "/apple-icon.png?v=9.5",
+    icon: "/icon.png?v=9.6",
+    apple: "/apple-icon.png?v=9.6",
   }
 };
 
