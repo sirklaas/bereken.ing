@@ -10,9 +10,13 @@ interface AdSenseSlotProps {
 }
 
 export default function AdSenseSlot({ id, slot, format = "auto", style }: AdSenseSlotProps) {
+  // Use your new live Slot ID
+  const defaultSlot = "2654242201";
+  const activeSlot = slot || defaultSlot;
+
   useEffect(() => {
     // Only push if we have a valid slot and are in a client environment
-    if (typeof window !== "undefined" && slot && slot !== "1234567890") {
+    if (typeof window !== "undefined" && activeSlot && activeSlot !== "1234567890") {
       try {
         // @ts-ignore
         (window.adsbygoogle = window.adsbygoogle || []).push({});
@@ -20,7 +24,7 @@ export default function AdSenseSlot({ id, slot, format = "auto", style }: AdSens
         console.error("AdSense Error:", err);
       }
     }
-  }, [slot]);
+  }, [activeSlot]);
 
   const [isDebug, setIsDebug] = React.useState(false);
 
@@ -30,9 +34,6 @@ export default function AdSenseSlot({ id, slot, format = "auto", style }: AdSens
     }
   }, []);
 
-  // Use your new live Slot ID
-  const defaultSlot = "2654242201";
-  const activeSlot = slot || defaultSlot;
   const pubId = "ca-pub-6805783605124617";
 
   // Prevent rendering if both are missing
