@@ -42,36 +42,11 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
 
-        {/* Google Consent Mode v2 Defaults */}
-        <Script id="google-consent-mode" strategy="beforeInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            
-            var savedConsent = localStorage.getItem('google_consent');
-
-            var defaults = {
-              'ad_storage': 'denied',
-              'ad_user_data': 'denied',
-              'ad_personalization': 'denied',
-              'analytics_storage': 'denied'
-            };
-
-            if (savedConsent === 'all') {
-              defaults = {
-                'ad_storage': 'granted',
-                'ad_user_data': 'granted',
-                'ad_personalization': 'granted',
-                'analytics_storage': 'granted'
-              };
-            }
-
-            gtag('consent', 'default', defaults);
-          `}
-        </Script>
-      </head>
-      <body>
-        <ConsentBanner />
+        {/* 
+            Option A: Letting Google Funding Choices handle consent 
+            We disable the custom banner and manual consent defaults to avoid TCF conflicts.
+        */}
+        {/* <ConsentBanner /> */}
         <a href="#main-content" className="skip-link">Skip naar content</a>
         <Header />
         <main>{children}</main>
