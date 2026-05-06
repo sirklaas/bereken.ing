@@ -46,6 +46,8 @@ export default function RootLayout({
             Option A: Letting Google Funding Choices handle consent 
             We disable the custom banner and manual consent defaults to avoid TCF conflicts.
         */}
+      </head>
+      <body>
         {/* <ConsentBanner /> */}
         <a href="#main-content" className="skip-link">Skip naar content</a>
         <Header />
