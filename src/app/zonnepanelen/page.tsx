@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import SolarCalculator from "@/components/SolarCalculator";
 import ToolLayout from "@/components/ToolLayout";
-import AdSenseSlot from "@/components/AdSenseSlot";
 
 export const metadata: Metadata = {
   title: "Zonnepanelen Berekenen 2026 | Terugverdientijd & Opbrengst",
@@ -25,10 +24,10 @@ export default function Page() {
           Ondanks de discussie over de salderingsregeling en terugleverkosten blijven zonnepanelen een van de beste investeringen voor je woning. 
           Met een gemiddelde terugverdientijd van 5 tot 7 jaar en een levensduur van 25 jaar, leveren ze nog steeds een fors rendement op.
         </p>
-        <AdSenseSlot id="inline-ad" format="fluid" />
+        
       </div>
 
-      <AdSenseSlot id="bottom-ad" format="rectangle" style={{ marginTop: "3rem" }} />
+      
     </ToolLayout>
   );
 }

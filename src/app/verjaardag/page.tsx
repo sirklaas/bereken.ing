@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import ToolLayout from "@/components/ToolLayout";
-import AdSenseSlot from "@/components/AdSenseSlot";
 import EventCountdown from "@/components/EventCountdown";
 
 export default function BirthdayPage() {
@@ -50,7 +49,7 @@ export default function BirthdayPage() {
       {targetDate && <EventCountdown targetDate={targetDate} title="Jouw verjaardag countdown" />}
 
       
-      <AdSenseSlot id="bottom-ad" format="rectangle" style={{ marginTop: "3rem" }} />
+      
     </ToolLayout>
   );
 }

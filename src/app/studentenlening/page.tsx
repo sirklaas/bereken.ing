@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import StudentLoanCalculator from "@/components/StudentLoanCalculator";
-import AdSenseSlot from "@/components/AdSenseSlot";
 import ToolLayout from "@/components/ToolLayout";
 import JsonLd from "@/components/JsonLd";
 
@@ -35,10 +34,10 @@ export default function StudentLoanPage() {
           Zelfs met de huidige renteverhogingen blijft de studieschuld vaak de 'goedkoopste' lening die je kunt hebben. 
           Onze tool berekent exact wat je maandelijks kwijt bent op basis van de Nibud-regels.
         </p>
-        <AdSenseSlot id="inline-ad" format="fluid" />
+        
       </div>
 
-      <AdSenseSlot id="bottom-ad" format="rectangle" style={{ marginTop: "3rem" }} />
+      
     </ToolLayout>
   );
 }

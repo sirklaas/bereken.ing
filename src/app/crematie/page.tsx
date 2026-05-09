@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import FuneralCalculator from "@/components/FuneralCalculator";
 import ToolLayout from "@/components/ToolLayout";
-import AdSenseSlot from "@/components/AdSenseSlot";
 
 export const metadata: Metadata = {
   title: "Crematiekosten Berekenen 2026 | Wat kost een crematie?",
@@ -25,10 +24,10 @@ export default function Page() {
           Een crematie is in de basis vaak goedkoper dan een begrafenis omdat er geen sprake is van grafrechten en onderhoudskosten voor een graf. 
           De gemiddelde kosten voor een crematie liggen tussen de €6.000 en €9.000.
         </p>
-        <AdSenseSlot id="inline-ad" format="fluid" />
+        
       </div>
 
-      <AdSenseSlot id="bottom-ad" format="rectangle" style={{ marginTop: "3rem" }} />
+      
     </ToolLayout>
   );
 }

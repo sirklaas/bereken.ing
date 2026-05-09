@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import BatteryCalculator from "@/components/BatteryCalculator";
 import ToolLayout from "@/components/ToolLayout";
-import AdSenseSlot from "@/components/AdSenseSlot";
 
 export const metadata: Metadata = {
   title: "Thuisbatterij Berekenen 2026 | Rendement & Besparing",
@@ -25,10 +24,10 @@ export default function Page() {
           Met de afbouw van de salderingsregeling wordt het opslaan van je eigen zonnestroom steeds interessanter. 
           Een thuisbatterij zorgt ervoor dat je overdag opgewekte stroom 's avonds kunt gebruiken, waardoor je minder afhankelijk bent van het energienet en stijgende prijzen.
         </p>
-        <AdSenseSlot id="inline-ad" format="fluid" />
+        
       </div>
 
-      <AdSenseSlot id="bottom-ad" format="rectangle" style={{ marginTop: "3rem" }} />
+      
     </ToolLayout>
   );
 }

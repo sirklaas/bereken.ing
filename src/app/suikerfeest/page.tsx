@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import EventCountdown from "@/components/EventCountdown";
 import ToolLayout from "@/components/ToolLayout";
-import AdSenseSlot from "@/components/AdSenseSlot";
 import { getSuikerfeest } from "@/utils/dateUtils";
 
 export const metadata: Metadata = {
@@ -32,10 +31,10 @@ export default function Page() {
           Suikerfeest, of Eid al-Fitr, markeert het einde van de vastenmaand Ramadan. Het is een dag van vreugde, 
           familiebezoek en het delen van zoetigheden en cadeaus als dankbaarheid aan Allah.
         </p>
-        <AdSenseSlot id="inline-ad" format="fluid" />
+        
       </div>
 
-      <AdSenseSlot id="bottom-ad" format="rectangle" style={{ marginTop: "3rem" }} />
+      
     </ToolLayout>
   );
 }

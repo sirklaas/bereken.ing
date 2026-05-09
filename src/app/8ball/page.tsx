@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Magic8Ball from "@/components/Magic8Ball";
 import ToolLayout from "@/components/ToolLayout";
-import AdSenseSlot from "@/components/AdSenseSlot";
 import BolProduct from "@/components/BolProduct";
 
 export const metadata: Metadata = {
@@ -24,7 +23,7 @@ export default function Page() {
         siteId="1517771"
       />
 
-      <AdSenseSlot id="bottom-ad" format="rectangle" style={{ marginTop: "3rem" }} />
+      
     </ToolLayout>
   );
 }

@@ -4,15 +4,9 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ConsentBanner from "@/components/ConsentBanner";
+import { ConsentProvider } from "@/components/ConsentContext";
 import Script from "next/script";
 import { AFFILIATE_CONFIG } from "@/config/affiliateConfig";
-
-declare global {
-  interface Window {
-    gtag: (...args: any[]) => void;
-    dataLayer: any[];
-  }
-}
 
 const fugazOne = Fugaz_One({ weight: "400", subsets: ["latin"], variable: "--font-fugaz" });
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakarta" });
@@ -34,26 +28,24 @@ export default function RootLayout({
   return (
     <html lang="nl" className={`${fugazOne.variable} ${jakarta.variable}`}>
       <head>
-        {/* Google AdSense Auto Ads - Highest Priority */}
-        <script
+        <Script
+          id="google-adsense"
+          strategy="beforeInteractive"
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6805783605124617"
-        ></script>
-
-        {/* 
-            Option A: Letting Google Funding Choices handle consent 
-            We disable the custom banner and manual consent defaults to avoid TCF conflicts.
-        */}
+          crossOrigin="anonymous"
+        />
       </head>
       <body>
-        {/* <ConsentBanner /> */}
-        <a href="#main-content" className="skip-link">Skip naar content</a>
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <ConsentProvider>
+          <a href="#main-content" className="skip-link">Skip naar content</a>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+          <ConsentBanner />
+        </ConsentProvider>
 
-        {/* Daisycon Auto-linking Automation */}
-        <Script 
+        <Script
           id="daisycon-autolink"
           src={`https://m.daisycon.com/m.js?m=${AFFILIATE_CONFIG.mediaId}&v=1.1&t=1`}
           strategy="lazyOnload"

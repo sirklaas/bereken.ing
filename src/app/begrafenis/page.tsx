@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import FuneralCalculator from "@/components/FuneralCalculator";
 import ToolLayout from "@/components/ToolLayout";
-import AdSenseSlot from "@/components/AdSenseSlot";
 
 export const metadata: Metadata = {
   title: "Begrafeniskosten Berekenen 2026 | Wat kost een uitvaart?",
@@ -25,10 +24,10 @@ export default function Page() {
           De kosten voor een begrafenis in Nederland stijgen jaarlijks, vooral door de verhoging van gemeentelijke grafrechten. 
           Gemiddeld kost een begrafenis tussen de €8.500 en €11.000. Het is verstandig om dit tijdig financieel te regelen.
         </p>
-        <AdSenseSlot id="inline-ad" format="fluid" />
+        
       </div>
 
-      <AdSenseSlot id="bottom-ad" format="rectangle" style={{ marginTop: "3rem" }} />
+      
     </ToolLayout>
   );
 }

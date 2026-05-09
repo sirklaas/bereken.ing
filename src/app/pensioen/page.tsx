@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import PensionCalculator from "@/components/PensionCalculator";
-import AdSenseSlot from "@/components/AdSenseSlot";
 import ToolLayout from "@/components/ToolLayout";
 import JsonLd from "@/components/JsonLd";
 
@@ -33,10 +32,10 @@ export default function PensionPage() {
         <p>
           Een helder overzicht van je verwachte pensioenpot helpt je om tijdig extra besparingen te doen, je beleggingsstrategie aan te passen en een comfortabel pensioen te garanderen.
         </p>
-        <AdSenseSlot id="inline-ad" format="fluid" />
+        
       </div>
 
-      <AdSenseSlot id="bottom-ad" format="rectangle" style={{ marginTop: "3rem" }} />
+      
     </ToolLayout>
   );
 }

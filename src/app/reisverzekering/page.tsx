@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import ToolLayout from "@/components/ToolLayout";
-import AdSenseSlot from "@/components/AdSenseSlot";
 
 export const metadata: Metadata = {
   title: "Reisverzekering Berekenen 2026 | Kortlopend of Doorlopend?",
@@ -24,7 +23,7 @@ export default function Page() {
       </div>
 
       
-      <AdSenseSlot id="bottom-ad" format="rectangle" style={{ marginTop: "3rem" }} />
+      
     </ToolLayout>
   );
 }

@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bereken.ing Logo Animation</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0a1628;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: system-ui, -apple-system, sans-serif;
+      overflow: hidden;
+    }
+    #root { width: 100%; height: 100vh; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect, useRef } = React;
+
+    // Animation timing constants
+    const TIMING = {
+      letterStagger: 80,
+      letterDuration: 600,
+      eyeDelay: 1200,
+      eyeDuration: 800,
+      taglineDelay: 1800,
+      eyeScanDelay: 2500,
+    };
+
+    // Logo letters with their colors from the bereken.ing logo
+    const LETTERS = [
+      { char: 'b', color: '#0d2137' },
+      { char: 'e', color: '#0d2137' },
+      { char: 'r', color: '#0d2137' },
+      { char: 'e', color: '#0d2137' },
+      { char: 'k', color: '#0d2137' },
+      { char: 'e', color: '#0d2137' },
+      { char: 'n', color: '#0d2137' },
+      { char: '.', color: '#0066ff', isDot: true },
+      { char: 'i', color: '#0d2137' },
+      { char: 'n', color: '#0d2137' },
+      { char: 'g', color: '#0d2137' },
+    ];
+
+    // Letter component with tumble and scale animation
+    function AnimatedLetter({ letter, index, isOutline }) {
+      const [visible, setVisible] = useState(false);
+
+      useEffect(() => {
+        const timer = setTimeout(() => setVisible(true), index * TIMING.letterStagger);
+        return () => clearTimeout(timer);
+      }, [index]);
+
+      const styles = {
+        letter: {
+          display: 'inline-block',
+          fontSize: 'clamp(48px, 12vw, 140px)',
+          fontWeight: 700,
+          color: isOutline ? 'transparent' : letter.color,
+          WebkitTextStroke: isOutline ? `2px ${letter.color}` : 'none',
+          transform: visible 
+            ? 'rotate(0deg) scale(1)' 
+            : `rotate(${-90 + Math.random() * 40}deg) scale(0)`,
+          opacity: visible ? 1 : 0,
+          transition: `all ${TIMING.letterDuration}ms cubic-bezier(0.16, 1, 0.3, 1)`,
+          transformOrigin: 'center bottom',
+        },
+        dot: {
+          display: 'inline-block',
+          fontSize: 'clamp(48px, 12vw, 140px)',
+          fontWeight: 700,
+          color: isOutline ? 'transparent' : letter.color,
+          WebkitTextStroke: isOutline ? `2px ${letter.color}` : 'none',
+          transform: visible ? 'scale(1)' : 'scale(0)',
+          opacity: visible ? 1 : 0,
+          transition: `all ${TIMING.letterDuration}ms cubic-bezier(0.34, 1.8, 0.64, 1)`,
+        }
+      };
+
+      return (
+        <span style={letter.isDot ? styles.dot : styles.letter}>
+          {letter.char}
+        </span>
+      );
+    }
+
+    // Eye icon with fade, grow, and scanning animation
+    function EyeIcon({ isOutline }) {
+      const [visible, setVisible] = useState(false);
+      const [lookDirection, setLookDirection] = useState('center');
+
+      useEffect(() => {
+        const fadeTimer = setTimeout(() => setVisible(true), TIMING.eyeDelay);
+        return () => clearTimeout(fadeTimer);
+      }, []);
+
+      useEffect(() => {
+        if (!visible) return;
+        
+        const scanInterval = setInterval(() => {
+          const directions = ['left', 'center', 'right', 'center'];
+          let index = 0;
+          const scan = setInterval(() => {
+            setLookDirection(directions[index]);
+            index = (index + 1) % directions.length;
+          }, 600);
+          
+          return () => clearInterval(scan);
+        }, TIMING.eyeScanDelay);
+
+        return () => clearInterval(scanInterval);
+      }, [visible]);
+
+      const getPupilOffset = () => {
+        switch (lookDirection) {
+          case 'left': return { cx: 45, cy: 55 };
+          case 'right': return { cx: 65, cy: 55 };
+          default: return { cx: 55, cy: 55 };
+        }
+      };
+
+      const pupilPos = getPupilOffset();
+
+      const styles = {
+        container: {
+          display: 'inline-block',
+          width: 'clamp(60px, 15vw, 180px)',
+          height: 'clamp(48px, 12vw, 140px)',
+          marginLeft: 'clamp(16px, 4vw, 40px)',
+          opacity: visible ? 1 : 0,
+          transform: visible ? 'scale(1)' : 'scale(0.3)',
+          transition: `all ${TIMING.eyeDuration}ms cubic-bezier(0.16, 1, 0.3, 1)`,
+        },
+        svg: {
+          width: '100%',
+          height: '100%',
+          overflow: 'visible',
+        }
+      };
+
+      return (
+        <div style={styles.container}>
+          <svg viewBox="0 0 120 100" style={styles.svg}>
+            {/* Eye shape outline */}
+            <path
+              d="M10 50 Q60 10, 110 50 Q60 90, 10 50 Z"
+              fill={isOutline ? 'none' : '#0d2137'}
+              stroke={isOutline ? '#0d2137' : 'none'}
+              strokeWidth={isOutline ? 3 : 0}
+            />
+            {/* Inner eye highlight */}
+            <path
+              d="M15 50 Q60 20, 105 50 Q60 80, 15 50 Z"
+              fill={isOutline ? 'none' : '#1a3a5c'}
+              stroke={isOutline ? '#0d2137' : 'none'}
+              strokeWidth={isOutline ? 2 : 0}
+              opacity={isOutline ? 0.3 : 0.5}
+            />
+            {/* Pupil - animated */}
+            <circle
+              cx={pupilPos.cx}
+              cy={pupilPos.cy}
+              r="18"
+              fill={isOutline ? 'none' : '#0066ff'}
+              stroke={isOutline ? '#0066ff' : 'none'}
+              strokeWidth={isOutline ? 2 : 0}
+              style={{
+                transition: 'all 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+              }}
+            />
+            {/* Pupil highlight */}
+            <circle
+              cx={pupilPos.cx + 5}
+              cy={pupilPos.cy - 5}
+              r="6"
+              fill={isOutline ? 'none' : '#ffffff'}
+              stroke={isOutline ? '#ffffff' : 'none'}
+              strokeWidth={isOutline ? 1 : 0}
+              opacity={isOutline ? 0.8 : 0.9}
+              style={{
+                transition: 'all 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+              }}
+            />
+            {/* Corner accents - arrow hints */}
+            <path
+              d="M5 50 L0 45 M5 50 L0 55"
+              stroke={isOutline ? '#0d2137' : '#0066ff'}
+              strokeWidth={isOutline ? 2 : 3}
+              strokeLinecap="round"
+              opacity={0.6}
+            />
+            <path
+              d="M115 50 L120 45 M115 50 L120 55"
+              stroke={isOutline ? '#0d2137' : '#0066ff'}
+              strokeWidth={isOutline ? 2 : 3}
+              strokeLinecap="round"
+              opacity={0.6}
+            />
+          </svg>
+        </div>
+      );
+    }
+
+    // Tagline component
+    function Tagline({ isOutline }) {
+      const [visible, setVisible] = useState(false);
+
+      useEffect(() => {
+        const timer = setTimeout(() => setVisible(true), TIMING.taglineDelay);
+        return () => clearTimeout(timer);
+      }, []);
+
+      const styles = {
+        tagline: {
+          marginTop: 'clamp(24px, 5vw, 48px)',
+          fontSize: 'clamp(16px, 3vw, 28px)',
+          fontWeight: 400,
+          color: isOutline ? 'transparent' : '#6b8ab0',
+          WebkitTextStroke: isOutline ? '1px #6b8ab0' : 'none',
+          letterSpacing: '0.05em',
+          opacity: visible ? 1 : 0,
+          transform: visible ? 'translateY(0)' : 'translateY(20px)',
+          transition: 'all 600ms cubic-bezier(0.16, 1, 0.3, 1)',
+          textAlign: 'center',
+        }
+      };
+
+      return (
+        <div style={styles.tagline}>
+          Berekenin.ing alles snel op een rijtje
+        </div>
+      );
+    }
+
+    // Timeline Editor Component
+    function TimelineEditor({ currentTime, isPlaying, onPlay, onPause, onSeek, onReset }) {
+      const [progress, setProgress] = useState(0);
+      
+      useEffect(() => {
+        setProgress((currentTime / 4000) * 100);
+      }, [currentTime]);
+
+      const styles = {
+        container: {
+          position: 'fixed',
+          bottom: 40,
+          left: '50%',
+          transform: 'translateX(-50%)',
+          background: 'rgba(13, 33, 55, 0.95)',
+          padding: '20px 32px',
+          borderRadius: 16,
+          border: '1px solid rgba(0, 102, 255, 0.3)',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 12,
+          minWidth: 400,
+          backdropFilter: 'blur(10px)',
+        },
+        header: {
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        },
+        title: {
+          color: '#fff',
+          fontSize: 14,
+          fontWeight: 600,
+          letterSpacing: '0.1em',
+        },
+        time: {
+          color: '#0066ff',
+          fontSize: 12,
+          fontFamily: 'monospace',
+        },
+        controls: {
+          display: 'flex',
+          gap: 12,
+          alignItems: 'center',
+        },
+        button: {
+          background: '#0066ff',
+          border: 'none',
+          color: '#fff',
+          width: 40,
+          height: 40,
+          borderRadius: 10,
+          cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          fontSize: 16,
+          transition: 'all 200ms ease',
+        },
+        resetButton: {
+          background: 'transparent',
+          border: '1px solid #0066ff',
+          color: '#0066ff',
+          padding: '8px 16px',
+          borderRadius: 8,
+          cursor: 'pointer',
+          fontSize: 12,
+          fontWeight: 500,
+        },
+        track: {
+          width: '100%',
+          height: 6,
+          background: 'rgba(255,255,255,0.1)',
+          borderRadius: 3,
+          position: 'relative',
+          cursor: 'pointer',
+        },
+        progress: {
+          height: '100%',
+          background: '#0066ff',
+          borderRadius: 3,
+          width: `${progress}%`,
+          transition: 'width 50ms linear',
+        },
+        markers: {
+          display: 'flex',
+          justifyContent: 'space-between',
+          fontSize: 10,
+          color: 'rgba(255,255,255,0.4)',
+          marginTop: 4,
+        },
+        keyframes: {
+          display: 'flex',
+          gap: 8,
+          marginTop: 8,
+        },
+        keyframe: {
+          fontSize: 10,
+          color: 'rgba(255,255,255,0.5)',
+          background: 'rgba(0,102,255,0.1)',
+          padding: '4px 8px',
+          borderRadius: 4,
+          border: '1px solid rgba(0,102,255,0.2)',
+        }
+      };
+
+      const formatTime = (ms) => {
+        const seconds = Math.floor(ms / 1000);
+        const millis = Math.floor((ms % 1000) / 10);
+        return `${seconds}.${millis.toString().padStart(2, '0')}s`;
+      };
+
+      return (
+        <div style={styles.container}>
+          <div style={styles.header}>
+            <span style={styles.title}>TIMELINE EDITOR</span>
+            <span style={styles.time}>{formatTime(currentTime)} / 4.00s</span>
+          </div>
+          
+          <div style={styles.track} onClick={(e) => {
+            const rect = e.currentTarget.getBoundingClientRect();
+            const pct = (e.clientX - rect.left) / rect.width;
+            onSeek(pct * 4000);
+          }}>
+            <div style={styles.progress} />
+          </div>
+          
+          <div style={styles.markers}>
+            <span>0s</span>
+            <span>1s</span>
+            <span>2s</span>
+            <span>3s</span>
+            <span>4s</span>
+          </div>
+
+          <div style={styles.keyframes}>
+            <span style={styles.keyframe}>letters</span>
+            <span style={styles.keyframe}>eye fade</span>
+            <span style={styles.keyframe}>eye scan</span>
+            <span style={styles.keyframe}>tagline</span>
+          </div>
+
+          <div style={styles.controls}>
+            <button 
+              style={styles.button} 
+              onClick={isPlaying ? onPause : onPlay}
+              onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
+              onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
+            >
+              {isPlaying ? '⏸' : '▶'}
+            </button>
+            <button style={styles.resetButton} onClick={onReset}>
+              ↺ Reset
+            </button>
+          </div>
+        </div>
+      );
+    }
+
+    // Style Toggle Component
+    function StyleToggle({ isOutline, onToggle }) {
+      const styles = {
+        container: {
+          position: 'fixed',
+          top: 40,
+          right: 40,
+          background: 'rgba(13, 33, 55, 0.95)',
+          padding: '16px 20px',
+          borderRadius: 12,
+          border: '1px solid rgba(0, 102, 255, 0.3)',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 12,
+          backdropFilter: 'blur(10px)',
+        },
+        title: {
+          color: '#fff',
+          fontSize: 12,
+          fontWeight: 600,
+          letterSpacing: '0.1em',
+          textTransform: 'uppercase',
+        },
+        options: {
+          display: 'flex',
+          gap: 8,
+        },
+        option: (active) => ({
+          padding: '8px 16px',
+          borderRadius: 8,
+          border: `1px solid ${active ? '#0066ff' : 'rgba(255,255,255,0.2)'}`,
+          background: active ? 'rgba(0,102,255,0.2)' : 'transparent',
+          color: active ? '#fff' : 'rgba(255,255,255,0.6)',
+          fontSize: 12,
+          cursor: 'pointer',
+          transition: 'all 200ms ease',
+        })
+      };
+
+      return (
+        <div style={styles.container}>
+          <span style={styles.title}>Logo Style</span>
+          <div style={styles.options}>
+            <button 
+              style={styles.option(!isOutline)}
+              onClick={() => onToggle(false)}
+            >
+              Filled
+            </button>
+            <button 
+              style={styles.option(isOutline)}
+              onClick={() => onToggle(true)}
+            >
+              Outline
+            </button>
+          </div>
+        </div>
+      );
+    }
+
+    // Main Animation Container
+    function LogoAnimation() {
+      const [isOutline, setIsOutline] = useState(false);
+      const [key, setKey] = useState(0);
+      const [currentTime, setCurrentTime] = useState(0);
+      const [isPlaying, setIsPlaying] = useState(true);
+      const startTimeRef = useRef(Date.now());
+      const pausedTimeRef = useRef(0);
+
+      useEffect(() => {
+        if (!isPlaying) return;
+        
+        const interval = setInterval(() => {
+          const elapsed = Date.now() - startTimeRef.current + pausedTimeRef.current;
+          setCurrentTime(Math.min(elapsed, 4000));
+          
+          if (elapsed >= 4000) {
+            setIsPlaying(false);
+          }
+        }, 50);
+
+        return () => clearInterval(interval);
+      }, [isPlaying, key]);
+
+      const handlePlay = () => {
+        startTimeRef.current = Date.now();
+        setIsPlaying(true);
+      };
+
+      const handlePause = () => {
+        pausedTimeRef.current = currentTime;
+        setIsPlaying(false);
+      };
+
+      const handleSeek = (time) => {
+        pausedTimeRef.current = time;
+        setCurrentTime(time);
+        if (isPlaying) {
+          startTimeRef.current = Date.now();
+        }
+      };
+
+      const handleReset = () => {
+        setKey(prev => prev + 1);
+        setCurrentTime(0);
+        pausedTimeRef.current = 0;
+        startTimeRef.current = Date.now();
+        setIsPlaying(true);
+      };
+
+      const styles = {
+        container: {
+          width: '100%',
+          height: '100vh',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          position: 'relative',
+        },
+        logoRow: {
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          flexWrap: 'wrap',
+        }
+      };
+
+      return (
+        <div style={styles.container} key={key}>
+          <StyleToggle isOutline={isOutline} onToggle={setIsOutline} />
+          
+          <div style={styles.logoRow}>
+            {LETTERS.map((letter, index) => (
+              <AnimatedLetter 
+                key={`${key}-${index}`}
+                letter={letter} 
+                index={index} 
+                isOutline={isOutline}
+              />
+            ))}
+            <EyeIcon key={`${key}-eye`} isOutline={isOutline} />
+          </div>
+          
+          <Tagline key={`${key}-tagline`} isOutline={isOutline} />
+          
+          <TimelineEditor
+            currentTime={currentTime}
+            isPlaying={isPlaying}
+            onPlay={handlePlay}
+            onPause={handlePause}
+            onSeek={handleSeek}
+            onReset={handleReset}
+          />
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<LogoAnimation />);
+  </script>
+</body>
+</html>

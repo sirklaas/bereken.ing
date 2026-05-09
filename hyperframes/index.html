@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bereken.ing Logo Animation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #e8e8e8;
+      --accent: #0066ff;
+      --text: #4a5568;
+    }
+
+    body {
+      background: var(--bg);
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    [data-composition-id="bereken-logo"] {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      background: var(--bg);
+    }
+
+    .scene-content {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 100px;
+      position: relative;
+    }
+
+    /* The actual logo image */
+    .logo-image {
+      height: 200px;
+      width: auto;
+      opacity: 0;
+      will-change: transform, opacity;
+    }
+
+    /* Logo container to hold both image and eye overlay */
+    .logo-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    /* Eye overlay positioned exactly over the logo's eye */
+    .eye-overlay {
+      position: absolute;
+      right: 20px; /* Positioned over logo's eye area */
+      top: 50%;
+      transform: translateY(-50%);
+      width: 160px;
+      height: 130px;
+      opacity: 0;
+      will-change: transform, opacity;
+    }
+
+    .eye-svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    /* Animated pupil inside the logo's eye */
+    .eye-pupil {
+      fill: var(--accent);
+      will-change: cx, cy;
+    }
+
+    .eye-shine {
+      fill: rgba(255, 255, 255, 0.5);
+      will-change: cx, cy;
+    }
+
+    /* Tagline */
+    .tagline {
+      margin-top: 60px;
+      font-family: "Barlow Semi Condensed", sans-serif;
+      font-weight: 300;
+      font-size: 48px;
+      color: var(--text);
+      letter-spacing: 0.02em;
+      text-align: center;
+      opacity: 0;
+      will-change: transform, opacity;
+    }
+  </style>
+</head>
+<body>
+  <div data-composition-id="bereken-logo" data-start="0" data-duration="6" data-width="1920" data-height="1080">
+    <div class="scene-content">
+      <div class="logo-container">
+        <!-- THE ACTUAL LOGO IMAGE -->
+        <img
+          id="logo-main"
+          class="logo-image"
+          src="logo.png"
+          alt="bereken.ing"
+        />
+
+        <!-- Eye overlay with scanning animation - positioned over logo's eye -->
+        <div class="eye-overlay" id="eye-overlay">
+          <svg class="eye-svg" viewBox="0 0 140 120">
+            <!-- Animated pupil that scans -->
+            <circle class="eye-pupil" id="pupil" cx="70" cy="60" r="20" />
+            <!-- Highlight -->
+            <circle class="eye-shine" id="shine" cx="78" cy="52" r="6" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="tagline" id="tagline">Bereken.ing alles snel op een rijtje</div>
+    </div>
+  </div>
+
+  <script>
+    // HyperFrames Timeline
+    window.__timelines = window.__timelines || {};
+
+    const tl = gsap.timeline({ paused: true });
+
+    // Initial states
+    gsap.set("#logo-main", { scale: 0.8 });
+    gsap.set("#eye-overlay", { scale: 0.5 });
+    gsap.set("#tagline", { y: 40 });
+
+    // ===== LOGO: Fade in with scale (tumble effect) =====
+    tl.to("#logo-main", {
+      opacity: 1,
+      scale: 1,
+      duration: 0.8,
+      ease: "back.out(1.2)"
+    }, 0.2);
+
+    // ===== EYE OVERLAY: Fade in and grow =====
+    tl.to("#eye-overlay", {
+      opacity: 1,
+      scale: 1,
+      duration: 0.6,
+      ease: "power2.out"
+    }, 1.0);
+
+    // ===== EYE SCANNING: Looking left and right for best deal =====
+    const pupil = document.querySelector('#pupil');
+    const shine = document.querySelector('#shine');
+
+    // Scan sequence
+    const scans = [
+      { cx: 55, hx: 62, t: 2.0 },   // look left
+      { cx: 70, hx: 80, t: 2.5 },   // center
+      { cx: 85, hx: 93, t: 3.0 },   // look right
+      { cx: 70, hx: 80, t: 3.5 },   // center
+      { cx: 50, hx: 57, t: 4.0, deal: true },  // far left - DEAL FOUND!
+      { cx: 70, hx: 80, t: 4.5 },   // back to center
+    ];
+
+    scans.forEach((pos) => {
+      const dur = pos.deal ? 0.15 : 0.35;
+      const ease = pos.deal ? "power2.out" : "sine.inOut";
+
+      tl.to(pupil, { cx: pos.cx, duration: dur, ease: ease }, pos.t);
+      tl.to(shine, { cx: pos.hx, duration: dur, ease: ease }, pos.t);
+    });
+
+    // ===== TAGLINE: Fade in =====
+    tl.to("#tagline", {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      ease: "power2.out"
+    }, 4.8);
+
+    // Hold
+    tl.to({}, { duration: 0.6 }, 5.4);
+
+    // Register
+    window.__timelines["bereken-logo"] = tl;
+
+    console.log("Timeline:", tl.duration(), "seconds");
+  </script>
+</body>
+</html>

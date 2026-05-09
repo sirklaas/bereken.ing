@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import EventCountdown from "@/components/EventCountdown";
 import ToolLayout from "@/components/ToolLayout";
-import AdSenseSlot from "@/components/AdSenseSlot";
 import { getEaster } from "@/utils/dateUtils";
 
 export const metadata: Metadata = {
@@ -32,10 +31,10 @@ export default function Page() {
           Pasen valt altijd op de eerste zondag na de eerste volle maan in de lente. Daarom verschuift de datum elk jaar tussen 22 maart en 25 april. 
           Met onze tool weet je altijd exact wanneer je de eieren kunt gaan zoeken!
         </p>
-        <AdSenseSlot id="inline-ad" format="fluid" />
+        
       </div>
 
-      <AdSenseSlot id="bottom-ad" format="rectangle" style={{ marginTop: "3rem" }} />
+      
     </ToolLayout>
   );
 }

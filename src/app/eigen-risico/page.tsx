@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import EigenRisicoCalculator from "@/components/EigenRisicoCalculator";
-import AdSenseSlot from "@/components/AdSenseSlot";
 import ToolLayout from "@/components/ToolLayout";
 import JsonLd from "@/components/JsonLd";
 
@@ -26,7 +25,6 @@ export default function EigenRisicoPage() {
     >
       <JsonLd data={schema} />
 
-
       <EigenRisicoCalculator />
 
       <div style={{ marginTop: "4rem", maxWidth: "800px" }}>
@@ -34,10 +32,10 @@ export default function EigenRisicoPage() {
         <p>
           Het kennen van je eigen risico helpt bij het kiezen van de juiste zorgverzekering en bij het budgetteren van onverwachte zorgkosten.
         </p>
-        <AdSenseSlot id="inline-ad" format="fluid" />
+        
       </div>
 
-      <AdSenseSlot id="bottom-ad" format="rectangle" style={{ marginTop: "3rem" }} />
+      
     </ToolLayout>
   );
 }

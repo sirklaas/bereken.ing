@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import EventCountdown from "@/components/EventCountdown";
 import ToolLayout from "@/components/ToolLayout";
-import AdSenseSlot from "@/components/AdSenseSlot";
 import { getRamadan } from "@/utils/dateUtils";
 
 export const metadata: Metadata = {
@@ -31,10 +30,10 @@ export default function Page() {
           Ramadan is de negende maand van de islamitische kalender en is een tijd van vasten, bezinning, gebed en gemeenschap. 
           De exacte begindatum hangt af van de stand van de maan en kan per land licht verschillen.
         </p>
-        <AdSenseSlot id="inline-ad" format="fluid" />
+        
       </div>
 
-      <AdSenseSlot id="bottom-ad" format="rectangle" style={{ marginTop: "3rem" }} />
+      
     </ToolLayout>
   );
 }

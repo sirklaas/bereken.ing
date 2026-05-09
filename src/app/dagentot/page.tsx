@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import DeathClock from "@/components/DeathClock";
 import ToolLayout from "@/components/ToolLayout";
-import AdSenseSlot from "@/components/AdSenseSlot";
 
 export const metadata: Metadata = {
   title: "Dagentot (Death Clock) | Hoeveel dagen heb je nog?",
@@ -18,7 +17,7 @@ export default function Page() {
       <DeathClock />
       
       
-      <AdSenseSlot id="bottom-ad" format="rectangle" style={{ marginTop: "3rem" }} />
+      
     </ToolLayout>
   );
 }

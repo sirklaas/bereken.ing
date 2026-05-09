@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import AdSenseSlot from "@/components/AdSenseSlot";
 
 export default function Home() {
   const tools = [
@@ -14,10 +13,8 @@ export default function Home() {
 
   return (
     <div style={{ overflowX: "hidden" }}>
-      
       {/* Main Content Grid */}
       <div className="page-shell" style={{ paddingTop: "4rem", paddingBottom: "8rem" }}>
-        
         {/* Hero Section (Aligned to Content Width) */}
         <div className="pristine-grid" style={{ marginBottom: "3rem" }}>
           <section className="hero-section" style={{ gridColumn: 2, textAlign: "center", marginBottom: 0 }}>
@@ -32,16 +29,8 @@ export default function Home() {
         </div>
 
         <div className="pristine-grid">
-          
-          {/* Left Sidebar */}
-          <aside className="side-slot left-slot">
-            <AdSenseSlot id="home-left-sky" format="vertical" style={{ width: "100%", height: "600px" }} />
-            <div style={{ height: "2rem" }} />
-            <AdSenseSlot id="home-left-box" format="rectangle" style={{ width: "100%", height: "250px" }} />
-          </aside>
-
           {/* Center Content */}
-          <main className="home-main-content">
+          <main className="home-main-content" style={{ gridColumn: "1 / -1" }}>
             {/* Popular Tools Grid */}
             <section style={{ paddingBottom: "6rem" }}>
               <h2 className="section-title">
@@ -62,11 +51,6 @@ export default function Home() {
               </div>
             </section>
 
-            {/* Mid Ad Slot */}
-            <section className="mid-ad-wrapper">
-              <AdSenseSlot id="home-mid-rect" format="rectangle" style={{ width: "100%", maxWidth: "728px", height: "250px" }} />
-            </section>
-
             {/* About Section */}
             <section className="about-card">
               <h3 className="hero-eyebrow">OVER BEREKEN.ING</h3>
@@ -76,23 +60,8 @@ export default function Home() {
               </p>
             </section>
           </main>
-
-          {/* Right Sidebar */}
-          <aside className="side-slot right-slot">
-            <AdSenseSlot id="home-right-box" format="rectangle" style={{ width: "100%", height: "250px" }} />
-            <div style={{ height: "2rem" }} />
-            <AdSenseSlot id="home-right-sky" format="vertical" style={{ width: "100%", height: "600px" }} />
-          </aside>
-
         </div>
       </div>
-
-      {/* 4. BOTTOM AD SLOT */}
-      <section style={{ padding: "5rem 0", background: "white", borderTop: "1px solid #f1f5f9" }}>
-        <div className="page-shell" style={{ display: "flex", justifyContent: "center" }}>
-          <AdSenseSlot id="home-bottom-banner" format="auto" style={{ width: "100%", maxWidth: "970px", height: "90px" }} />
-        </div>
-      </section>
 
       <style jsx>{`
         .home-main-content {
@@ -129,25 +98,6 @@ export default function Home() {
           font-weight: 500;
           line-height: 1.6;
         }
-        .hero-actions {
-          display: flex;
-          gap: 1.5rem;
-          justify-content: center;
-          flex-wrap: wrap;
-        }
-        .main-cta {
-          padding: 1.2rem 2.5rem;
-          border-radius: 16px;
-          font-weight: 700;
-          box-shadow: 0 10px 20px rgba(255,0,127,0.2);
-        }
-        .secondary-cta {
-          padding: 1.2rem 2.5rem;
-          border-radius: 16px;
-          border: 2px solid #e2e8f0;
-          background: white;
-          font-weight: 700;
-        }
         .section-title {
           font-size: clamp(2rem, 5vw, 2.8rem);
           margin-bottom: 3.5rem;
@@ -183,11 +133,6 @@ export default function Home() {
           font-size: 0.95rem;
           color: var(--secondary);
           line-height: 1.5;
-        }
-        .mid-ad-wrapper {
-          padding-bottom: 6rem;
-          display: flex;
-          justify-content: center;
         }
         .about-card {
           padding: 4rem;

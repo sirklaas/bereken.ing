@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import CarCostCalculator from "@/components/CarCostCalculator";
 import ToolLayout from "@/components/ToolLayout";
-import AdSenseSlot from "@/components/AdSenseSlot";
 
 export const metadata: Metadata = {
   title: "Autokosten Berekenen 2026 | Wat kost mijn auto per maand?",
@@ -24,10 +23,10 @@ export default function Page() {
           De meeste mensen kijken alleen naar de brandstof en de wegenbelasting, maar de grootste kostenpost is vaak de **afschrijving**. 
           Zodra je een auto koopt, wordt deze minder waard. Onze tool neemt dit mee voor een realistisch beeld van je maandlasten.
         </p>
-        <AdSenseSlot id="inline-ad" format="fluid" />
+        
       </div>
 
-      <AdSenseSlot id="bottom-ad" format="rectangle" style={{ marginTop: "3rem" }} />
+      
     </ToolLayout>
   );
 }

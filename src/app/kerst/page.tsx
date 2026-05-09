@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import EventCountdown from "@/components/EventCountdown";
 import ToolLayout from "@/components/ToolLayout";
-import AdSenseSlot from "@/components/AdSenseSlot";
 
 export const metadata: Metadata = {
   title: "Dagen tot Kerst 2026 | Kerst Countdown & Klok",
@@ -31,10 +30,10 @@ export default function Page() {
           De kerstvakantie begint voor de meeste scholen en bedrijven rond 20 december. Het is de perfecte tijd om te ontspannen, 
           tijd door te brengen met familie en natuurlijk te genieten van het kerstdiner.
         </p>
-        <AdSenseSlot id="inline-ad" format="fluid" />
+        
       </div>
 
-      <AdSenseSlot id="bottom-ad" format="rectangle" style={{ marginTop: "3rem" }} />
+      
     </ToolLayout>
   );
 }

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import AlcoholCalculator from "@/components/AlcoholCalculator";
-import AdSenseSlot from "@/components/AdSenseSlot";
 import ToolLayout from "@/components/ToolLayout";
 import JsonLd from "@/components/JsonLd";
 
@@ -44,10 +43,10 @@ export default function AlcoholPage() {
         }}>
           <strong>Disclaimer:</strong> Deze berekening is een indicatie. Rijden onder invloed is gevaarlijk en strafbaar. Bij twijfel: niet rijden.
         </div>
-        <AdSenseSlot id="inline-ad" format="fluid" />
+        
       </div>
 
-      <AdSenseSlot id="bottom-ad" format="rectangle" style={{ marginTop: "3rem" }} />
+      
     </ToolLayout>
   );
 }

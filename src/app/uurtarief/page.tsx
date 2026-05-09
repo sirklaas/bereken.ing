@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import RateCalculator from "@/components/RateCalculator";
-import AdSenseSlot from "@/components/AdSenseSlot";
 import ToolLayout from "@/components/ToolLayout";
 import JsonLd from "@/components/JsonLd";
 
@@ -36,11 +35,11 @@ export default function RatePage() {
           Een goed uurtarief dekt niet alleen je salaris, maar ook je pensioen, verzekeringen en vakantiedagen. 
           Onze calculator houdt rekening met alle verborgen kosten van het ondernemerschap.
         </p>
-        <AdSenseSlot id="inline-ad" format="fluid" />
+        
       </div>
 
       
-      <AdSenseSlot id="bottom-ad" format="rectangle" style={{ marginTop: "3rem" }} />
+      
     </ToolLayout>
   );
 }

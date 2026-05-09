@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import IChing from "@/components/IChing";
 import ToolLayout from "@/components/ToolLayout";
-import AdSenseSlot from "@/components/AdSenseSlot";
 
 export const metadata: Metadata = {
   title: "I Ching (Itjing) | Oude Chinese Divinatie",
@@ -16,7 +15,7 @@ export default function Page() {
       subtitle="Raadpleeg het eeuwenoude Chinese Boek der Veranderingen voor inzicht en wijsheid."
     >
       <IChing />
-      <AdSenseSlot id="bottom-ad" format="rectangle" style={{ marginTop: "3rem" }} />
+      
     </ToolLayout>
   );
 }
