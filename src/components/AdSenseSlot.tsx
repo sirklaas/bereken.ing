@@ -66,6 +66,9 @@ export default function AdSenseSlot({
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        border: "2px dashed #94a3b8",
+        borderRadius: "8px",
+        background: "#f8fafc",
         ...style,
       }}
     >
