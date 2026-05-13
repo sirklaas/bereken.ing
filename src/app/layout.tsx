@@ -30,7 +30,7 @@ export default function RootLayout({
       <head>
         <Script
           id="google-adsense"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6805783605124617"
           crossOrigin="anonymous"
@@ -45,11 +45,13 @@ export default function RootLayout({
           <ConsentBanner />
         </ConsentProvider>
 
+        {/* Daisycon autolink script disabled - causing m.js hostname errors
         <Script
           id="daisycon-autolink"
           src={`https://m.daisycon.com/m.js?m=${AFFILIATE_CONFIG.mediaId}&v=1.1&t=1`}
           strategy="lazyOnload"
         />
+        */}
       </body>
     </html>
   );
