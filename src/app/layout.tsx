@@ -5,7 +5,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ConsentBanner from "@/components/ConsentBanner";
 import { ConsentProvider } from "@/components/ConsentContext";
-import { AFFILIATE_CONFIG } from "@/config/affiliateConfig";
 
 const fugazOne = Fugaz_One({ weight: "400", subsets: ["latin"], variable: "--font-fugaz" });
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakarta" });

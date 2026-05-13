@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# Cursor / local debug NDJSON (do not commit)
+.cursor/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
